@@ -1,16 +1,21 @@
 \chapter{A new device to record wrist movement in free living humans}
 \label{Chap:Methods}
-This section covers the actual methods and techniques used to create our Wrist Motion Activity tracker. We discuss the various hardware techniques used to create the device (\ref{Sec:Hardware}). This includes different sensors available, picking the right one for our purpose and then prototyping a device. Note that since the wrist activity motion tracker is to be mounted on the wrist, it needs to be a small device that can be worn for a long interval\footnote{At least 16 hours} without discomfort to the user. This means that it also needs to have a long battery life, which is dictated by two factors: The size of the battery, and the current consumption of the parts on the device.
+This section covers the actual methods and techniques used to create our Wrist 
+Motion Activity tracker. We discuss the various hardware techniques used to 
+create the device (\ref{Sec:Hardware}). This includes different sensors available,
+picking the right one for our purpose and then prototyping a device. Note that
+since the wrist activity motion tracker is to be mounted on the wrist, it needs
+to be a small device that can be worn for a long interval\footnote{At least
+16 hours} without discomfort to the user. This means that it also needs to
+have a long battery life, which is dictated by two factors: The size of the 
+battery, and the current consumption of the parts on the device.
 
+Then we discuss the software techniques and code used to create the device or the software to interact with it that runs on a desktop computer. Two different software were used to analyze the data from the device. This is briefly discussed in the Software section (\ref{Sec:Software}). Our ultimate aim to count the number of bites in each meal has made us look towards the rotational and linear movements of the wrist. This in turn has led us to consider linear acceleration and angular rotation data which is sensed by an accelerometer and a gyroscope respectively.
 
-Then we discuss the software techniques and code used to create the device or the software to interact with it that runs on a desktop computer. Two different software were used to analyze the data from the device. This is briefly discussed in the Software section (\ref{Sec:Software}). 
-
-Our ultimate aim to count the number of bites in each meal has made us look towards the rotational and linear movements of the wrist. This in turn has led us to consider linear acceleration and angular rotation data which is sensed by an accelerometer and a gyroscope respectively.
-
-
-
-\section{Hardware}
+\section{Hardware Selection}
 \label{Sec:Hardware}
+Our planned device design for the all day wrist motion activity tracker revolves around a system of sensors that are polled at 15Hz by a microcontroller. This data is logged throughout the day, after which it is transferred to a computer for processing. Once the data for a day has been logged, the device is connected to a computer and data from the memory chip is dumped to a computer where it can be analyzed. As all this happens throughtout the day, we need some kind of display to inform the user of the status of the device.
+
 To create the prototype device, different prototype breakout boards were used (\ref{Sec:Breakouts}). These boards allow rapid prototyping by hooking up components using wires. This reduces any time spent to solder an Integrated Circuit to the PCB or to understand its typical application circuit components. Next, we consider the different devices used to create our wrist motion activity tracker. We would need a power source in the form of a battery (\ref{Sec:Battery}), sensors to measure acceleration (\ref{Sec:Accelerometer}) and angular velocity(\ref{Sec:Gyroscope}), a memory chip (\ref{Sec:Memory}) to store data from the sensors and a microcontroller (\ref{Sec:MicroController})to control this system and act as a communication channel between the different devices. To connect this device to a computer, we would need a translator. We use a USB to UART bridge (\ref{Sec:FT232}) to accomplish this.
 
 With all these components available, we would have to connect them together correctly, which is explaining in the Circuit Design section(\ref{Sec:CircuitDesign}). Once the design has been tested, it is laid out as a PCB design using EAGLE PCB, and then fabricated. This PCB would then need the IC's soldered to it, and we discuss the two methods used to do so (\ref{Sec:Soldering}).
@@ -112,12 +117,10 @@ Human motions are typically contained within 2g's of acceleration. With this fac
 The power drained by the device is a huge factor for us. MEMS accelerometers are fairly low power devices. The LIS344ALH accelerometer used by Drennan in \cite{drennan2010assessment} typically consumed 650 $\mu{A}$ of current when operating and a maximum of 5$\mu{A}$ when in sleep mode. Gyroscopes on the other hand tend to consume a very high amount of current. \cite{drennan2010assessment} used two gyroscopes, each consuming 6.8mA. This means that on a standard coin cell battery that has a size of 90mAh, the gyroscopes would run for about 7 hours, a very short lifetime.
 
 \item[Number of Axes] \hfill \\
-As MEMS technology has improved, the sensors abilities have improved. Early accelerometers would sense acceleration across a single axis. As of now, most accelerometers and gyroscopes can measure across all three axes. Inertial Measurement Unit's are available that pack not only an accelerometer and a gyroscope, but also a magnetometer for more accurate measurements. This greatly reduces the current consumption against a scenario where multiple devices are being used. We will not be using a magnetometer for our work.
+As MEMS technology has improved, the sensors abilities have improved. Early accelerometers would sense acceleration across a single axis. With current technology, most accelerometers and gyroscopes can measure across all three axes. Inertial Measurement Unit's are available that pack not only an accelerometer and a gyroscope, but also a magnetometer for more accurate measurements. This greatly reduces the current consumption against a scenario where multiple devices are being used. We will not be using a magnetometer for our work.
 \end{description}
-With these parameters, we compared a few of the options available in the market in September 2013. Table \ref{Tab:SensorCompTable} shows the different product names versus their important parameters. The first three products are the ones used in \cite{drennan2010assessment}
-
-\inputfile{SensorTable.tex}
-
+\inputfile{tables/SensorTable.tex}
+With these parameters, we compared a few of the options available in the market in September 2013. Table \ref{Tab:SensorCompTable} shows the different product names versus their important parameters. The first three products are the ones used in \cite{drennan2010assessment}.
 Based on these different parameters and comparing with \cite{drennan2010assessment}, we have selected the Invensense MPU-6000. The device contains both, a 3-axis accelerometer and a 3-axis gyroscope. It features three 16-bit analog-to-digital converters each for both these devices to digitize the sensor outputs. This data is stored in internal registers that can be accessed using I$^{2}$C at 100kHz or using SPI at 1Mhz. An on-chip buffer allows storing bursts of readings, which can be read in bursts by a master device. The device operates at a voltage of 2.375V to 3.46V, which would mean operation on most Lithium Ion battery. An operating current of 3.8mA means that the device can operate for roughly 24 hours on a standard coin cell battery. This makes the MPU 6000 very suitable for our requirements.
 
 \subsection{Breakouts}
@@ -140,12 +143,12 @@ The information sensed by the sensors has to be logged, and then processed by a 
 
 \begin{equation}
 \label{Eqn:DataAmount}
-Data = 20~hours * \dfrac{60~minutes}{hour} * \dfrac{60~seconds}{minute} * \dfrac{15~polls}{second} * \dfrac{6~sensors}{poll} * \dfrac{1~byte}{sensor~poll}
+Data = 24~hours * \dfrac{60~minutes}{hour} * \dfrac{60~seconds}{minute} * \dfrac{15~polls}{second} * \dfrac{6~sensors}{poll} * \dfrac{1~byte}{sensor~poll}
 \end{equation}
 
 \begin{equation}
 \label{Eqn:DataAmount2}
-Data = 6,480,000~Bytes = 6,328.125~KiloBytes
+Data = 7,776,000~Bytes = 7,593.75~KiloBytes
 \end{equation}
 
 We do not consider wireless transmission in our case. The device would have to transmit data to another device which it would be paired to. The paired device would need to remain in wireless connectivity range to store this data. This adds another device to our solution, so we do not consider it. 
@@ -191,7 +194,19 @@ Several manufacturers provide microcontrollers that we can use, however, our pri
   \item CC430 Series (Microcontroller with integrated RF chip)
 \end{itemize}
 
-When selecting our chip, we needed one that would allow future expansion with regards to the capabilities of the device. It would also need to have a buffer large enough to store a sizable amount of data before it would need to be flushed to the memory chip. After combing through the brochure, we found the first parts with SPI support and a minimum SRAM of 2048 bytes in the MSP430F24X series. This sub-family of devices had the following characteristics (as seen in \cite{msp430F24xfamily})
+When selecting our chip,
+we needed one that would allow future expansion with regards to the capabilities of the wearable monitor.
+\cite{Web:ShimmerHome} uses the MSP430F1161 which looks like a good fit for our device. 
+However, almost the entire MSP430 family is pretty close to what we might need.
+Our microcontroller would need SPI or I$^2$C support so that it can communicate with the memory chip and our sensor.
+The MSP430F1161 lacks any module that can communicate over the SPI protocol,
+which would mean we would have to implement a software based module,
+increasing the complexity of the device.
+The microcontroller would also need to have a buffer large enough to store
+a sizable amount of data before it would need to be flushed to the memory chip.
+After combing through the brochure, we found the first parts with SPI support and
+a minimum SRAM of 2048 bytes in the MSP430F24X series. This sub-family of devices had
+the following characteristics (as seen in \cite{msp430F24xfamily})
 
 \begin{itemize}
 	\item Low Supply-Voltage Range, 1.8 V to 3.6 V
@@ -200,7 +215,6 @@ When selecting our chip, we needed one that would allow future expansion with re
 	\item Four Universal Serial Communication Interfaces supporting SPI and I$^2$C.
 	\item Two 16-Bit Timers with multiple compare registers.
 \end{itemize}
-
 We select the MSP430F248 as our microcontroller. This chip comes with a 48KB+256B Flash Memory, and 4KB of RAM. Assuming our program size would not be more than 1 KB, this would allow us to buffer about 3KB of data from the sensors before flushing it to the external memory, allowing the memory to remain in sleep mode for a large amount of time.
 
 \subsection{MSP 430 Target Board}
@@ -214,7 +228,19 @@ We select the MSP430F248 as our microcontroller. This chip comes with a 48KB+256
 \end{center}
 \end{figure}
 
-Like our sensors, the MSP430F248 also comes in a surface mount package. The footprint is shown in Figure \ref{Fig:QFPFoot} and known as the QFP\footnote{Quad Flat Package} design. This package does have pins, but they are not long enough to pass through a PCB. Instead they have to be mounted on the PCB. It is very hard to design a complete system without bugs and if we would design a PCB and write microcontroller code at the same time to operate the sensors and the memory, it would not be easy to debug an error because we would not know if the error is in the hardware design or the software code. Texas Instruments' understands this, and provides a 64-Pin Target board for its microcontroller. This target board has a ZIF\footnote{Zero Insertion Force} socket that accepts the 64-Pin QFP chip, and breaks out its pins. This means other devices can be connected to the board with ease, allowing us to program the microcontroller without having soldered it.
+Like our sensors, the MSP430F248 also comes in a surface mount package.
+The footprint is shown in Figure \ref{Fig:QFPFoot}
+and known as the QFP\footnote{Quad Flat Package} design.
+This package does have pins, but they are not long enough to pass through a PCB.
+Instead they have to be mounted on the PCB.
+It is very hard to design a complete system without bugs and if we would design a PCB
+while writing microcontroller code at the same time,
+it would not be easy to debug an error because we would not know if the error
+is in the hardware design or the software code. Texas Instruments' understands this,
+and provides a 64-Pin Target board for its microcontroller. This target board has
+a ZIF\footnote{Zero Insertion Force} socket that accepts the 64-Pin QFP chip,
+and breaks out its pins. This means other devices can be connected to the board with ease,
+allowing us to program the microcontroller without having soldered it.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{images/mspts430pm64.jpg}
@@ -266,13 +292,22 @@ We need a device that would communicate easily with our microcontroller, the MSP
 \subsection{Battery}
 \label{Sec:Battery}
 
-While the wrist activity monitor is mounted and active, it needs a power source to operate on. Work done by \cite{Web:ShimmerHome} uses a single 450mah Lithium Ion battery. These batteries are 
+While the wrist activity monitor is mounted and active, it needs a power source to operate on. Work done by \cite{Web:ShimmerHome} uses a single 450mah Lithium Ion Polymer battery. Similar batteries with higher capacities are found in mobile phones. We also see other batteries available in the market, with different characteristics based on the technology. Our wrist motion activity monitor requires a small battery which will supply a burst current of \~25mA when required. It should also hold enough power to supply current to the system for a minimum of 24 hours. Table \ref{Tab:BatteryCompTable} shows the different current battery types available in the market (as seen in \cite{Web:BatteryTable}), and their parameters.
+\inputfile{tables/BatteryTable.tex}
+After looking at work done by \cite{Web:ShimmerHome} \& \cite{drennan2010assessment} we decided to consider Lithium-Ion batteries. Another field where Lithium Ion batteries are used is in flight. Since aerial vehicles need to have a low weight, batteries used in this application are high density and very efficient. We considered the batteries used in the fields mentioned above and compared some of them. The comparison is given in table \ref{Tab:Battery2}
+\inputfile{tables/BatteryTable2.tex}
 
-\inputfile{BatteryTable.tex}
-
-Table \ref{Tab:BatteryCompTable} shows the different current battery types available (as seen in \cite{Web:BatteryTable}), and their parameters.
-
-
+\subsection{Button}
+\label{Sec:Button}
+As with any consumer electronic device, we require the option to turn our device on or off. We might also want to provide our user with the option of erasing the memory for the device. This would require some kind of button (or buttons) to allow such interaction. We consider a scheme that required one button, with a state machine behaviour as given in table \ref{Tab:ButtonTable}. Based on this state machine behaviour, we recognize that a single pole single throw momentarily on switch is the most convinient device for our purpose. This button can be see in figure \ref{Fig:MomButton}. A momentary on button is similar to those seen on a remote, where the button switches on momentarily when pressed, and then deactivates as soon as pressure on it is released.
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/MOMButton.jpg}
+\caption{Example of a Momentary Switch. Picture courtesy Sparkfun}
+\label{Fig:MomButton}
+\end{center}
+\end{figure}
+\inputfile{tables/ButtonTable.tex}
 
 
 

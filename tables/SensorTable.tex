@@ -1,0 +1,25 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{graphicx}
+\begin{landscape}
+\begin{table}[h]
+\centering
+\resizebox{1.4\textwidth}{!}{%
+\begin{tabular}{lllllll}
+\hline \\
+Name                & Description                    & Output 			& Package         & Current Consumption & Noise             & Full Scale Range                                                                                      \\[2ex] \hline \\[4ex]
+LPR410AL            & 2 Axis Gyro (pitch, roll)      & Analog           & LGA 4X5X1.1mm   & 6.8mA               & 0.014 ($^{\circ}$/s/ √ Hz) & 100 $^{\circ}$/sec                                                                                             \\[4ex]
+LPY410AL            & 2 Axis Gyro (pitch, yaw)       & Analog           & LGA 4X5X1.1mm   & 6.8mA               & 0.014 ($^{\circ}$/s/ √ Hz) & 100 $^{\circ}$/sec                                                                                             \\[4ex]
+LPR344ALH           & 3 Axis Accelerometer (X,Y,Z)   & Analog           & LGA 4X4X1.5mm   & 680uA               & 50 (ug/ √ Hz)  		     & ±2/±6 g                                                                                               \\[4ex]
+LGD20H Series       & 3 Axis Gyro (yaw,pitch,roll)   & Digital          & LGA 3X3X1.1mm   & 6.2mA         & 0.03  ($^{\circ}$/s/ √ Hz) & ±245/±500/±2000 $^{\circ}$/sec                                                                                 \\[4ex]
+L3G462A             & 3 Axis Gyro (yaw,pitch,roll)   & Analog           & LGA 4X4X1.1mm   & 6.9mA               & 0.17  ($^{\circ}$/s/ √ Hz) & 625 $^{\circ}$/sec                                                                                             \\[4ex]
+LSM330              & 6 Axis (X,Y,Z,y,p,r)           & Digital          & TFLGA 3.5X3X1mm & 6.1mA               & Gyro: 0.03$^{\circ}$/√Hz         	 & \begin{tabular}[c]{@{}l@{}}{[}±2 g/±4 g/±6 g/±8 g/±16 g{]}\\ {[}±250/±500/±2000 $^{\circ}$/sec{]}\end{tabular} \\[4ex]
+Invensense MPU-61NX & 6 Axis (X,Y,Z,y,p,r)           & Digital          & QFN (4X4X0.9)   & 3.8mA               & Gyro: 0.005$^{\circ}$/√Hz        & \begin{tabular}[c]{@{}l@{}}{[}±2g, ±4g, ±8g,±16g{]}\\ {[}±56/± 113/±225/± 450 $^{\circ}$/sec{]}\end{tabular}   \\[4ex]
+Invensense MPU-6XX0 & 6 Axis (X,Y,Z,y,p,r)           & Digital          & QFN (4X4X0.9)   & 3.8mA               & Gyro: 0.005$^{\circ}$/√Hz        & \begin{tabular}[c]{@{}l@{}}{[}±2g, ±4g,±8g,±16g{]}\\{[}±250/±500/±1000/±2000$^{\circ}$/sec{]}\end{tabular}     \\[4ex]
+Invensense MPU-91NX & 9 Axis (6 Axis + magnetometer) & Digital          & QFN (4x4x1mm)   & 3.8mA               & Gyro: 0.005$^{\circ}$/√Hz        & \begin{tabular}[c]{@{}l@{}}{[}±2g, ±4g,±8g,±16g{]}\\{[}±250/±500/±1000/±2000$^{\circ}$/sec{]}\end{tabular}                \\[4ex] \hline
+\end{tabular}
+}
+\caption{Comparison of Various movement sensors available in the market.}
+\label{Tab:SensorCompTable}
+\end{table}
+\end{landscape}
