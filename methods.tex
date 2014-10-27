@@ -249,7 +249,7 @@ allowing us to program the microcontroller without having soldered it.
 \end{center}
 \end{figure}
 
-Figure \ref{Fig:MSPTarget} shows us what the MSP430 Target Board looks like, with the socket in the center. You can see a connector in the top-right of the figure, which is labeled JTAG. The socket is surrounded by holes on all sides which connect to the microcontrollers pins, allowing for easy connections. The target board also allows for a crystal to be soldered next to the microcontroller if the programmer wants to use the Low Frequency Clock based on an external crystal. We use this crystal for and accurate clock when polling our sensors, and also when communicating with a host computer as we will see in section \ref{Sec:FT232}
+Figure \ref{Fig:MSPTarget} shows us what the MSP430 Target Board looks like, with the socket in the center. You can see a connector in the top-right of the figure, which is labeled JTAG. The socket is surrounded by holes on all sides which connect to the microcontrollers pins, allowing for easy connections. The target board also allows for a crystal to be soldered next to the microcontroller if the programmer wants to use the Low Frequency Clock based on an external crystal. We use this crystal for and accurate clock when polling our sensors, and also when communicating with a host computer as we will see in section \ref{Sec:FT232}.
 
 \subsection{MSP430 Flash Emulation Tool}
 \label{Sec:MSP430FET}
@@ -271,7 +271,7 @@ With the above hardware in place, hopefully we have a system which reads from se
 \begin{center}
 \includegraphics[width=0.5\textwidth]{images/FT232coin.jpg}
 \caption{The FT232RL USB to UART bridge. Picture courtesy Sparkfun.com}
-\label{Fig:MSP430FET}
+\label{Fig:FT232}
 \end{center}
 \end{figure}
 
@@ -279,7 +279,7 @@ We solve both these problems by using a wired connection to transfer data. As me
 
 We looked for devices that would help convert communication in one protocol to another. Since SPI, I$^2$C and UART are all serial communication protocols, in theory, any device that can communicate in one of these protocols should be able to communicate in the other. However, a search on different devices in the market showed that USB to UART bridges are an easy way for microcontrollers to communicate with a computer. The device is detected as a virtual serial communication port to the operating system, and can be used as a regular serial port. Searching for USB to UART devices shows two primary contenders in the market segment, Silicon Labs and Future Technology Devices International (also known as FTDI). Both offer devices that have similar features and specifications. 
 
-We need a device that would communicate easily with our microcontroller, the MSP430F248 and also be easy to prototype with. All of Silicon Labs' offered parts are only available in the QFN package, which means it would be hard to prototype using them. For this reason, we select FTDI's chip, the FT232RL. FT232RL has the following specifications (as seen in \cite{FT232Datasheet}):
+We need a device that would communicate easily with our microcontroller, the MSP430F248 and also be easy to prototype with. All of Silicon Labs' offered parts are only available in the QFN package, which means it would be hard to prototype using them. For this reason, we select FTDI's chip, the FT232RL (shown in figure \ref{Fig:FT232}. FT232RL has the following specifications (as seen in \cite{FT232Datasheet}):
 
 \begin{itemize}
 	\item Single chip USB to asynchronous serial data transfer interface.
@@ -289,13 +289,28 @@ We need a device that would communicate easily with our microcontroller, the MSP
 	\item Available in compact Lead-free 28 Pin SSOP and QFN-32 packages.
 \end{itemize}
 
+
+\inputfile{tables/BatteryTable.tex}
 \subsection{Battery}
 \label{Sec:Battery}
 
 While the wrist activity monitor is mounted and active, it needs a power source to operate on. Work done by \cite{Web:ShimmerHome} uses a single 450mah Lithium Ion Polymer battery. Similar batteries with higher capacities are found in mobile phones. We also see other batteries available in the market, with different characteristics based on the technology. Our wrist motion activity monitor requires a small battery which will supply a burst current of \~25mA when required. It should also hold enough power to supply current to the system for a minimum of 24 hours. Table \ref{Tab:BatteryCompTable} shows the different current battery types available in the market (as seen in \cite{Web:BatteryTable}), and their parameters.
-\inputfile{tables/BatteryTable.tex}
-After looking at work done by \cite{Web:ShimmerHome} \& \cite{drennan2010assessment} we decided to consider Lithium-Ion batteries. Another field where Lithium Ion batteries are used is in flight. Since aerial vehicles need to have a low weight, batteries used in this application are high density and very efficient. We considered the batteries used in the fields mentioned above and compared some of them. The comparison is given in table \ref{Tab:Battery2}
-\inputfile{tables/BatteryTable2.tex}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/battcompare.eps}
+\caption{Top view profiles of the compared batteries.}
+\label{Fig:BattComp}
+\end{center}
+\end{figure}
+After looking at work done by \cite{Web:ShimmerHome} \& \cite{drennan2010assessment} we decided to consider Lithium-Ion batteries. Another field where Lithium Ion batteries are used is in flight. Since aerial vehicles need to have a low weight, batteries used in this application are high density and very efficient. We considered the batteries used in the fields mentioned above and compared some of them. The comparison is given in table \ref{Tab:Battery2}. A visual comparison of the different battery sizes is shown in figure \ref{Fig:BattComp}. As it can be seen, apart from the LIR2450, the battery sizes are somewhat similar,
+so it may be possible to use a larger battery while still fitting our hardware in our case.
+
+The width of the batteries would be an issue too.
+As seen in section \ref{Sec:Case},
+the case is curved along its median,
+so a battery that was thicker could be accomodated if it was not too wide.
+Emperical analysis showed that the Turnigy Nano-tech 160mAh battery
+would fit with some modifications to the case (to allow a slightly thicker battery).
 
 \subsection{Button}
 \label{Sec:Button}

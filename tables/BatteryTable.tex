@@ -3,20 +3,39 @@
 \centering
 \resizebox{1.4\textwidth}{!}{%
 \begin{tabular}{lllllll}
-\hline \\
-Battery Type                                                                           & NiCd          & NiMH          & Lead Acid     & Li-ion         & Li-ion polymer & Reusable Alkaline \\[2ex] \hline \\[2ex]
-\begin{tabular}[c]{@{}l@{}}Cycle Life\\ (to 80\% of initial capacity)\end{tabular}										   & 1500          & 300 to 500    & 200 to 300    & 500 to 1000    & 300 to 500     & 50                \\[4ex]
-Fast Charge Time                         										       & 1h typical    & 2-4h          & 8-16h         & 2-4h           & 2-4h           & 2-3h              \\[4ex]
-Overcharge Tolerance                      											   & moderate      & low           & high          & very low       & low            & moderate          \\[4ex]
-\begin{tabular}[c]{@{}l@{}}Self-discharge/Month\\(room temperature)\end{tabular}			   									   & 20\%          & 30\%          & 5\%           & 10\%           & ~10\%          & 0.30\%            \\[4ex]
-Cell Voltage(nominal) 											                       & 1.25V         & 1.25V         & 2V            & 3.6V           & 3.6V           & 1.5V              \\[4ex]
-Peak Load Current                                                                      & 20C           & 5C            & 5C            & \textgreater2C & \textgreater2C & 0.5C              \\[4ex]
-Preferred Load Current                                                                 & 1C            & 0.5C or lower & 0.2C          & 1C or lower    & 1C or lower    & 0.2C or lower     \\[4ex]
-Maintenance Requirement																   & 30 to 60 days & 60 to 90 days & 3 to 6 months & not req.       & not req.       & not req.          \\[4ex] \hline
+\toprule
+Battery Type                                                                           & NiCd          & NiMH          & Lead Acid     & Li-ion         & Li-ion polymer & Reusable Alkaline \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Cycle Life\\ (to 80\% of initial capacity)\end{tabular}										   & 1500          & 300 to 500    & 200 to 300    & 500 to 1000    & 300 to 500     & 50                \\
+Fast Charge Time                         										       & 1h typical    & 2-4h          & 8-16h         & 2-4h           & 2-4h           & 2-3h              \\
+Overcharge Tolerance                      											   & moderate      & low           & high          & very low       & low            & moderate          \\
+\begin{tabular}[c]{@{}l@{}}Self-discharge/Month\\(room temperature)\end{tabular}			   									   & 20\%          & 30\%          & 5\%           & 10\%           & ~10\%          & 0.30\%            \\
+Cell Voltage(nominal) 											                       & 1.25V         & 1.25V         & 2V            & 3.6V           & 3.6V           & 1.5V              \\
+Peak Load Current                                                                      & 20C           & 5C            & 5C            & \textgreater2C & \textgreater2C & 0.5C              \\
+Preferred Load Current                                                                 & 1C            & 0.5C or lower & 0.2C          & 1C or lower    & 1C or lower    & 0.2C or lower     \\
+Maintenance Requirement																   & 30 to 60 days & 60 to 90 days & 3 to 6 months & not req.       & not req.       & not req.          \\ \bottomrule
 \end{tabular}
 }
-\\[4ex]
-\caption{Comparison of Various movement sensors available in the market.}
+\\
+\caption{Comparison of different battery technologies.}
 \label{Tab:BatteryCompTable}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\resizebox{1.4\textwidth}{!}{%
+\begin{tabular}{@{}lllllllll@{}}
+\toprule
+Product Name               & Category     & Profile     & Capacity 			   & Length 		  & Breadth 	 & Thickness 	 	   & Weight (g) & Discharge Rate (C) \\ \midrule
+Turnigy Nanotech           & Microcopter  & Cylinder    & 90 \~(mAh)             & 36 (mm)          &              & 6 (mm)              & 3          & 15                 \\
+Turnigy Nanotech           & Microcopter  & Cylinder    & 80 \~(mAh)             & 30 (mm)          &              & 7 (mm)              & 2          & 15                 \\
+LIR2450 (with Holder)      & Wristwatches & Button Cell & 90 \~(mAh)             & 22.6 (mm)        & 25.4 (mm)    & 8.9 (mm)            & 6          & 2                  \\
+Turnigy Nanotech           & Miicrocopter & Cube        & 160 \~(mAh)            & 39 (mm)          & 12 (mm)      & 8 (mm)              & 4          & 10                 \\
+Turnigy Nanotech           & Microcopter  & Cube        & 300 \~(mAh)            & 43 (mm)          & 17 (mm)      & 8 (mm)              & 8          & 35                 \\
+Duracell Staycharged (AAA) & Toys         & Cylinder    & 800 \~(mAh)            & 44.5 (mm)        &              & 10.5 (mm)           & 11.5       & 2                  \\ \bottomrule
+\end{tabular}
+}
+\caption{Comparison of some Lithium Ion batteries in the market.}
+\label{Tab:Battery2}
 \end{table}
 \end{landscape}
