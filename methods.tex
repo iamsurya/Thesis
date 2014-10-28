@@ -2,23 +2,30 @@
 \label{Chap:Methods}
 This section covers the actual methods and techniques used to create our Wrist 
 Motion Activity tracker. We discuss the various hardware techniques used to 
-create the device (\ref{Sec:Hardware}). This includes different sensors available,
-picking the right one for our purpose and then prototyping a device. Note that
-since the wrist activity motion tracker is to be mounted on the wrist, it needs
+create the device in section (\ref{Sec:Hardware}).
+This section covers researching on the various sensors available in the market,
+picking the right one for our purpose and then prototyping a device.
+Since the wrist activity motion tracker is to be mounted on the wrist, it needs
 to be a small device that can be worn for a long interval\footnote{At least
-16 hours} without discomfort to the user. This means that it also needs to
-have a long battery life, which is dictated by two factors: The size of the 
-battery, and the current consumption of the parts on the device.
+16 hours} without discomfort to the user.% This means that it also needs to
+%have a long battery life, which is dictated by two factors: The size of the 
+%battery, and the current consumption of the parts on the device.
 
-Then we discuss the software techniques and code used to create the device or the software to interact with it that runs on a desktop computer. Two different software were used to analyze the data from the device. This is briefly discussed in the Software section (\ref{Sec:Software}). Our ultimate aim to count the number of bites in each meal has made us look towards the rotational and linear movements of the wrist. This in turn has led us to consider linear acceleration and angular rotation data which is sensed by an accelerometer and a gyroscope respectively.
+Next in this section, we discuss the software techniques and code
+used to create the device or the software to interact with it that runs on a desktop computer.
+Two different software were used to analyze the data from the device.
+This is briefly discussed in the Software section (\ref{Sec:Software}).
+Dong ~\cite{dong2013detecting}, showed that rotational and linear movement data can be used to detect
+periods of eating. This made us look towards the rotational and linear movements of the wrist.
+To capture this information, we consider devices like Acceleromters and Gyroscopes, which can measure such movements.
 
 \section{Hardware Selection}
 \label{Sec:Hardware}
 Our planned device design for the all day wrist motion activity tracker revolves around a system of sensors that are polled at 15Hz by a microcontroller. This data is logged throughout the day, after which it is transferred to a computer for processing. Once the data for a day has been logged, the device is connected to a computer and data from the memory chip is dumped to a computer where it can be analyzed. As all this happens throughtout the day, we need some kind of display to inform the user of the status of the device.
 
-To create the prototype device, different prototype breakout boards were used (\ref{Sec:Breakouts}). These boards allow rapid prototyping by hooking up components using wires. This reduces any time spent to solder an Integrated Circuit to the PCB or to understand its typical application circuit components. Next, we consider the different devices used to create our wrist motion activity tracker. We would need a power source in the form of a battery (\ref{Sec:Battery}), sensors to measure acceleration (\ref{Sec:Accelerometer}) and angular velocity(\ref{Sec:Gyroscope}), a memory chip (\ref{Sec:Memory}) to store data from the sensors and a microcontroller (\ref{Sec:MicroController})to control this system and act as a communication channel between the different devices. To connect this device to a computer, we would need a translator. We use a USB to UART bridge (\ref{Sec:FT232}) to accomplish this.
+To create the prototype device, different prototype breakout boards were used (section~\ref{Sec:Breakouts}). These boards allow rapid prototyping by hooking up components using wires. This reduces any time spent to solder an Integrated Circuit to the PCB or to understand its typical application circuit components. Next, we consider the different devices used to create our wrist motion activity tracker. We would need a power source in the form of a battery (section~\ref{Sec:Battery}), sensors to measure acceleration (section~\ref{Sec:Accelerometer}) and angular velocity(section~\ref{Sec:Gyroscope}), a memory chip (section~\ref{Sec:Memory}) to store data from the sensors and a microcontroller (section~\ref{Sec:MicroController})to control this system and act as a communication channel between the different devices. To connect this device to a computer, we would need a translator. We use a USB to UART bridge (section~\ref{Sec:FT232}) to accomplish this.
 
-With all these components available, we would have to connect them together correctly, which is explaining in the Circuit Design section(\ref{Sec:CircuitDesign}). Once the design has been tested, it is laid out as a PCB design using EAGLE PCB, and then fabricated. This PCB would then need the IC's soldered to it, and we discuss the two methods used to do so (\ref{Sec:Soldering}).
+With all these components available, we would have to connect them together correctly, which is explaining in the Circuit Design section (\ref{Sec:CircuitDesign}). Once the design has been tested, it is laid out as a PCB design using EAGLE PCB, and then fabricated. This PCB would then need the IC's soldered to it, and we discuss the two methods used to do so (section~\ref{Sec:Soldering}).
 
 We recap that we have two strong requirements for our device, and all hardware decisions must consider these:
 \begin{itemize}
@@ -35,13 +42,20 @@ With this in mind, we look at the different hardware in our device in the next s
 \label{fig:AccAxis}
 \end{center}
 \end{figure}
-Since we want to log acceleration and rotation data, we looked at the different sensors available in the market and their sizes. The clear winner was a category of sensors called MEMS sensors. MicroElectroMechcanicalSystems based sensors are small devices ranging from about 4 mm\textsuperscript{2} to  25 mm\textsuperscript{2}. Our device design uses an MEMS gyroscope and accelerometer in a single electronic chip to sense movements. This chips may also be called the IMU or the Inertial Measurement Unit. The orientation and axes for this chip is shown in figure \ref{fig:AccAxis}.
+Since we want to log acceleration and rotation data, we looked at the different sensors available in the market and their sizes. The clear winner was a category of sensors called MEMS sensors. MicroElectroMechcanicalSystems based sensors are small devices ranging from about 4 mm\textsuperscript{2} to  25 mm\textsuperscript{2}. Our device design uses an MEMS gyroscope and accelerometer in a single electronic chip to sense movements. This chips may also be called the IMU or the Inertial Measurement Unit. The orientation and axes for this chip when it is worn on the wrist as a part of our final device is shown in figure \ref{fig:AccAxis}.
 
 \subsection{Accelerometers}
 \label{Sec:Accelerometer}
-Accelerometers are devices that sense linear acceleration. In the case of our device we would like to measure the linear acceleration in all three Cartesian co - ordinate axes, X, Y, and Z. This will allow us to track the movement of the wrist in free living humans as their hand moves around in free space. Figure \ref{fig:AccAxis} shows how the axis of the sensor are oriented for our device.
-
-To understand how an accelerometer works, we imagine a system devised of a spring connected to a fixed surface at one end as shown in figure \ref{fig:HookeSpring}, and an object with a mass M at the other end. Since springs are governed by Hooke's Law, we can use that to explain its behavior. Hooke's law states that to extend or compress a spring by distance X, the force required is proportional to X, or mathematically as given in equation \ref{Eqn:HookesLaw}.
+Accelerometers are devices that sense linear acceleration.
+In the case of our device we would like to measure the linear acceleration in all three Cartesian co - ordinate axes: X, Y, and Z.
+This will allow us to track the movement of the wrist in free living humans as their hand moves around in free space.
+Figure \ref{fig:AccAxis} shows how the axis of the sensor are oriented for our device when worn on the wrist.
+To understand how an accelerometer works,
+we imagine a system devised of a spring connected to a fixed surface at one end (as shown in figure \ref{fig:HookeSpring}),
+and an object with a mass M at the other end.
+Since springs are governed by Hooke's Law, we can use this law to explain the behaviour of our system.
+Hooke's law states that to extend or compress a spring by distance X,
+the force required is proportional to X, or mathematically as given in equation \ref{Eqn:HookesLaw}:
 \begin{equation}
 \label{Eqn:HookesLaw}
 F = -kX 
@@ -56,7 +70,9 @@ where F is the force required, X is the distance the spring is extended or compr
 \end{figure}
 
 \hfill \\
-We also have Newton's Second Law of Motion which states that the force applied on a body with constant mass produces a proportional acceleration.Mathematically, Newton's Second Law of motion can be expressed as given in equation \ref{Eqn:Newtons2ndLaw}.
+We also have Newton's Second Law of Motion
+which states that the force applied on a body with constant mass produces a proportional acceleration.
+Mathematically, Newton's Second Law of motion can be expressed as given in equation \ref{Eqn:Newtons2ndLaw}:
 \begin{equation}
 \label{Eqn:Newtons2ndLaw}
 F = ma 
@@ -66,10 +82,11 @@ where F is the force, m is the mass of the body, and a is the acceleration produ
 \label{Eqn:HookeAcc}
 a = \frac{-kx}{m} 
 \end{equation}
-However, consider the fact that the spring constant k and mass m are constant in the equation above. This means that acceleration a is inversely proportional to the displacement x. Knowing this, new MEMS accelerometers are very simple systems consisting of small mechanical parts that measure the displacement and output an acceleration based on this.
-\hfill
-
-We must remember that since the sensor is measuring force, that gravity is always acting on the device, and due to this, a reading of 1g will always be read on the Z axis for the "earth" system. If there are no rotational movements, we know which direction gravity is acting in, and can subtract this from the readings obtained from an accelerometer.
+However, consider the fact that the spring constant k and mass m are constant in the equation above, which means that acceleration a is inversely proportional to the displacement x. Due to this, new MEMS accelerometers are very simple systems consisting of small mechanical parts that measure the displacement and output the value of the acceleration measured based on this displacement.
+We must remember that since the sensor is measuring force, that gravity is always acting on the device,
+and due to this, a reading of 1g will always be read on the Z axis in the ``earth'' system.
+If there is no motion, we can emperically know which direction gravitational force is acting in by looking at the sensed data,
+and can subtract this from later readings obtained from the accelerometer.
 
 \subsection{Gyroscopes}
 \label{Sec:Gyroscope}
@@ -86,38 +103,72 @@ Gyroscopes are devices used to measure angular movement. In our case, we use MEM
 An MEMS gyroscope contains a small mass that oscillates inside it as shown in figure \ref{fig:GyroDiag}. When the gyroscope rotates, the oscillating mass is displaced between two oscillations. This change in location is converted into a very low current, that is then amplified (and converted to a voltage) by a microcontroller inside the gyroscope integrated chip.
 
 \subsection{Accelerometer and Gyroscope Device selection}
-There are a variety of MEMS accelerometers and gyroscopes available in the market with different specifications. Our purpose was to pick the most suitable device for logging wrist movement data. We will first look at the different parameter's that we have for MEMS devices. These parameter's are referenced from Analog Devices' website\footnote{\href{http://www.analog.com/en/content/td_accelerometer_specifications_definitions/fca.html}{Analog Devices - Accelerometer Specifications - Quick Definitions. Last accessed October 2014}} :
+There are a variety of MEMS accelerometers and gyroscopes available in the market with different specifications. Our purpose was to pick the most suitable device for logging wrist movement data. We will first look at the different parameter's that we have for MEMS devices. These parameters are referenced from Analog Devices' website\footnote{\href{http://www.analog.com/en/content/td_accelerometer_specifications_definitions/fca.html}{Analog Devices - Accelerometer Specifications - Quick Definitions. Last accessed October 2014}} :
 
 \begin{description}
 
 \item[Output] \hfill \\
-The output of the sensor can be analog or digital. For an analog device, the output is a voltage corresponding to the detected measurement. This means that an acceleration between -A$_{max}$ to +A$_{max}$ would be output as a voltage between V$_{dd}$ and V$_{cc}$. Each output would have its own pin to output a signal. A digital device on the other hand, would use some kind of communication protocol. The device usually has registers or a memory stack that can be read using a protocol like I$^2$C (also known as TWI) or SPI. Using this protocol, a master device (microcontroller) can poll the slave (accelerometer) to read its memory.
+The output of the sensor can be analog or digital. For an analog device, the output is a voltage corresponding to the detected measurement. This means that an acceleration between -A$_{max}$ to +A$_{max}$ would be output as a voltage between V$_{dd}$ and V$_{cc}$. Each output would have its own pin to output a signal. A digital device on the other hand, would use some kind of communication protocol. The device usually has registers or a memory stack that can be read using a protocol like I$^2$C (also known as TWI) or SPI. Using this protocol, a master device (microcontroller) can poll the slave (sensor) to read its memory.
 
 \item[Output data Rate] \hfill \\
-This defines the rate at which data is sampled and then output by the device. In analog accelerometers, this represents how often an accelerometer updates its output voltage in response to the measured acceleration. In digital accelerometers, this represents how often the register storing the value of the acceleration is updated. Our required data rate is of 15Hz for sufficiently accurate monitoring of wrist movements.
+This defines the rate at which data is sampled and then output by the device.
+In analog accelerometers,
+this represents how often an accelerometer updates its output voltage in response to the measured acceleration.
+In digital accelerometers,
+this represents how often the register storing the value of the acceleration is updated.
+Our required data rate is 15Hz for sufficiently accurate monitoring of wrist movements.
 
 \item[Package type and Size] \hfill \\
-Since the device is mounted on the wrist, space and volume is at a premium. Most MEMS devices are catered to the consumer electronics market, and used in small devices like mobile phones and smart watches. Due to this, there is constant innovation in the market with regards to the size of the integrated chip's footprint. Packages like LGA (Land Grid Array) and QFN (Quad Flat No - Lead) are used. These packages usually lack pins and are surface mounted to reduce the footprint on a PCB. An example of this is the IMU that we used in our device, the MPU 6000 produced by Invensense Inc. An image from Sparkfun.com~\cite{Image:SparkfunMPU6000}  (see figure \ref{fig:MPU6000Size}) shows the size of the chip compared to a quarter.
+Since the device is mounted on the wrist, space and volume is at a premium.
+Most MEMS devices are catered to the consumer electronics market,
+thus used in small devices like mobile phones and smart watches. Due to this,
+there is constant innovation in the market with regards to the size of the integrated chip's footprint.
+Packages like LGA (Land Grid Array) and QFN (Quad Flat No - Lead) are used.
+These packages usually lack pins and are surface mounted to reduce the footprint on a PCB.
+An example of this is the IMU that we used in our device, the MPU 6000 produced by Invensense Inc.
+An image from Sparkfun.com~\cite{Image:SparkfunMPU6000}  (see figure \ref{fig:MPU6000Size}) shows the size of the chip compared to a quarter.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{images/MPU6000Size.jpg}
-\caption{The MPU6000 IMU lying on an American Quarter for size comparison.}
+\caption{The MPU-6000 IMU, placed on an American Quarter to emphasize size.}
 \label{fig:MPU6000Size}
 \end{center}
 \end{figure}
 
 \hspace{2em}
 \item[Measurement Range] \hfill \\
-This defines the range of measurement supported by an IMU's output specifications. For an accelerometer, the range is usually defined in g's, where 1g = 9.8 m/s\textsuperscript{2}. This is the greatest amount of acceleration that can be measured and accurately represent as an output. A larger acceleration maybe incorrect or capped at the maximum value. For example, the MPU-6000 has four modes with measurement ranges from $\pm{2}$g to $\pm{16}$g. The measurement is not the breaking point for the device. A higher acceleration of 17g may not break the accelerometer, but will not be reported correctly. This value is actually defined as the Absolute Maximum Acceleration.
+This defines the range of measurement supported by an IMU's output specifications.
+For an accelerometer, the range is usually defined in g's, where 1g = 9.8 m/s\textsuperscript{2}.
+This is the greatest amount of acceleration that can be measured and accurately represent as an output.
+A larger acceleration maybe incorrect or capped at the maximum value.
+For example, the MPU-6000 has four modes with measurement ranges from $\pm{2}$g to $\pm{16}$g.
+The maximum measurement range value is not the breaking point for the device.
+A higher acceleration of 17g may not break the accelerometer, but will not be reported correctly.
+The minimum value of acceleration that might harm the sensor is defined as the Absolute Maximum Acceleration.
  
-Human motions are typically contained within 2g's of acceleration. With this fact, our options for accelerometers is fairly large considering that most MEMS accelerometers aimed at consumer electronics will have a measurement range of 2g's. 
+Human motions are typically contained within 2g's of acceleration.
+With this fact, our options for accelerometers are fairly large
+considering that most MEMS accelerometers aimed at the consumer electronics market will have a minimum measurement range of 2g's or greater. 
 \hfill 
 \item[Current Consumption] \hfill \\
-The power drained by the device is a huge factor for us. MEMS accelerometers are fairly low power devices. The LIS344ALH accelerometer used by Drennan in \cite{drennan2010assessment} typically consumed 650 $\mu{A}$ of current when operating and a maximum of 5$\mu{A}$ when in sleep mode. Gyroscopes on the other hand tend to consume a very high amount of current. \cite{drennan2010assessment} used two gyroscopes, each consuming 6.8mA. This means that on a standard coin cell battery that has a size of 90mAh, the gyroscopes would run for about 7 hours, a very short lifetime.
+The power drained by the device is a huge factor for us.
+MEMS accelerometers are fairly low power devices.
+The LIS344ALH accelerometer used by Drennan in \cite{drennan2010assessment} typically consumed 650 $\mu{A}$ of current when operating and a maximum of 5 $\mu{A}$ when in sleep mode.
+Gyroscopes on the other hand tend to consume a very high amount of current.
+In \cite{drennan2010assessment} used two gyroscopes, each consuming 6.8mA.
+This means that on a standard coin cell battery that has a size of 90 mAh,
+the gyroscopes would run for about 7 hours, a very short lifetime.
 
 \item[Number of Axes] \hfill \\
-As MEMS technology has improved, the sensors abilities have improved. Early accelerometers would sense acceleration across a single axis. With current technology, most accelerometers and gyroscopes can measure across all three axes. Inertial Measurement Unit's are available that pack not only an accelerometer and a gyroscope, but also a magnetometer for more accurate measurements. This greatly reduces the current consumption against a scenario where multiple devices are being used. We will not be using a magnetometer for our work.
+As MEMS technology has improved, the sensing technologies have improved.
+Early accelerometers would sense acceleration across a single axis.
+With current technology, most accelerometers and gyroscopes can measure motion across all three axes.
+Inertial Measurement Unit's are available that pack not only an accelerometer and a gyroscope,
+but also a magnetometer for more accurate motion tracking.
+This greatly reduces the current consumption against a scenario where multiple devices are being used, each consuming its own current.
+We will not be using a magnetometer for our work as we require raw signals and not inertial movement data.
+Due to this we can ignore parts with magnetometers.
 \end{description}
 \inputfile{tables/SensorTable.tex}
 With these parameters, we compared a few of the options available in the market in September 2013. Table \ref{Tab:SensorCompTable} shows the different product names versus their important parameters. The first three products are the ones used in \cite{drennan2010assessment}.
