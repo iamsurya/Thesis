@@ -339,8 +339,6 @@ We need a device that would communicate easily with our microcontroller, the MSP
 	\item Integrated +3.3V level converter for USB I/O.
 	\item Available in compact Lead-free 28 Pin SSOP and QFN-32 packages.
 \end{itemize}
-
-
 \inputfile{tables/BatteryTable.tex}
 \subsection{Battery}
 \label{Sec:Battery}
@@ -375,6 +373,46 @@ As with any consumer electronic device, we require the option to turn our device
 \end{figure}
 \inputfile{tables/ButtonTable.tex}
 
+\subsection{LED}
+\label{Sec:LED}
+When the wrist activity monitor is worn,
+the user would require some kind of feedback on its operation.
+Any form of display would consume a large amount of current,
+which would reduce the battery life of our device by a large magnitude.
+We decided that the only indicator the device would have would be on its status.
+Taking a cue from Bluetooth\texttrademark headsets,
+we designed a system where a single light would blink to indicate its status.
+To indicate that it is currently operating, it would blink for a very short period roughly every 10 seconds.
+This was later changed to turn on everytime the data from the microcontroller was flushed to the memory chip,
+an activity that would occur every 11.33 seconds.
+The light would turn off after this process was complete,
+taking roughly 43 milliseconds.
+The result was a light that would blink every 11.33 seconds for 43 milliseconds.
+
+The hardware for this light was implemented using an LED.
+Since the LED is being turned on for very short periods of time, 
+(the duty cycle for this operation being 0.37\%) very little power is being consumed by the LED.
+For this reason, we used an LED found in our campus' Tech Shop. A photograph of the LED is seen in figure \ref{Fig:LEDPHOTO}.
+\subsection{Connectors}
+\label{Sec:Connetors}
+Instead of soldering wires to our device (so that we can connect the JTAG cable or the USB to UART bridge to a computer), we prefer to use connectors. This allows us to disengage with ease without having to cut the cable or de-solder it from the device before it can be used. The JTAG connection required 7 pins to connect to our microcontroller, and a standard seven pin header is 17.78 mm X 4.85 mm in size. The pitch (distance between two pins) in a standard header is 0.1 inches or 2.54 mm. Since space on the PCB is at a premium, we use a smaller header instead, with a pitch of 0.059 inches or 1.50 mm. This allows us to conserve space on the PCB.
+
+Searching for connectors with a pitch of 1.50 mm showed us connectors that had housing around them.
+An example of one such connector with housing can be seen in figure \ref{Fig:ConnectorWhole}.
+From the datasheet of this connector \cite{Datasheet:TEConnHeader},
+we see that the housing increases the thickness of the connector 2.5 times,
+increases the length by 3 mm,
+and the width by 2.1 mm. The connector we selected was available only in a 10 pin configuration.
+To reduce this use of space, we cut the connector to its bare minimum.
+The housing was cut off using an exacto knife,
+and three pins were cut off because they were not needed.
+The final connector is shown in figure \ref{Fig:ConnectorCut}.
+
+For the USB connection, we required only 4 pins.
+This would require a space of 9 mm X 2mm,
+and could be squeezed between the other components on the PCB.
+We used IC hooks to connect to the holes in the PCB,
+with the hooks leading to a USB cable connected to a computer.
 
 
 \label{Sec:CircuitDesign}
