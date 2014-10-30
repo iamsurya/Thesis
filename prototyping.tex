@@ -134,32 +134,37 @@ As seen in Section \ref{Sec:Memory},
 we created our own breakout board to break the pins out from the memory chip.
 To check if SPI communication was running fine,
 we used a method similar to what was used for the sensor.
+The datasheet for our memory chip mentions a command known as ``Manufacturer and Device ID''.
+Issuing this command to the memory chip causes the memory chip to send 4 bytes of data to the master device.
+These bytes identify the device and contain other information about it. 
+For example, the second byte contains the family code and the density code,
+telling us what the size of the memory is.
+We only need the first byte, which is 0x1F.
+Once we connected our memory chip to the microcontroller we sent this command from the master to the slave,
+and received 0x1F.
+This confirmed that we had connected the memory chip correctly.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Our next step was to store data from the sensor into the memory.
+Since both the devices use the SPI bus,
+it was possible to connect the devices to the same pins on the microcontroller.
+Before reading sensor values or storing them,
+we check if the Device ID's are received correctly.
+This was done everytime the microcontroller booted up.
+For some reason, the memory chip did not respond with the correct device ID.
+This meant that even if we were sending correct data,
+it was not being received correctly with the new connection.
+After some testing we realized that this was because the cable to the sensor was too long for SPI,
+and timing errors were being created.
+Once we reduced the length of this cable,
+data transfer behaved as expected,
+and we were able to record data from the sensor,
+then flushing it to the memory.
 
 \section{Circuit Design}
 \label{Sec:CircuitDesign}
 Now that we know what the different typical operating cicruits for each device look like,
-and that they work as expected with the microcontroller,
-we need to connect all of these devices to each other.
+and that they work as expected with the microcontroller connected,
+we need to connect all of these together and create our complete circuit.
 The circuits for different parts of the device that we designed are shown in figures X, Y, Z and E.
 The circuit we designed after consulting the different datasheets is shown in figure \ref{Fig:CompleteCircuit} in the Appendix.
 This circuit was created using EAGLE PCB's schematic layout tool.
@@ -182,7 +187,7 @@ which allows the connection of components without the use of wires when placed c
 The breadboard allowed us to connect our components together and program the microcontroller with a reduced amount of soldering, 
 and this can be seen in figure \ref{Fig:BreadBoardProto}.
 
-\section{Programming}
+\section{Programming and Testing}
 \label{Sec:Programming}
 Now that we had all our components connected together on the breadboard,
 it was possible to program our microcontroller and make it perform its required functions.
@@ -191,12 +196,308 @@ our program would poll the sensors repeatedly.
 The data from these sensors would be stored in the microcontrollers memory till the total data crossed a threshold.
 Once this threshold was crossed, the data would be sent to the memory chip.
 A simplified version of the microcontrollers code is seen in figure \ref{Fig:MainAlgo}.
-
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/MainAlgo.eps}
+\caption{REPALCE WITH MainAlgo}
+\label{Fig:MainAlgo}
+\end{center}
+\end{figure}
+Once the code for this prototype was complete, we needed to check if it worked as expected.
+We also needed to check if the battery could sustain operation for the periods we required.
+Since the final device was expected to work all day,
+all tests would have to be between 16 to 24 hours long.
+A video stream was setup which had a camera pointed at the device.
+We connected a multimeter measuring voltage to the battery,
+and had its display visible in the frame.
+The video stream also had a time stamp to show how the battery voltage dropped as the device operated.
+Since the device would blink an LED every 11.33 seconds,
+it was easy to monitor the device operation through this video.
+When the device stopped operating,
+the LED would stop blinking.
+We could watch the video to see the exact time when this happened,
+and have an accurate idea on the battery life of our device.
 
 \subsection{PCB Layout}
+After we had confirmed our prototype circuit design would work based on the testing with breakout boards and the breadboard,
+we could now create a PCB for the actual device.
+This PCB would be fit inside the case along with the battery.
+The PCB was laid out using EAGLE PCB's layout editor.
+The software first generates parts and their footprints from the schematic we created.
+This can be seen in figure \ref{Fig:Layout1}.
+The parts are placed in random locations by the editor.
+The software connects these parts by direction lines (seen in yellow in figure \ref{Fig:Layout1}) called signals.
+Signals do not exist on the PCB,
+and are used only to guide us when creating copper traces on the PCB to connect components.
+We are free to move parts around on the PCB, and resize the PCB to our will.
+We sized the PCB to be smaller than the case so that it would fit easily, and moved the parts around so that pins that need to connect are close to each other.
+This can be see in figure \ref{Fig:Layout2}.
+Once we have parts placed to our desire,
+we route the signals through the copper board,
+using the signals as a guide as seen in figure \ref{Fig:Layout3}.
+This process is like a puzzle where we are trying to draw lines through objects that we cannot cross.
+Routing all the signals can take a considerable time,
+and requires a lot of creativity.
+We maybe also need to move parts around so that signals can be routed effectively.
+Some part datasheets may specify how they have to be placed.
+For example,
+the crystal on our PCB has to be very close to the microcontroller,
+and should not have a ground plane running under it.
+After modifying the PCB layout and routes for seven revisions,
+we were finally satisfied with the design.
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/Layout1.jpg}
+\caption{Screenshot of Eagle PCB's Layout Editor}
+\label{Fig:Layout1}
+\end{center}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{images/Layout2.jpg}
+\caption{Parts to be routed after placing on the PCB in EAGLE PCB software.}
+\label{Fig:Layout2}
+\end{center}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{images/Layout3.jpg}
+\caption{Routing in EAGLE PCB. The incomplete Red line is guided by the yellow signal line.}
+\label{Fig:Layout3}
+\end{center}
+\end{figure}
+\subsection{PCB Manufacture}
+To manufacture our PCB, we used a small service provided by OSH Park\footnote{http://oshpark.com}.
+Most PCB manufactueres expect a high volume of production (100 - 1000 PCB's per order).
+We only required some prototype PCB's so our order was only a few PCB's.
+OSH Park takes multiple orders from its clients and combines this into a large PCB.
+This is then cut into the requested PCB and sent back to the client.
+This process takes time, but costs lesser than what most other PCB manufactureres charge.
+For example,
+Advanced Circuits LLC,
+a well known PCB manufacturer charges \$120 for 4 bare bones PCB's,
+and has a turnaround time of a week.
+These PCB's lack any kind of silkscreen,
+or printed text,
+which means it is hard to known where parts are located,
+or what their value is.
+Since there is no silkscreen,
+the copper traces on the PCB oxidize over time and lose conductivity.
+OSH Park,
+on the other hand offer's high quality PCB's at a lower cost.
+The turn around time is much longer (approximately 21 days),
+however we were able to procure 6 PCB's for a total of \$15,
+costing us roughly \$2.5 per PCB.
 
+To create our PCB's, we uploaded our PCB Layout file generated by Eagle PCB to the OSH Park website.
+The website shows you an approximate render of how the PCB will look once it is delivered,
+and also notifies you if it thinks there could be issues with part placement (some parts are too close to the border).
+After we were happy with what the render shown to us by the website,
+we placed the order for our PCB.
 
+\subsection{Software}
 \label{Sec:Software}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{images/WristView.jpg}
+\caption{WristView displaying data captured by our prototype device. Top to bottom: Acceleration (X, Y, Z) and Angular Velocity (X, Y, Z)}
+\label{Fig:WristView}
+\end{center}
+\end{figure}
+Our PCB's would take an expected 21 days to arrive. While waiting for our PCB's to reach us,
+we decided to work on a software that would allow us to visually look at the data that was collected by the device.
+Work done by Reyes et. al. \cite{concha2014study} shows PhoneView,
+a tool developed to analyze data collected by an iPhone.
+Instead of the wrist based activity monitor that we have planned,
+work done by the group previously used an iPhone mounted on the wrist.
+This data could be loaded into PhoneView,
+which would then plot the instantaneous values of each sensor versus time,
+allowing us to process this data as signals.
+PhoneView would accept data that was stored in ASCII.
+This means that each sensor reading would require three digits,
+each requiring 1 byte.
+Raw data that was 8 MB in size would expand to 24 MB if stored as ASCII.
+We modified the source code of PhoneView to allow for our data from the wrist motion activity tracker.
+This allowed us to visually compare data captured by the wrist motion tracker.
+An example of this can be seen in figure \ref{Fig:WristView}.
 
 \subsection{Soldering}
 \label{Sec:Soldering}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/PCBBare.jpg}
+\caption{The Bare PCB received after fabrication.}
+\label{Fig:PCBBare}
+\end{center}
+\end{figure}
+Once our PCB's arrived, it was time to solder them.
+A photograph of the bare PCB can be seen in figure \ref{Fig:PCBBare}.
+As it can be seen,
+most components are going to be surface mounted to this PCB,
+and there are very few through hole components.
+Through out this thesis we have emphasized on how small the components we are dealing with are.
+These components are so small that we lost a couple of the parts when trying to handle them because someone was breathing too hard.
+In the industry,
+pick and place machines are used to move these components around.
+Solder is first applied to all the pads.
+These machines then use vacuum to pick up the delicate components,
+and cameras to inspect them. 
+Once the components are placed on a PCB,
+the PCB is sent to an oven where the solder melts,
+and the components are soldered once it cools down.
+We did not have access to an industrial facility with these features,
+so we would have to use a different technique to solder these components.
+Our first attempt was mentioned when we discussed our memory chip in section \ref{Sec:Memory}.
+As seen, we flipped the chip over to expose its pads,
+then soldered thin strands of a multistrand wire to the chip.
+These strands connected to thicker wire at the other end,
+which allowed us to use the chip as a through hole component.
+All this was done very carefully under a microscope.
+The MPU-6000 integrated chip has pads that are much smaller than what our memory chip did.
+It was not feasible to solder strands to this chip because of the same reason,
+so we researched for other techniques.
+
+\subsection{Z Axis Conductive Tape}
+\label{Sec:ZTape}
+Sparkfun.com demoed a new product from 3M,
+called the Z-Axis Tape,
+just as we were looking for methods to solder our sensor.
+The Z-Axis Conductive Tape is described by Sparkfun as ``an easy to use,
+pressure sensitive double sided tape designed for connecting,
+bonding and grounding flex circuits and PCBs.''
+In theory, we should be able to place this tape between the PCB and our integrated chip,
+and have conductivity between the pad on the PCB and those on the chip.
+The datasheet for this conductive tape mentions that it is filled with small conductive particles which allow it to conduct electricity through its thickness,
+however these particles are spaced far enough to maintain electrical insulation.
+The datasheet also mentions that the minimum distance between two adjacent conductors should be 0.4 mm or greater to ensure electrical insulation,
+however, the method used to bond the parts together and temperature would affect this number.
+The MPU-6000 datasheet mentions a pitch of 0.25 mm between two pads,
+which was smaller than the suggested distance of isolation by the tape.
+However given that the tape was expected to operate under extreme conditions of temperature (-40\degree C to 70\degree C),
+we decided to try this tape to bond our sensor chip to the PCB.
+The result of this experiment was photographed under a microscope and is shown in figure \ref{Fig:TapeMicroscope}.
+Our experiment showed that sufficient conductivity was attained after 24 hours to allow SPI communication between the sensor and the microcontroller,
+however this conductivity was lost over time,
+within seven days in our case.
+
+This process concluded that the Z-Axis tape was not a permanent alternative solution to soldering the sensor to our PCB.
+
+\subsection{Reflow Skillet}
+\label{Sec:ToasterReflow}
+As an incentive to its clients,
+Sparkfun offers tutorials on multiple topics,
+and has a tutorial on different soldering methods \cite{Web:SparkfunSoldering}.
+This tutorial mentions four different methods that a hobbyist electrical engineer can use to prototype a device based on SMT components:
+
+\begin{description}
+
+	\item[Hand Soldering] \hfill \\
+	This is the regular method of soldering witha a soldering iron that we have already tried with our memory chip.
+	\item[Toasting] \hfill \\
+	This process involves placing solder paste and parts on the PCB,
+	then heating them in a temperature regulated toaster oven to the temperature required by the solder to melt.
+	This melts the solder, and when cooled provides us with a PCB with components connected.
+	We did not have access to a toaster with an accurate temperature control,
+	and so could not test this method.
+	\item[Industrial Ovens] \hfill \\
+	Similar to the method mentioned above,
+	this technique uses Industrial ovens specially constructed for SMD soldering.
+	We did not have access to these.
+	\item[Hot Air Rework] \hfill \\
+	This method uses a hot air blower that increases the temperature of the PCB to that of the solder's melting point.
+	This method is used frequently to desolder or rework SMT components.
+	We tried this method,
+	but did not get a hig degree of success.
+	One of the reasons for failure was that our parts would fly away under the air pressure,
+	and it was not feasible to hold down the part in place correctly because our hands would shake while doing so.
+	\item[Hot Plate Reflowing] \hfill \\
+	This method requires that pads on the PCB have solder paste applied to them.
+	Once this is done,
+	we place the components over their approximate locations on the PCB.
+	After this is done,
+	we place the PCB with the components over a skillet that is headted to the temperature of the solder.
+	If everything goes right,
+	the molten solder will behave like a liquid,
+	and due to force of adhesion,
+	parts will align themselves correctly in place.
+\end{description}
+\hfill \\
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/PCBBare.jpg}
+\caption{REPLACE WITH STENCIL PHOTO.}
+\label{Fig:Stencil}
+\end{center}
+\end{figure}
+Based on the different techniques mentioned above,
+we decided to try the Hot Plate reflowing method.
+Our first step would require that we place solder paste over the PCB's pads.
+To do this,
+a stencil was used.
+Similar to OSH Park, a website OSH Stencils accepts Eagle layout files,
+and provides stencils for the PCB.
+Using this stencil,
+we were able to apply solder paste only to the exposed pads of the PCB.
+A photo of the stencil is shown in figure \ref{Fig:Stencil}.
+Once this was done,
+we placed some of the components on the PCB,
+and placed the PCB over the heated skillet.
+We only placed the microcontroller, memory chip, sensor and the USB to UART chip on the PCB.
+This was done because it was very hard to place the smaller components like capacitors and resistors by hand and not have them move in the process.
+After about 23 seconds on the skillet,
+we could see the solder melt and the parts fall into place.
+Using a metal sheet,
+we picked up the PCB from the skillet and let it cool.
+Through hole components and smaller components like the crystal and resistors were individually soldered later by hand under a microscope.
+Figure \ref{Fig:PCBMicro} shows the hand soldering process through the microscope's lens, while figure \ref{Fig:FinalPCB} shows a photograph of the PCB once we were done with soldering components to the PCB.
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/PCBBare.jpg}
+\caption{REPLACE WITH PCB UNDER MICROSCOPE.}
+\label{Fig:PCBMicro}
+\end{center}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/PCBBare.jpg}
+\caption{REPLACE WITH PCB FINAL PHOTO.}
+\label{Fig:FinalPCB}
+\end{center}
+\end{figure}
+
+\subsection{Final Device}
+\label{Sec:FinalDevice}
+Now that we had our PCB soldered,
+we programmed the microcontroller with the same code used in our breadboard based prototype.
+After verfifying that the behaviour was expected,
+we modified our case to seat the LED and the button.
+The LED and the button were stuck to the upper side of the case using hot glue.
+The PCB was placed under this button, and the battery was the last part to enter the case.
+The case had a ring which allowed a strap to fit through,
+and we added this to the case.
+The final device could be worn on the wrist,
+and figure \ref{Fig:WristPhoto} shows how this looks when worn.
+
+\section{Experiments}
+\label{Sec:Experiments}
+Now that our device was ready to be worn on the wrist,
+we performed some experiments to verify that it works as expected.
+Our aim for this device was to create a wrist motion activity tracker that would track wrist movements all day,
+and also be comfortable when worn for extended intervals.
+We would have to test the comfort of the device,
+and also verify that the data it was reporting was correct.
+
+\section{Motion Data Verfication}
+\label{Motion Data}
+To check if the data being reported was correct,
+we setup an experiment where the user would wear both the wrist motion activity tracker,
+and the iPhone from the PhoneView experiment.
+The user would then make characteristic movements which could be identified easily by looking at the signals in PhoneView or WristView.
+This experiment would record data on both the devices for two minutes,
+with each characteristic movement being recorded for 15 seconds each.
+
+\section{Comfort Analysis}
+\label{Sec:Comfort}
+Our wrist motion activity tracker would be worn for extended periods of up to 24 hours by the user,
+and the best way to verify if the device was comfortable during this duration was to have users wear it for these extended periods.
+This data was collected for 10 participants.

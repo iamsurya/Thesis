@@ -1,5 +1,6 @@
 
 \chapter{Introduction}
+\label{Chap:Intro}
 This thesis considers the problem of tracking human wrist movements during free living.
 This is motivated by the fact that wrist and hand movements can be used detect periods of eating
 as shown in~\cite{dong2013detecting}. Further, with similar wrist motion data,
@@ -69,8 +70,8 @@ have been shown to not accurately recreate the real life conditions created duri
 With the increase in smart phone sales,
 we see a huge rise in small applications that help track our daily activities.
 Applications like CalorieCount\footnote{Allows users to name and record calories consumed.
-Users can pick from a database or enter their own values.} and MyFintessPal
-\footnote{Allows users to pick various foods or exercises from a database or enter their own data.}
+Users can pick from a database or enter their own values.} \cite{Web:CalorieCount} and MyFintessPal
+\footnote{Allows users to pick various foods or exercises from a database or enter their own data} \cite{Web:MFP}
 allow users to track their daily intake of food and also track other activities like exercise and sleep.
 However, this data was still largely dependent on the user's ability to record these events,
 and requires frequent user intervention and foresight.
@@ -85,16 +86,75 @@ These devices are shown to have a battery life of 24 to 48 hours.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{images/JawFit.png}
-\caption{The Fitbit flex (left) and the Jawbone Up activity trackers}
+\caption{The Fitbit flex (left) and the Jawbone Up (right) activity trackers}
 \label{fig:FitbitJawbone}
 
 \end{center}
 \end{figure}
-Fitness trackers in the market currently offer a range of services. The Fitbit\footnote{http://www.fitbit.com} and Jawbone\footnote{http://www.jawbone.com} series of sensors allow for exercise and sleep monitoring using wrist movements. This data is then synchronized with a computer or a mobile phone, and can be viewed graphically by the user. Another consumer electronic segment that has now emerged is smart watches. These watches contain electronic components that make them functionally similar to a mobile phone, and are small enough to wear on the wrist. They contain low power displays and have a host of power saving techniques to have a long battery life. However most of the wearable devices on are limited to counting the number of calories expended and thus not many options exist for counting the number of calories consumed.
-
-\section{Previous Work}
+Fitness trackers in the market currently offer a range of services. The Fitbit \cite{Web:FitBitOfficial} and Jawbone\cite{Web:JawBoneWebsite} series of sensors allow for exercise and sleep monitoring using wrist movements. This data is then synchronized with a computer or a mobile phone, and can be viewed graphically by the user. Another consumer electronic segment that has now emerged is smart watches. These watches contain electronic components that make them functionally similar to a mobile phone, and are small enough to wear on the wrist. They contain low power displays and have a host of power saving techniques to have a long battery life. However most of the wearable devices on are limited to counting the number of calories expended and thus not many options exist for counting the number of calories consumed.
 
 \section{Shimmer}
+\label{Sec:Shimmer}
+\begin{figure}
+\begin{center}
+\includegraphics{images/shimmerphoto.jpg}
+\caption{Product photo of the SHIMMER sensing platform.}
+\label{fig:AccAxis}
+\end{center}
+\end{figure}
+Our application of using wrist movement to detect bites is very similar to biomedical research where the body is being monitored.
+Similar constraints on the size of devices and battery life exist when they have to be used in biomedical research.
+Burns et al. \cite{burns2010shimmer} have demonstrated a device called the SHIMMER,
+which is an acronym for Sensing Health with Intelligence, Modularity, Mobility and Experiment Resusability.
+The device is available in a small form factor (50mm X 25mm X 12.5mm),
+and has a battery life of over twenty four hours with data from an acceleromter actively being recorded.
+It features an MSP430 Ultra-low power microcontroller,
+SD Card for storage,
+a Bluetooth module for wireless communication,
+and a lightweight battery (15).
+It is possibble to connect an external sensor to the SHIMMER by using its general purpose I/O pins.
+Figure \ref{Fig:ShimmerHand} shows a product photo of the device from the Shimmer website \cite{Web:ShimmerBuyKit}.
+Power is extended by disabling most components when not needed.
+\cite{burns2010shimmer} mentions that the duty cycle of writing to the memory chip or the bluetooth module can be reduced to save power,
+however this is not possible in situations where the frequency is high because of the wake up time on these modules.
+Shimmer sensing commercially provides these modules,
+and a single base module can be purchased for US \$249 \cite{Web:ShimmerBuy}.
+However, to program the SHIMMER base we would need access to the SHIMMER development KIT,
+which costs US \$1999, or higher if additional features are required.
+
+\section{Previous Work}
+Our group has been involved with bite counting by tracking wrist motion for half a decade.
+Initial research \cite{dong2012new} worked on identifying if this was a feasible idea.
+During the early stages,
+sensors were mounted directly on the wrist,
+and a cable connected the sensor to a personal computer.
+The computer would log data from the sensors and identify when the user took a bite of food.
+Needless to say,
+mobility by the user was limited,
+and they would have to consume all of their meal within range of the computer cable.
+Later work switched to a device that could process this information from the sensor in real time,
+and predict the total number of bites taken by the user in a meal.
+This device was able to store only the number of bites, 
+but not the actual data captured from the sensors.
+It was widely reviewed and reported by the media.
+Figure \ref{Fig:BCEater} shows images from the research groups website showing the final device which was mass manufactured.
+
+\begin{figure}
+        \centering
+        % \begin{subfigure}[b]{0.3\textwidth}
+                \includegraphics[]{images/BCEater.JPG}
+
+                \label{fig:gull}
+        % \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+          %(or a blank line to force the subfigure onto a new line)
+        % \begin{subfigure}[b]{0.3\textwidth}
+        %         \includegraphics[width=\textwidth]{images/BCWrist.JPG}
+        %         \caption{Close up photo of the bite counter mounted on a wrist.}
+        %         \label{fig:tiger}
+        % \end{subfigure}
+         \caption{Photograph of a person using the Bite Counter while eating.}\label{Fig:BCEater}
+\end{figure}
 
 \section{Wearable Wrist Motion Tracker}
 \label{Sec:WearbleTracker}

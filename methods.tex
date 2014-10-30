@@ -32,7 +32,15 @@ We recap that we have two strong requirements for our device, and all hardware d
   \item Device Size
   \item Device Power Consumption
 \end{itemize}
-With this in mind, we look at the different hardware in our device in the next section.
+
+Throughout this document,
+we provide photographs of the different components used in creating our wrist activity monitor.
+These parts are very small in size,
+and to emphasize this,
+we will place a coin,
+the standard US quarter for comparison.
+Keeping the fact that device size and power consumption are very important,
+we look at the different hardware in our device in the next section.
 
 \section{Sensors}
 \begin{figure}
@@ -136,7 +144,6 @@ An image from Sparkfun.com~\cite{Image:SparkfunMPU6000}  (see figure \ref{fig:MP
 \end{center}
 \end{figure}
 
-\hspace{2em}
 \item[Measurement Range] \hfill \\
 This defines the range of measurement supported by an IMU's output specifications.
 For an accelerometer, the range is usually defined in g's, where 1g = 9.8 m/s\textsuperscript{2}.
@@ -348,19 +355,55 @@ We need a device that would communicate easily with our microcontroller, the MSP
 
 \section{Case}
 \label{Sec:Case}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/OKWEN.jpg}
+\caption{Ergo Minitec cases manufactured by OKW Enclosures. Sizes small to large (L - R)}
+\label{Fig:OKWFam}
+\end{center}
+\end{figure}
+All these parts would need to be housed inside a box or case of some kind.
+Previous work done by this group used an enclosure from OKW Enclosures.
+The family of enclosures can be a seen in figure \ref{Fig:OKWFam}.
+The image shows enclosures of three sizes,
+and table \ref{Tab:OKWSize} shows the sizes of the three models,
+along with their Type as defined by OKW Enclosures.
+Work done by Huang et. al \cite{huang2013assessment} used the Ergo Large case,
+which is the largest case in the Ergo Minitec family.
+These devices were not designed to be worn all day,
+but our device is meant to be worn for a full day or multiple days.
+We ordered samples of all three sizes to experiment with,
+and try to make our device as small as possible.
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}llll@{}}
+\toprule
+Type & Length & Width & Height \\ \midrule
+Ergo Small   & 52 mm  & 32 mm & 15 mm  \\
+Ergo Medium   & 68 mm  & 42 mm & 18 mm  \\
+Ergo Large   & 78 mm  & 48 mm & 20 mm  \\ \bottomrule
+\end{tabular}
+\caption{Comparison of sizes the Ergo Minitec case is availble in.}
+\label{Tab:OKWSize}
+\end{table}
 
-
-
-
-
-
-
-
-\inputfile{tables/BatteryTable.tex}
 \section{Battery}
 \label{Sec:Battery}
 
-While the wrist activity monitor is mounted and active, it needs a power source to operate on. Work done by \cite{Web:ShimmerHome} uses a single 450mah Lithium Ion Polymer battery. Similar batteries with higher capacities are found in mobile phones. We also see other batteries available in the market, with different characteristics based on the technology. Our wrist motion activity monitor requires a small battery which will supply a burst current of \~25mA when required. It should also hold enough power to supply current to the system for a minimum of 24 hours. Table \ref{Tab:BatteryCompTable} shows the different current battery types available in the market (as seen in \cite{Web:BatteryTable}), and their parameters.
+While the wrist activity monitor is mounted and active, it needs a power source to operate on.
+Work done by \cite{Web:ShimmerHome} uses a single 450mah Lithium Ion Polymer battery.
+Similar batteries with higher capacities are found in mobile phones. We also see other batteries available in the market,
+\inputfile{tables/BatteryTable.tex}
+with different characteristics based on the technology.
+Our wrist motion activity monitor requires a small battery which will supply a burst current of $\approx$25mA when required.
+These burts occur when memory has to be written to or during an erase operation for a memory page,
+since the memory requires higher current to process these operations.
+It should also hold enough power to supply current to the system for a minimum of 24 hours.
+Table \ref{Tab:BatteryCompTable} shows the dfiferent current battery types available in the market (as seen in \cite{Web:BatteryTable}), and their parameters.
+
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{images/battcompare.eps}
@@ -376,7 +419,11 @@ As seen in section \ref{Sec:Case},
 the case is curved along its median,
 so a battery that was thicker could be accomodated if it was not too wide.
 Emperical analysis showed that the Turnigy Nano-tech 160mAh battery
-would fit with some modifications to the case (to allow a slightly thicker battery).
+would fit with some modifications into the smallest ergo case.
+These modifications included grinding the inside of the case to reduce the thickness,
+which would create some additional space to allow a slightly thicker battery.
+
+\section{Battery Charger}
 
 \section{LED}
 \label{Sec:LED}
