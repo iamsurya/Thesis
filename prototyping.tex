@@ -1,4 +1,4 @@
-\chapter{Prototyping the device}
+\section{Prototyping the device}
 \label{Chap:Prototype}
 Once we have the parts we selected,
 we need to connect them correctly so that they can communicate with each other.
@@ -27,7 +27,7 @@ Using these datasheets,
 a master circuit was created for our device.
 This circuit was designed in the EAGLE PCB Design software.
 
-\section{Overview}
+\subsection{Overview}
 \label{Sec:PCBDesign}
 All components in the final device will be connected to each other using a Printed Circuit Board.
 PCB's replace wires between components by copper traces on the board,
@@ -48,7 +48,7 @@ reducing any mistakes that might creep into our final PCB design and cost us mon
 \end{center}
 \end{figure}
 
-\section{Unit Testing}
+\subsection{Unit Testing}
 \label{Sec:UnitTesting}
 Before we connect all our devices together,
 we need to test each component seperately and make sure they work as expected.
@@ -60,7 +60,7 @@ We extend this to our device creation process by testing each unit of hardware s
 We would have to test the microcontroller, the sensor, the memory chip, the USB to UART bridge and the battery charger.
 The microcontroller would have to be the first component to be tested because the other components require a master device that controls them.
 
-\subsection{Micrcontroller Testing}
+\subsubsection{Micrcontroller Testing}
 To test the microcontroller we used a simple "Hello World" program.
 Since microcontrollers do not have a display, instead of displaying text,
 it is easier to just blink an LED using one of the pins.
@@ -80,7 +80,9 @@ while(1)
 	FlipLEDStatus();  
 }
 \end{lstlisting}
-\subsection{Sensor Testing}
+
+
+\subsubsection{Sensor Testing}
 \label{Sec:SensorTesting}
 \begin{figure}
 \begin{center}
@@ -127,7 +129,7 @@ Since gravity would show as -1g on the Z Axis in the Earth Frame of reference,
 we could test all three sensor axes by rotatin the sensor and observing the LED's behaviour.
 These tests concluded that communication between the sensor and microcontroller was as expected.
 
-\subsection{Memory Chip Testing}
+\subsubsection{Memory Chip Testing}
 \label{Sec:MemoryTesting}
 Similar to the sensor, we needed to test our memory chip and make sure SPI communication was up and running.
 As seen in Section \ref{Sec:Memory},
@@ -160,7 +162,7 @@ data transfer behaved as expected,
 and we were able to record data from the sensor,
 then flushing it to the memory.
 
-\section{Circuit Design}
+\subsection{Circuit Design}
 \label{Sec:CircuitDesign}
 Now that we know what the different typical operating cicruits for each device look like,
 and that they work as expected with the microcontroller connected,
@@ -187,7 +189,7 @@ which allows the connection of components without the use of wires when placed c
 The breadboard allowed us to connect our components together and program the microcontroller with a reduced amount of soldering, 
 and this can be seen in figure \ref{Fig:BreadBoardProto}.
 
-\section{Programming and Testing}
+\subsection{Programming and Testing}
 \label{Sec:Programming}
 Now that we had all our components connected together on the breadboard,
 it was possible to program our microcontroller and make it perform its required functions.
@@ -217,8 +219,9 @@ When the device stopped operating,
 the LED would stop blinking.
 We could watch the video to see the exact time when this happened,
 and have an accurate idea on the battery life of our device.
+These experiments were repeated three times each for the 90mAh and 130mAh Turnigy Nano-tech batteries.
 
-\subsection{PCB Layout}
+\subsubsection{PCB Layout}
 After we had confirmed our prototype circuit design would work based on the testing with breakout boards and the breadboard,
 we could now create a PCB for the actual device.
 This PCB would be fit inside the case along with the battery.
@@ -266,7 +269,7 @@ we were finally satisfied with the design.
 \label{Fig:Layout3}
 \end{center}
 \end{figure}
-\subsection{PCB Manufacture}
+\subsubsection{PCB Manufacture}
 To manufacture our PCB, we used a small service provided by OSH Park\footnote{http://oshpark.com}.
 Most PCB manufactueres expect a high volume of production (100 - 1000 PCB's per order).
 We only required some prototype PCB's so our order was only a few PCB's.
@@ -295,15 +298,8 @@ and also notifies you if it thinks there could be issues with part placement (so
 After we were happy with what the render shown to us by the website,
 we placed the order for our PCB.
 
-\subsection{Software}
+\subsubsection{Software}
 \label{Sec:Software}
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.7\textwidth]{images/WristView.jpg}
-\caption{WristView displaying data captured by our prototype device. Top to bottom: Acceleration (X, Y, Z) and Angular Velocity (X, Y, Z)}
-\label{Fig:WristView}
-\end{center}
-\end{figure}
 Our PCB's would take an expected 21 days to arrive. While waiting for our PCB's to reach us,
 we decided to work on a software that would allow us to visually look at the data that was collected by the device.
 Work done by Reyes et. al. \cite{concha2014study} shows PhoneView,
@@ -318,10 +314,8 @@ This means that each sensor reading would require three digits,
 each requiring 1 byte.
 Raw data that was 8 MB in size would expand to 24 MB if stored as ASCII.
 We modified the source code of PhoneView to allow for our data from the wrist motion activity tracker.
-This allowed us to visually compare data captured by the wrist motion tracker.
-An example of this can be seen in figure \ref{Fig:WristView}.
 
-\subsection{Soldering}
+\subsubsection{Soldering}
 \label{Sec:Soldering}
 \begin{figure}
 \begin{center}
@@ -357,7 +351,7 @@ The MPU-6000 integrated chip has pads that are much smaller than what our memory
 It was not feasible to solder strands to this chip because of the same reason,
 so we researched for other techniques.
 
-\subsection{Z Axis Conductive Tape}
+\subsubsection{Z Axis Conductive Tape}
 \label{Sec:ZTape}
 Sparkfun.com demoed a new product from 3M,
 called the Z-Axis Tape,
@@ -382,7 +376,7 @@ within seven days in our case.
 
 This process concluded that the Z-Axis tape was not a permanent alternative solution to soldering the sensor to our PCB.
 
-\subsection{Reflow Skillet}
+\subsubsection{Reflow Skillet}
 \label{Sec:ToasterReflow}
 As an incentive to its clients,
 Sparkfun offers tutorials on multiple topics,
@@ -465,7 +459,7 @@ Figure \ref{Fig:PCBMicro} shows the hand soldering process through the microscop
 \end{center}
 \end{figure}
 
-\subsection{Final Device}
+\subsubsection{Final Device}
 \label{Sec:FinalDevice}
 Now that we had our PCB soldered,
 we programmed the microcontroller with the same code used in our breadboard based prototype.
@@ -475,29 +469,18 @@ The LED and the button were stuck to the upper side of the case using hot glue.
 The PCB was placed under this button, and the battery was the last part to enter the case.
 The case had a ring which allowed a strap to fit through,
 and we added this to the case.
-The final device could be worn on the wrist,
-and figure \ref{Fig:WristPhoto} shows how this looks when worn.
 
-\section{Experiments}
-\label{Sec:Experiments}
+\subsection{Verification of Data log}
+\label{Sec:Motion Data}
 Now that our device was ready to be worn on the wrist,
 we performed some experiments to verify that it works as expected.
 Our aim for this device was to create a wrist motion activity tracker that would track wrist movements all day,
 and also be comfortable when worn for extended intervals.
 We would have to test the comfort of the device,
 and also verify that the data it was reporting was correct.
-
-\section{Motion Data Verfication}
-\label{Motion Data}
 To check if the data being reported was correct,
 we setup an experiment where the user would wear both the wrist motion activity tracker,
-and the iPhone from the PhoneView experiment.
+and the iPhone from the PhoneView experiment performed by our group earlier.
 The user would then make characteristic movements which could be identified easily by looking at the signals in PhoneView or WristView.
-This experiment would record data on both the devices for two minutes,
-with each characteristic movement being recorded for 15 seconds each.
 
-\section{Comfort Analysis}
-\label{Sec:Comfort}
-Our wrist motion activity tracker would be worn for extended periods of up to 24 hours by the user,
-and the best way to verify if the device was comfortable during this duration was to have users wear it for these extended periods.
-This data was collected for 10 participants.
+

@@ -38,11 +38,12 @@ we provide photographs of the different components used in creating our wrist ac
 These parts are very small in size,
 and to emphasize this,
 we will place a coin,
-the standard US quarter for comparison.
+the standard US quarter next to the part being discuseed for comparison.
+This will hopefully give the reader a better idea of the scale of devices we are working with.
 Keeping the fact that device size and power consumption are very important,
 we look at the different hardware in our device in the next section.
 
-\section{Sensors}
+\subsection{Sensors}
 \begin{figure}
 \begin{center}
 \includegraphics{images/HandAxis.eps}
@@ -52,7 +53,7 @@ we look at the different hardware in our device in the next section.
 \end{figure}
 Since we want to log acceleration and rotation data, we looked at the different sensors available in the market and their sizes. The clear winner was a category of sensors called MEMS sensors. MicroElectroMechcanicalSystems based sensors are small devices ranging from about 4 mm\textsuperscript{2} to  25 mm\textsuperscript{2}. Our device design uses an MEMS gyroscope and accelerometer in a single electronic chip to sense movements. This chips may also be called the IMU or the Inertial Measurement Unit. The orientation and axes for this chip when it is worn on the wrist as a part of our final device is shown in figure \ref{fig:AccAxis}.
 
-\section{Accelerometers}
+\subsection{Accelerometers}
 \label{Sec:Accelerometer}
 Accelerometers are devices that sense linear acceleration.
 In the case of our device we would like to measure the linear acceleration in all three Cartesian co - ordinate axes: X, Y, and Z.
@@ -96,7 +97,7 @@ and due to this, a reading of 1g will always be read on the Z axis in the ``eart
 If there is no motion, we can emperically know which direction gravitational force is acting in by looking at the sensed data,
 and can subtract this from later readings obtained from the accelerometer.
 
-\section{Gyroscopes}
+\subsection{Gyroscopes}
 \label{Sec:Gyroscope}
 
 Gyroscopes are devices used to measure angular movement. In our case, we use MEMS gyroscopes to measure angular velocity in three axes, X, Y and Z (as shown in figure \ref{fig:AccAxis}). How a gyroscope works in explained in ~\cite{Web:SparkfunGyros}. We will review the same here.
@@ -110,7 +111,7 @@ Gyroscopes are devices used to measure angular movement. In our case, we use MEM
 
 An MEMS gyroscope contains a small mass that oscillates inside it as shown in figure \ref{fig:GyroDiag}. When the gyroscope rotates, the oscillating mass is displaced between two oscillations. This change in location is converted into a very low current, that is then amplified (and converted to a voltage) by a microcontroller inside the gyroscope integrated chip.
 
-\section{Accelerometer and Gyroscope Device selection}
+\subsection{Accelerometer and Gyroscope Device selection}
 There are a variety of MEMS accelerometers and gyroscopes available in the market with different specifications. Our purpose was to pick the most suitable device for logging wrist movement data. We will first look at the different parameter's that we have for MEMS devices. These parameters are referenced from Analog Devices' website\footnote{\href{http://www.analog.com/en/content/td_accelerometer_specifications_definitions/fca.html}{Analog Devices - Accelerometer Specifications - Quick Definitions. Last accessed October 2014}} :
 
 \begin{description}
@@ -181,7 +182,7 @@ Due to this we can ignore parts with magnetometers.
 With these parameters, we compared a few of the options available in the market in September 2013. Table \ref{Tab:SensorCompTable} shows the different product names versus their important parameters. The first three products are the ones used in \cite{drennan2010assessment}.
 Based on these different parameters and comparing with \cite{drennan2010assessment}, we have selected the Invensense MPU-6000. The device contains both, a 3-axis accelerometer and a 3-axis gyroscope. It features three 16-bit analog-to-digital converters each for both these devices to digitize the sensor outputs. This data is stored in internal registers that can be accessed using I$^{2}$C at 100kHz or using SPI at 1Mhz. An on-chip buffer allows storing bursts of readings, which can be read in bursts by a master device. The device operates at a voltage of 2.375V to 3.46V, which would mean operation on most Lithium Ion battery. An operating current of 3.8mA means that the device can operate for roughly 24 hours on a standard coin cell battery. This makes the MPU 6000 very suitable for our requirements.
 
-\section{Breakouts}
+\subsection{Breakouts}
 \label{Sec:Breakouts}
 Newer integrated chips are packaged very densely, and have very small pins to connect to a PCB. With surface mount technology, it is possible to solder these devices to PCB's, however it is very hard for hobbyists to do so, because of the lack of expensive equipment. Electronic part retailers provide products in the form of Breakout boards, which means that they provide PCB's with the integrated chip soldered. These PCB's have pins to connect to that can be used conveniently. In effect, a breakout board converts pin - less packages like BGA (Ball grid array) and LGA (Land grid array) to DIP (Dual inline package).
 \begin{figure}
@@ -194,7 +195,7 @@ Newer integrated chips are packaged very densely, and have very small pins to co
 
 These breakout boards are easier to prototype with, and allow modular creation of a complete circuit. Although we have selected the MPU 6000, we still have to work it into our circuit and ensure that it will work in our device. To do so, conventional methods would require us to first solder this IC to a PCB containing the other components, and then programming a microcontroller to read from the sensor. However, PCB fabrication and soldering can be expensive, and are not a viable option during the prototype period. PCB manufacture can also take a considerable amount of time (up to a month), and is not a feasible strategy to work with. To prototype and test the sensor without fabricating a complete PCB, we decided to use a Breakout board containing the sensor. Figure ~\ref{Fig:MPUBreakOut} shows an example of a Breakout board. The image was sourced from ~\cite{Web:SFBreakout}.
 
-\section{Memory}
+\subsection{Memory}
 \label{Sec:Memory}
 
 The information sensed by the sensors has to be logged, and then processed by a computer. We could either store this information or transmit it wirelessly as it is gathered. For a system planned to read sensors at 15Hz, and logging data for 24 hours, we estimate the amount of data as shown in Equation \ref{Eqn:DataAmount}
@@ -242,7 +243,7 @@ To avoid the delay incurred because of PCB fabrication (which can take up to two
 \end{figure}
  
 
-\section{Microcontroller}
+\subsection{Microcontroller}
 \label{Sec:MicroController}
 
 The sensors we discussed in the previous section cannot function on their own. They are primarily slave devices that can be requested for data. To get this data, we require a master device, which we have in the form of a microcontroller. Our microcontroller would need to support the communication protocol used by our sensors and memory chip. It would also need to have a sufficient memory to be able to temporarily buffer sensor data before it is flushed to the external memory chip. 
@@ -281,7 +282,7 @@ the following characteristics (as seen in \cite{msp430F24xfamily})
 \end{itemize}
 We select the MSP430F248 as our microcontroller. This chip comes with a 48KB+256B Flash Memory, and 4KB of RAM. Assuming our program size would not be more than 1 KB, this would allow us to buffer about 3KB of data from the sensors before flushing it to the external memory, allowing the memory to remain in sleep mode for a large amount of time.
 
-\section{MSP 430 Target Board}
+\subsection{MSP 430 Target Board}
 \label{MSP430Target}
 
 \begin{figure}
@@ -300,8 +301,14 @@ Instead they have to be mounted on the PCB.
 It is very hard to design a complete system without bugs and if we would design a PCB
 while writing microcontroller code at the same time,
 it would not be easy to debug an error because we would not know if the error
-is in the hardware design or the software code. Texas Instruments' understands this,
-and provides a 64-Pin Target board for its microcontroller. This target board has
+is in the hardware design or the software code.
+Also, before we can use the microcontroller,
+any required external hardware needs to be connected.
+This includes capacitors and resistors,
+and a crystal oscillator to maintain accurate clocks.
+These parts would have to be soldered to the PCB with our microcontroller.
+Texas Instruments' understands that this is not an fast way for someone who wants to dive into programming the microcontroller,
+so they provide a 64-Pin Target board for its microcontroller. This target board has
 a ZIF\footnote{Zero Insertion Force} socket that accepts the 64-Pin QFP chip,
 and breaks out its pins. This means other devices can be connected to the board with ease,
 allowing us to program the microcontroller without having soldered it.
@@ -315,7 +322,7 @@ allowing us to program the microcontroller without having soldered it.
 
 Figure \ref{Fig:MSPTarget} shows us what the MSP430 Target Board looks like, with the socket in the center. You can see a connector in the top-right of the figure, which is labeled JTAG. The socket is surrounded by holes on all sides which connect to the microcontrollers pins, allowing for easy connections. The target board also allows for a crystal to be soldered next to the microcontroller if the programmer wants to use the Low Frequency Clock based on an external crystal. We use this crystal for and accurate clock when polling our sensors, and also when communicating with a host computer as we will see in section \ref{Sec:FT232}.
 
-\section{MSP430 Flash Emulation Tool}
+\subsection{MSP430 Flash Emulation Tool}
 \label{Sec:MSP430FET}
 Now that we have a microcontroller selected, and a target board that allows us to easily set it up electrically, we need a way to program it with our code. The MSP430 series of microcontrollers are programmed by using JTAG using 4 wires. Modern computers usually lack a serial or parallel port for communication, so Texas Instruments provides programmers with the MSP430 Flash Emulation Tool. This tool (seen in Figure \ref{Fig:MSP430FET}) connects to a desktop computer through USB, and the other end connects to a standardized JTAG connector, as seen in \ref{Fig:MSPTarget}. 
 \begin{figure}
@@ -328,7 +335,7 @@ Now that we have a microcontroller selected, and a target board that allows us t
 
 The tool also supports powering the system it is programming, so we were able to program our microcontroller without an external power source. Once we had our battery selected, a jumper on the MSP430 Target Board allowed us to disable the power supply of the Flash Emulation Tool. The FET can be used by various software, paid and free. For our use, we picked IAR's Code Composer Studio as it was available free of cost to students. Through the MSP430FET, IAR supports not only programming and flashing the microcontroller, but also debugging the code while it is running. This feature enabled us to fix multiple bugs in a short amount of time, something that would be hard to do without the debugging capabilities. We can also inspect different sections of the memory, allowing us to see live how the code is behaving.
 
-\section{USB to UART Bridge}
+\subsection{USB to UART Bridge}
 \label{Sec:FT232}
 With the above hardware in place, hopefully we have a system which reads from sensors and stores this data in the memory chip. Once data for an entire day is logged, we would like to transfer the contents of this memory to a computer where the sensor data can be analyzed for different patterns and behvaiours. Broadly speaking, there are two methods to transfer data, wireless and wired. Both these methods required parts that consume a current of about 18 mA when actively in use. Wireless transfer of data would consume power from the battery (unless a wire is connected to power the system), and assuming a speed of 115Kbps, this would take about 15 minutes to transfer. With an active current draw of 18mA for most wireless technologies, this would require a huge amount of power, something that the battery cannot sustain.
 \begin{figure}
@@ -353,7 +360,11 @@ We need a device that would communicate easily with our microcontroller, the MSP
 	\item Available in compact Lead-free 28 Pin SSOP and QFN-32 packages.
 \end{itemize}
 
-\section{Case}
+The FT232 was also obtained in a breakout board for quick prototyping.
+USB 2.0 had a default maximum current of 0.5mA. We add a fuse between the computer's USB module and the FT232 to make sure that noise or unwanted current draw does not harm the USB module of the computer connected to the FT232.
+
+
+\subsection{Case}
 \label{Sec:Case}
 \begin{figure}
 \begin{center}
@@ -390,7 +401,7 @@ Ergo Large   & 78 mm  & 48 mm & 20 mm  \\ \bottomrule
 \label{Tab:OKWSize}
 \end{table}
 
-\section{Battery}
+\subsection{Battery}
 \label{Sec:Battery}
 
 While the wrist activity monitor is mounted and active, it needs a power source to operate on.
@@ -402,7 +413,14 @@ Our wrist motion activity monitor requires a small battery which will supply a b
 These burts occur when memory has to be written to or during an erase operation for a memory page,
 since the memory requires higher current to process these operations.
 It should also hold enough power to supply current to the system for a minimum of 24 hours.
-Table \ref{Tab:BatteryCompTable} shows the dfiferent current battery types available in the market (as seen in \cite{Web:BatteryTable}), and their parameters.
+Table \ref{Tab:BatteryCompTable} shows the dfiferent current battery types available in the market (as seen in \cite{Web:BatteryTable}), and their parameters. From this table we see that Lithitm-ion and Lithium-ion Polymer batteries have identical characteristics.
+The difference between the two is the electrolyte used in creating these batteries.
+Lithium-ion batteries use a liquid,
+while Lithium-ion Polymer batteries use a gel based electrolyte.
+This allows Lithium-ion polymer batteries to be smaller,
+and require less hardware in containing the electrolyte.
+\cite{Web:BatteryTable} mentions that for slim geometry, the only choice is a Lithium-ion Polymer battery.
+
 
 \begin{figure}
 \begin{center}
@@ -411,7 +429,7 @@ Table \ref{Tab:BatteryCompTable} shows the dfiferent current battery types avail
 \label{Fig:BattComp}
 \end{center}
 \end{figure}
-After looking at work done by \cite{Web:ShimmerHome} \& \cite{drennan2010assessment} we decided to consider Lithium-Ion batteries. Another field where Lithium Ion batteries are used is in flight. Since aerial vehicles need to have a low weight, batteries used in this application are high density and very efficient. We considered the batteries used in the fields mentioned above and compared some of them. The comparison is given in table \ref{Tab:Battery2}. A visual comparison of the different battery sizes is shown in figure \ref{Fig:BattComp}. As it can be seen, apart from the LIR2450, the battery sizes are somewhat similar,
+After looking at work done by \cite{Web:ShimmerHome} \& \cite{drennan2010assessment} we decided to consider Lithium-Ion batteries. Another field where Lithium Ion batteries are used is in flight. This field has requirements similar to our application, because the aircraft must be very light to allow for easy take-off and flight control. Since aerial vehicles need to have a low weight, batteries used in this application are high density and very efficient. \cite{neitzel2011mobile} mentions a 5000mAh Lithium Polyer battery. We considered the batteries used in the fields mentioned above and compared some of them. The comparison is given in table \ref{Tab:Battery2}. A visual comparison of the different battery sizes is shown in figure \ref{Fig:BattComp}. As it can be seen, apart from the LIR2450, the battery sizes are somewhat similar,
 so it may be possible to use a larger battery while still fitting our hardware in our case.
 
 The width of the batteries would be an issue too.
@@ -423,9 +441,34 @@ would fit with some modifications into the smallest ergo case.
 These modifications included grinding the inside of the case to reduce the thickness,
 which would create some additional space to allow a slightly thicker battery.
 
-\section{Battery Charger}
+\subsection{Battery Charger}
+\label{Sec:BattCharger}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/ConnectorWhole.JPG}
+\caption{REPLAACE WITH MCP PHOTO}
+\label{Fig:MCPCharger}
+\end{center}
+\end{figure}
+If the device is being used similar to a wrist watch,
+it is not feasible to dis-assemble the device to change or recharge the battery.
+For this reason, 
+we require an inbuilt battery charging system.
+This battery could be charged when the wrist monitor is connected to a computer for transferring data.
+Lithium Polymer batteries require a differential charge which is based on the voltage the batteries' cell holds.
+These batteries should not be overcharged, 
+as that can cause the battery to heat,
+decrease the life cycle of the battery,
+and also cause it to explode.
+In \cite{kioumars2011atmega}, Kioumars et al. demonstrate a sensor to monitor heart rate and body temperature.
+They use the MCP73831, a miniature Lithium-Polymer charge management controller.
+The MCP73831 is shown in figure \ref{Fig:MCPCharger}.
+This part accepts a voltage between 3.75V to 6V,
+and outputs a charge current based on the status of the battery cell connected to it.
+When the MCP73831 detects a battery is charged to its maximum capacity,
+it stops supplying current to avoid harming the battery.
 
-\section{LED}
+\subsection{LED}
 \label{Sec:LED}
 When the wrist activity monitor is worn,
 the user would require some kind of feedback on its operation.
@@ -435,11 +478,13 @@ We decided that the only indicator the device would have would be on its status.
 Taking a cue from Bluetooth\texttrademark headsets,
 we designed a system where a single light would blink to indicate its status.
 To indicate that it is currently operating, it would blink for a very short period roughly every 10 seconds.
-This was later changed to turn on everytime the data from the microcontroller was flushed to the memory chip,
-an activity that would occur every 11.33 seconds.
-The light would turn off after this process was complete,
-taking roughly 43 milliseconds.
-The result was a light that would blink every 11.33 seconds for 43 milliseconds.
+After 1KB of data was recorded to the microcontroller, it would be flushed to the memory chip,
+this would require using SPI commands to store this data to the memory chip's buffer,
+and issuing a special command to write this buffer to a page on the memory chip.
+We emperically determined that this activity would repeat every 11.33 seconds.
+Instead of blinking the LED every 10 seconds, we changed it to turn on evertime the data flushing process would begin,
+and turn off at the end of this process.
+The result was a light that would blink every 11.33 seconds for 54 milliseconds.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{images/ConnectorWhole.JPG}
@@ -452,7 +497,7 @@ Since the LED is being turned on for very short periods of time,
 (the duty cycle for this operation being 0.37\%) very little power is being consumed by the LED.
 For this reason, we used an LED found in our campus' Tech Shop. A photograph of the LED is seen in figure \ref{Fig:LEDPHOTO}.
 
-\section{Button}
+\subsection{Button}
 \label{Sec:Button}
 As with any consumer electronic device, we require the option to turn our device on or off. We might also want to provide our user with the option of erasing the memory for the device. This would require some kind of button (or buttons) to allow such interaction. We consider a scheme that required one button, with a state machine behaviour as given in table \ref{Tab:ButtonTable}. Based on this state machine behaviour, we recognize that a single pole single throw momentarily on switch is the most convinient device for our purpose. This button can be see in figure \ref{Fig:MomButton}. A momentary on button is similar to those seen on a remote, where the button switches on momentarily when pressed, and then deactivates as soon as pressure on it is released.
 \begin{figure}
@@ -465,7 +510,7 @@ As with any consumer electronic device, we require the option to turn our device
 \inputfile{tables/ButtonTable.tex}
 
 
-\section{Connectors}
+\subsection{Connectors}
 \label{Sec:Connetors}
 Instead of soldering wires to our device (so that we can connect the JTAG cable or the USB to UART bridge to a computer), we prefer to use connectors. This allows us to disengage with ease without having to cut the cable or de-solder it from the device before it can be used. The JTAG connection required 7 pins to connect to our microcontroller, and a standard seven pin header is 17.78 mm X 4.85 mm in size. The pitch (distance between two pins) in a standard header is 0.1 inches or 2.54 mm. Since space on the PCB is at a premium, we use a smaller header instead, with a pitch of 0.059 inches or 1.50 mm. This allows us to conserve space on the PCB.
 \begin{figure}
