@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="744.09448819"
@@ -38,9 +39,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.8920238"
-     inkscape:cx="229.0746"
-     inkscape:cy="839.75923"
+     inkscape:zoom="0.66893143"
+     inkscape:cx="-311.48829"
+     inkscape:cy="511.78957"
      inkscape:document-units="px"
      inkscape:current-layer="g3172"
      showgrid="false"
@@ -71,21 +72,21 @@
        id="g3172"
        transform="translate(-19.452357,2.3244152)">
       <rect
-         style="opacity:0.93000004000000003;fill:#ff7f2a;fill-opacity:1;stroke:#ff5a2a;stroke-width:8.10000038000000090;stroke-miterlimit:4;stroke-dasharray:24.30000113999999900, 24.30000113999999900;stroke-dashoffset:0;stroke-opacity:1"
+         style="opacity:0.93000004000000003;fill:#ff7f2a;fill-opacity:1;stroke:#ff5a2a;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect7550"
          width="328.58438"
          height="830.24316"
          x="127.13656"
          y="152.96388" />
       <rect
-         style="fill:#cc00ff;fill-opacity:1;stroke:#cc00ff;stroke-width:8.10000038000000090;stroke-miterlimit:4;stroke-dasharray:4.05000019000000040, 4.05000019000000040;stroke-dashoffset:0;stroke-opacity:1"
+         style="fill:#cc00ff;fill-opacity:1;stroke:#cc00ff;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect7556"
          width="201.34895"
          height="858.08929"
          x="126.70815"
          y="125.11776" />
       <rect
-         style="fill:#2a7fff;fill-opacity:1;stroke:#2a30ff;stroke-width:8.10000038000000090;stroke-miterlimit:4;stroke-dasharray:8.10000038000000090, 8.10000038000000090;stroke-dashoffset:0;stroke-opacity:1"
+         style="fill:#2a7fff;fill-opacity:1;stroke:#2a30ff;stroke-width:8.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect7544"
          width="234.33592"
          height="750.13196"
@@ -948,17 +949,17 @@
       <text
          xml:space="preserve"
          style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         x="477.66599"
-         y="181.94211"
+         x="133.06145"
+         y="283.94928"
          id="text4247"
          sodipodi:linespacing="125%"><tspan
            sodipodi:role="line"
            id="tspan4249"
-           x="477.66599"
-           y="181.94211"
-           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#2affd5;font-family:Courier New;-inkscape-font-specification:Courier New">Nano-tech  90mah</tspan></text>
+           x="133.06145"
+           y="283.94928"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;font-family:Courier New;-inkscape-font-specification:Courier New">Nano-tech</tspan></text>
       <rect
-         style="fill:#37c871;stroke:#217844;stroke-width:4;stroke-miterlimit:4.9000001;stroke-dasharray:8,4,2,4;stroke-dashoffset:0"
+         style="fill:#37c871;stroke:#217844;stroke-width:4;stroke-miterlimit:4.9000001;stroke-dasharray:none;stroke-dashoffset:0"
          id="rect4251"
          width="133.55434"
          height="578.12854"
@@ -967,103 +968,110 @@
       <text
          sodipodi:linespacing="125%"
          id="text4257"
-         y="201.94211"
-         x="477.66599"
+         y="399.08551"
+         x="130.41878"
          style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
          xml:space="preserve"><tspan
-           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#37c871;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New"
-           y="201.94211"
-           x="477.66599"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New"
+           y="399.08551"
+           x="130.41878"
            id="tspan4259"
-           sodipodi:role="line">Nano-tech  80mah</tspan></text>
+           sodipodi:role="line">Nano-tech</tspan></text>
       <path
          sodipodi:type="arc"
-         style="opacity:0.86000001000000004;fill:#aad400;fill-opacity:1;stroke:#00ff65;stroke-width:1.28329748000000010;stroke-miterlimit:8.80000019000000040;stroke-dasharray:2.56659496000000020, 1.28329748000000010;stroke-dashoffset:0;marker-mid:none;marker-end:none;stroke-opacity:1"
+         style="opacity:0.86000001000000004;fill:#aad400;fill-opacity:1;stroke:#00ff65;stroke-width:1.28329748;stroke-miterlimit:8.80000019;stroke-dasharray:none;stroke-dashoffset:0;marker-mid:none;marker-end:none;stroke-opacity:1"
          id="path5031"
          sodipodi:cx="302.32013"
          sodipodi:cy="588.88544"
          sodipodi:rx="78.154907"
          sodipodi:ry="78.154907"
-         d="m 380.47504,588.88544 a 78.154907,78.154907 0 1 1 -156.30982,0 78.154907,78.154907 0 1 1 156.30982,0 z"
+         d="m 380.47504,588.88544 c 0,43.16376 -34.99115,78.1549 -78.15491,78.1549 -43.16376,0 -78.15491,-34.99114 -78.15491,-78.1549 0,-43.16377 34.99115,-78.15491 78.15491,-78.15491 43.16376,0 78.15491,34.99114 78.15491,78.15491 z"
          transform="matrix(3.1169702,0,0,3.1169702,-569.22563,-1098.021)" />
       <text
          xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#aad400;fill-opacity:1;stroke:none;font-family:Sans"
-         x="477.66599"
-         y="221.94211"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#65b403;fill-opacity:1;stroke:none;font-family:Sans"
          id="text7540"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan7542"
-           x="477.66599"
-           y="221.94211"
-           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#aad400;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New">LIR2450    90mah</tspan></text>
+         sodipodi:linespacing="125%"
+         transform="matrix(0.5,-0.8660254,0.8660254,0.5,-442.24474,686.42087)"><textPath
+           xlink:href="#path5031"
+           id="textPath11199"><tspan
+   style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#65b403;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New"
+   id="tspan7542">LIR2450 90mAh</tspan></textPath></text>
       <text
          sodipodi:linespacing="125%"
          id="text7546"
-         y="241.94211"
-         x="477.66599"
+         y="220.80072"
+         x="126.71902"
          style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2a7fff;fill-opacity:1;stroke:none;font-family:Sans"
          xml:space="preserve"><tspan
-           style="font-size:20px;fill:#2a7fff;fill-opacity:1;-inkscape-font-specification:Courier New;font-family:Courier New;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
-           y="241.94211"
-           x="477.66599"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#2a7fff;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New"
+           y="220.80072"
+           x="126.71902"
            id="tspan7548"
-           sodipodi:role="line">Nano-tech 160mah</tspan></text>
+           sodipodi:role="line">Nano-tech 160mAh</tspan></text>
       <text
          xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff7f2a;fill-opacity:1;stroke:none;font-family:Sans"
-         x="477.66599"
-         y="261.94211"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6700;fill-opacity:1;stroke:none;font-family:Sans"
+         x="337.07578"
+         y="145.66451"
          id="text7552"
          sodipodi:linespacing="125%"><tspan
            sodipodi:role="line"
            id="tspan7554"
-           x="477.66599"
-           y="261.94211"
-           style="font-size:20px;fill:#ff7f2a;fill-opacity:1;-inkscape-font-specification:Courier New;font-family:Courier New;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Nano-tech 300mah</tspan></text>
+           x="337.07578"
+           y="145.66451"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ff6700;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New">Nano-tech</tspan></text>
       <text
          sodipodi:linespacing="125%"
          id="text7558"
-         y="281.94211"
-         x="477.66599"
+         y="118.62493"
+         x="130.9473"
          style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cc00ff;fill-opacity:1;stroke:none;font-family:Sans"
          xml:space="preserve"><tspan
            style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#cc00ff;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New"
-           y="281.94211"
-           x="477.66599"
+           y="118.62493"
+           x="130.9473"
            id="tspan7560"
-           sodipodi:role="line">Duracell  800mah</tspan></text>
-      <path
-         style="fill:#00aa88;fill-opacity:1;stroke:#6600ff;stroke-width:4.80938053000000030;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-         d="m 678.17899,176.67038 74.31751,0 0,0"
-         id="path7562"
-         inkscape:connector-curvature="0" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path7582"
-         d="m 677.48969,196.10978 75.1765,0 0,0"
-         style="fill:none;stroke:#217844;stroke-width:4.01900625000000030;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8.03801280999999970, 4.01900641000000030, 2.00950320000000020, 4.01900641000000030;stroke-dashoffset:0" />
-      <path
-         style="fill:none;stroke:#00ff65;stroke-width:4.02902221999999990;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8.05804451999999930, 4.02902225999999960;stroke-dashoffset:0"
-         d="m 678.45226,216.67038 74.04786,0 0,0"
-         id="path7584"
-         inkscape:connector-curvature="0" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path7586"
-         d="m 678.25506,236.67038 79.55998,0 0,0"
-         style="fill:none;stroke:#2a30ff;stroke-width:9.95224094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:9.95224174, 9.95224174;stroke-dashoffset:0" />
-      <path
-         style="fill:none;stroke:#ff5a2a;stroke-width:9.62172031;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:28.86515925, 28.86515925;stroke-dashoffset:0"
-         d="m 678.23666,256.48351 74.36322,0 0,0"
-         id="path7588"
-         inkscape:connector-curvature="0" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path7590"
-         d="m 678.41283,276.67038 77.12041,0 0,0"
-         style="fill:none;stroke:#cc00ff;stroke-width:9.92095089;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.96047534, 4.96047534;stroke-dashoffset:0" />
+           sodipodi:role="line">Duracell  800mAh</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text11195"
+         y="-461.5065"
+         x="151.71156"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6700;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"
+         transform="matrix(0,1,-1,0,0,0)"><tspan
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ff6700;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New"
+           y="-461.5065"
+           x="151.71156"
+           id="tspan11197"
+           sodipodi:role="line">300mAh</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="404.40286"
+         y="-267.49991"
+         id="text11737"
+         sodipodi:linespacing="125%"
+         transform="matrix(0,1,-1,0,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan11739"
+           x="404.40286"
+           y="-267.49991"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New">80mAh</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text11741"
+         y="-249.18005"
+         x="290.30182"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"
+         transform="matrix(0,1,-1,0,0,0)"><tspan
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           y="-249.18005"
+           x="290.30182"
+           id="tspan11743"
+           sodipodi:role="line">90mAh</tspan></text>
     </g>
   </g>
 </svg>

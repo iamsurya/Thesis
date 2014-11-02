@@ -60,8 +60,9 @@ In the case of our device we would like to measure the linear acceleration in al
 This will allow us to track the movement of the wrist in free living humans as their hand moves around in free space.
 Figure \ref{fig:AccAxis} shows how the axis of the sensor are oriented for our device when worn on the wrist.
 To understand how an accelerometer works,
-we imagine a system devised of a spring connected to a fixed surface at one end (as shown in figure \ref{fig:HookeSpring}),
-and an object with a mass M at the other end.
+we imagine a system devised of a spring connected to a fixed surface at one end,
+and an object with a mass M at the other end. This is shown in figure \ref{fig:HookeSpring}.
+The equilibrium point 0 and extended distance X is also shown.
 Since springs are governed by Hooke's Law, we can use this law to explain the behaviour of our system.
 Hooke's law states that to extend or compress a spring by distance X,
 the force required is proportional to X, or mathematically as given in equation \ref{Eqn:HookesLaw}:
@@ -72,7 +73,7 @@ F = -kX
 where F is the force required, X is the distance the spring is extended or compressed from its equilibrium position, and k is the spring constant for a particular spring.
 \begin{figure}
 \begin{center}
-\includegraphics{images/HookesLaw.png}
+\includegraphics{images/HookesLaw.eps}
 \caption{Example of a spring system}
 \label{fig:HookeSpring}
 \end{center}
@@ -103,8 +104,8 @@ and can subtract this from later readings obtained from the accelerometer.
 Gyroscopes are devices used to measure angular movement. In our case, we use MEMS gyroscopes to measure angular velocity in three axes, X, Y and Z (as shown in figure \ref{fig:AccAxis}). How a gyroscope works in explained in ~\cite{Web:SparkfunGyros}. We will review the same here.
 \begin{figure}
 \begin{center}
-\includegraphics{images/GyroWork.png}
-\caption{Internal Working of a Gyroscope}
+\includegraphics{images/GyroWork.eps}
+\caption{Internal workings of a Gyroscope}
 \label{fig:GyroDiag}
 \end{center}
 \end{figure}
@@ -315,20 +316,20 @@ allowing us to program the microcontroller without having soldered it.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{images/mspts430pm64.jpg}
-\caption{The MSP430 64-Pin Target Board. Image provided by Texas Instruments}
+\caption{The MSP430 64-Pin Target Board.}
 \label{Fig:MSPTarget}
 \end{center}
 \end{figure}
 
-Figure \ref{Fig:MSPTarget} shows us what the MSP430 Target Board looks like, with the socket in the center. You can see a connector in the top-right of the figure, which is labeled JTAG. The socket is surrounded by holes on all sides which connect to the microcontrollers pins, allowing for easy connections. The target board also allows for a crystal to be soldered next to the microcontroller if the programmer wants to use the Low Frequency Clock based on an external crystal. We use this crystal for and accurate clock when polling our sensors, and also when communicating with a host computer as we will see in section \ref{Sec:FT232}.
+Figure \ref{Fig:MSPTarget} shows us what the MSP430 Target Board \cite{Web:MSPTarget} looks like, with the socket in the center. You can see a connector in the top-right of the figure, which is labeled JTAG. The socket is surrounded by holes on all sides which connect to the microcontrollers pins, allowing for easy connections. The target board also allows for a crystal to be soldered next to the microcontroller if the programmer wants to use the Low Frequency Clock based on an external crystal. We use this crystal for and accurate clock when polling our sensors, and also when communicating with a host computer as we will see in section \ref{Sec:FT232}.
 
 \subsection{MSP430 Flash Emulation Tool}
 \label{Sec:MSP430FET}
-Now that we have a microcontroller selected, and a target board that allows us to easily set it up electrically, we need a way to program it with our code. The MSP430 series of microcontrollers are programmed by using JTAG using 4 wires. Modern computers usually lack a serial or parallel port for communication, so Texas Instruments provides programmers with the MSP430 Flash Emulation Tool. This tool (seen in Figure \ref{Fig:MSP430FET}) connects to a desktop computer through USB, and the other end connects to a standardized JTAG connector, as seen in \ref{Fig:MSPTarget}. 
+Now that we have a microcontroller selected, and a target board that allows us to easily set it up electrically, we need a way to program it with our code. The MSP430 series of microcontrollers are programmed by using JTAG using 4 wires. Modern computers usually lack a serial or parallel port for communication, so Texas Instruments provides programmers with the MSP430 Flash Emulation Tool. This tool (seen in Figure \ref{Fig:MSP430FET}) connects to a desktop computer through USB, and the other end connects to a standardized JTAG connector, as seen in \ref{Fig:MSPTarget} \cite{Web:MSPFETPAGE}. 
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{images/MSP430FETUIF.jpg}
-\caption{The MSP430 Flash Emulation tool. Picture courtesy Texas Instruments}
+\caption{The MSP430 Flash Emulation tool.}
 \label{Fig:MSP430FET}
 \end{center}
 \end{figure}
@@ -341,7 +342,7 @@ With the above hardware in place, hopefully we have a system which reads from se
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{images/FT232coin.jpg}
-\caption{The FT232RL USB to UART bridge. Picture courtesy Sparkfun.com}
+\caption{The FT232RL USB to UART bridge.}
 \label{Fig:FT232}
 \end{center}
 \end{figure}
@@ -350,7 +351,7 @@ We solve both these problems by using a wired connection to transfer data. As me
 
 We looked for devices that would help convert communication in one protocol to another. Since SPI, I$^2$C and UART are all serial communication protocols, in theory, any device that can communicate in one of these protocols should be able to communicate in the other. However, a search on different devices in the market showed that USB to UART bridges are an easy way for microcontrollers to communicate with a computer. The device is detected as a virtual serial communication port to the operating system, and can be used as a regular serial port. Searching for USB to UART devices shows two primary contenders in the market segment, Silicon Labs and Future Technology Devices International (also known as FTDI). Both offer devices that have similar features and specifications. 
 
-We need a device that would communicate easily with our microcontroller, the MSP430F248 and also be easy to prototype with. All of Silicon Labs' offered parts are only available in the QFN package, which means it would be hard to prototype using them. For this reason, we select FTDI's chip, the FT232RL (shown in figure \ref{Fig:FT232}. FT232RL has the following specifications (as seen in \cite{FT232Datasheet}):
+We need a device that would communicate easily with our microcontroller, the MSP430F248 and also be easy to prototype with. All of Silicon Labs' offered parts are only available in the QFN package, which means it would be hard to prototype using them. For this reason, we select FTDI's chip, the FT232RL (shown in figure \ref{Fig:FT232} \cite{Web:FTIMG}. FT232RL has the following specifications (as seen in \cite{FT232Datasheet}):
 
 \begin{itemize}
 	\item Single chip USB to asynchronous serial data transfer interface.
@@ -375,11 +376,11 @@ USB 2.0 had a default maximum current of 0.5mA. We add a fuse between the comput
 \end{figure}
 All these parts would need to be housed inside a box or case of some kind.
 Previous work done by this group used an enclosure from OKW Enclosures.
-The family of enclosures can be a seen in figure \ref{Fig:OKWFam}.
+The family of enclosures can be a seen in figure \ref{Fig:OKWFam} \cite{Web:OKWPics}.
 The image shows enclosures of three sizes,
 and table \ref{Tab:OKWSize} shows the sizes of the three models,
 along with their Type as defined by OKW Enclosures.
-Work done by Huang et. al \cite{huang2013assessment} used the Ergo Large case,
+Work done by Huang et al. \cite{huang2013assessment} used the Ergo Large case,
 which is the largest case in the Ergo Minitec family.
 These devices were not designed to be worn all day,
 but our device is meant to be worn for a full day or multiple days.
@@ -407,7 +408,6 @@ Ergo Large   & 78 mm  & 48 mm & 20 mm  \\ \bottomrule
 While the wrist activity monitor is mounted and active, it needs a power source to operate on.
 Work done by \cite{Web:ShimmerHome} uses a single 450mah Lithium Ion Polymer battery.
 Similar batteries with higher capacities are found in mobile phones. We also see other batteries available in the market,
-\inputfile{tables/BatteryTable.tex}
 with different characteristics based on the technology.
 Our wrist motion activity monitor requires a small battery which will supply a burst current of $\approx$25mA when required.
 These burts occur when memory has to be written to or during an erase operation for a memory page,
@@ -420,8 +420,6 @@ while Lithium-ion Polymer batteries use a gel based electrolyte.
 This allows Lithium-ion polymer batteries to be smaller,
 and require less hardware in containing the electrolyte.
 \cite{Web:BatteryTable} mentions that for slim geometry, the only choice is a Lithium-ion Polymer battery.
-
-
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{images/battcompare.eps}
@@ -431,7 +429,6 @@ and require less hardware in containing the electrolyte.
 \end{figure}
 After looking at work done by \cite{Web:ShimmerHome} \& \cite{drennan2010assessment} we decided to consider Lithium-Ion batteries. Another field where Lithium Ion batteries are used is in flight. This field has requirements similar to our application, because the aircraft must be very light to allow for easy take-off and flight control. Since aerial vehicles need to have a low weight, batteries used in this application are high density and very efficient. \cite{neitzel2011mobile} mentions a 5000mAh Lithium Polyer battery. We considered the batteries used in the fields mentioned above and compared some of them. The comparison is given in table \ref{Tab:Battery2}. A visual comparison of the different battery sizes is shown in figure \ref{Fig:BattComp}. As it can be seen, apart from the LIR2450, the battery sizes are somewhat similar,
 so it may be possible to use a larger battery while still fitting our hardware in our case.
-
 The width of the batteries would be an issue too.
 As seen in section \ref{Sec:Case},
 the case is curved along its median,
@@ -440,13 +437,15 @@ Emperical analysis showed that the Turnigy Nano-tech 160mAh battery
 would fit with some modifications into the smallest ergo case.
 These modifications included grinding the inside of the case to reduce the thickness,
 which would create some additional space to allow a slightly thicker battery.
+\inputfile{tables/BatteryTable.tex}
+
 
 \subsection{Battery Charger}
 \label{Sec:BattCharger}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{images/ConnectorWhole.JPG}
-\caption{REPLAACE WITH MCP PHOTO}
+\includegraphics[width=0.5\textwidth]{images/MCP73Breakout.jpg}
+\caption{Breakout Board with the MCP73831. Quarter shown for size comparison.}
 \label{Fig:MCPCharger}
 \end{center}
 \end{figure}
@@ -462,7 +461,7 @@ decrease the life cycle of the battery,
 and also cause it to explode.
 In \cite{kioumars2011atmega}, Kioumars et al. demonstrate a sensor to monitor heart rate and body temperature.
 They use the MCP73831, a miniature Lithium-Polymer charge management controller.
-The MCP73831 is shown in figure \ref{Fig:MCPCharger}.
+The MCP73831 is shown in figure \ref{Fig:MCPCharger} \cite{Web:MCPIC}.
 This part accepts a voltage between 3.75V to 6V,
 and outputs a charge current based on the status of the battery cell connected to it.
 When the MCP73831 detects a battery is charged to its maximum capacity,
@@ -487,8 +486,8 @@ and turn off at the end of this process.
 The result was a light that would blink every 11.33 seconds for 54 milliseconds.
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{images/ConnectorWhole.JPG}
-\caption{REPLAACE WITH LED PHOTO}
+\includegraphics[width=0.5\textwidth]{images/LEDPhoto.jpg}
+\caption{Photograph of the LED we used.}
 \label{Fig:LEDPHOTO}
 \end{center}
 \end{figure}
@@ -529,15 +528,14 @@ and the width by 2.1 mm. The connector we selected was available only in a 10 pi
 To reduce this use of space, we cut the connector to its bare minimum.
 The housing was cut off using an exacto knife,
 and three pins were cut off because they were not needed.
-The final connector is shown in figure \ref{Fig:ConnectorCut}.
+The final connector is shown in figure \ref{Fig:ConnectorBoth}.
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{images/ConnectorWhole.JPG}
-\caption{REPLACE WITH PHOTO OF THE BROKEN CONNECTOR}
-\label{Fig:ConnectorCut}
+\includegraphics[width=0.5\textwidth]{images/ConnectorBoth.JPG}
+\caption{Photo showing the size difference after removing the enclosure and the original connector.}
+\label{Fig:ConnectorBoth}
 \end{center}
 \end{figure}
-
 For the USB connection, we required only 4 pins.
 This would require a space of 9 mm X 2mm,
 and could be squeezed between the other components on the PCB.

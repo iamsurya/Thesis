@@ -1,0 +1,2477 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg13375"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="New document 12">
+  <defs
+     id="defs13377" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="333.0547"
+     inkscape:cy="766.21701"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata13380">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g6301">
+      <title
+         id="title6303">NET 3.3V</title>
+      <line
+         id="line6305"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-134.62"
+         x2="78.739998"
+         y1="-137.16"
+         x1="78.739998"
+         class="l91" />
+      <line
+         id="line6307"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-137.16"
+         x2="78.739998"
+         y1="-137.16"
+         x1="104.14"
+         class="l91" />
+      <line
+         id="line6309"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-134.62"
+         x2="78.739998"
+         y1="-134.62"
+         x1="104.14"
+         class="l91" />
+      <circle
+         d="m 79.247998,-134.62 c 0,0.28057 -0.227439,0.508 -0.508,0.508 -0.280561,0 -0.508,-0.22743 -0.508,-0.508 0,-0.28056 0.227439,-0.508 0.508,-0.508 0.280561,0 0.508,0.22744 0.508,0.508 z"
+         style="fill:#008000"
+         sodipodi:ry="0.50800002"
+         sodipodi:rx="0.50800002"
+         sodipodi:cy="-134.62"
+         sodipodi:cx="78.739998"
+         id="circle6311"
+         r="0.50800002"
+         cy="-134.62"
+         cx="78.739998"
+         class="j91" />
+      <text
+         id="text6313"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-137.16"
+         x="96.519997"
+         class="l95">3.3V</text>
+      <text
+         id="text6315"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-134.62"
+         x="96.519997"
+         class="l95">3.3V</text>
+    </g>
+    <line
+       class="l91"
+       x1="203.60286"
+       y1="280.03787"
+       x2="167.60286"
+       y2="280.03787"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6321" />
+    <line
+       class="l91"
+       x1="203.60286"
+       y1="186.40605"
+       x2="203.60286"
+       y2="280.14246"
+       style="fill:none;stroke:#008000;stroke-width:0.33083445;stroke-linecap:round"
+       id="line6323" />
+    <line
+       class="l91"
+       x1="302.60287"
+       y1="186.32362"
+       x2="239.60286"
+       y2="186.32362"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6325" />
+    <line
+       class="l91"
+       x1="239.60286"
+       y1="186.32362"
+       x2="203.60286"
+       y2="186.32362"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6327" />
+    <line
+       class="l91"
+       x1="239.60286"
+       y1="195.32361"
+       x2="239.60286"
+       y2="186.32362"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6329" />
+    <circle
+       class="j91"
+       cx="43.18"
+       cy="-149.86"
+       r="0.50800002"
+       id="circle6331"
+       sodipodi:cx="43.18"
+       sodipodi:cy="-149.86"
+       sodipodi:rx="0.50800002"
+       sodipodi:ry="0.50800002"
+       style="fill:#008000"
+       d="m 43.688,-149.86 c 0,0.28056 -0.227439,0.508 -0.508,0.508 -0.28056,0 -0.508,-0.22744 -0.508,-0.508 0,-0.28056 0.22744,-0.508 0.508,-0.508 0.280561,0 0.508,0.22744 0.508,0.508 z"
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)" />
+    <circle
+       class="j91"
+       cx="53.34"
+       cy="-193.03999"
+       r="0.50800002"
+       id="circle6333"
+       sodipodi:cx="53.34"
+       sodipodi:cy="-193.03999"
+       sodipodi:rx="0.50800002"
+       sodipodi:ry="0.50800002"
+       style="fill:#008000"
+       d="m 53.848,-193.03999 c 0,0.28056 -0.227439,0.508 -0.508,0.508 -0.280561,0 -0.508,-0.22744 -0.508,-0.508 0,-0.28056 0.227439,-0.508 0.508,-0.508 0.280561,0 0.508,0.22744 0.508,0.508 z"
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)" />
+    <line
+       class="l91"
+       x1="329.60284"
+       y1="361.0379"
+       x2="329.60284"
+       y2="370.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6371" />
+    <line
+       class="l91"
+       x1="167.60286"
+       y1="271.0379"
+       x2="194.60286"
+       y2="271.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6373" />
+    <line
+       class="l91"
+       x1="194.60286"
+       y1="271.0379"
+       x2="194.60286"
+       y2="307.03787"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6375" />
+    <line
+       class="l91"
+       x1="419.60287"
+       y1="379.0379"
+       x2="410.60287"
+       y2="379.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6377" />
+    <line
+       class="l91"
+       x1="410.60287"
+       y1="379.0379"
+       x2="410.60287"
+       y2="388.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6379" />
+    <line
+       class="l91"
+       x1="410.60287"
+       y1="388.0379"
+       x2="419.60287"
+       y2="388.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6381" />
+    <line
+       class="l91"
+       x1="410.60287"
+       y1="388.0379"
+       x2="410.60287"
+       y2="397.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6383" />
+    <line
+       class="l91"
+       x1="410.60287"
+       y1="397.0379"
+       x2="419.60287"
+       y2="397.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6385" />
+    <line
+       class="l91"
+       x1="419.60287"
+       y1="406.03787"
+       x2="410.60287"
+       y2="406.03787"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6387" />
+    <line
+       class="l91"
+       x1="410.60287"
+       y1="406.03787"
+       x2="410.60287"
+       y2="397.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6389" />
+    <line
+       class="l91"
+       x1="419.60287"
+       y1="415.0379"
+       x2="410.60287"
+       y2="415.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6391" />
+    <line
+       class="l91"
+       x1="410.60287"
+       y1="415.0379"
+       x2="410.60287"
+       y2="406.03787"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6393" />
+    <line
+       class="l91"
+       x1="410.60287"
+       y1="424.0379"
+       x2="410.60287"
+       y2="415.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6395" />
+    <circle
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       class="j91"
+       cx="101.6"
+       cy="-119.38"
+       r="0.50800002"
+       id="circle6397"
+       sodipodi:cx="101.6"
+       sodipodi:cy="-119.38"
+       sodipodi:rx="0.50800002"
+       sodipodi:ry="0.50800002"
+       style="fill:#008000" />
+    <circle
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       class="j91"
+       cx="101.6"
+       cy="-116.84"
+       r="0.50800002"
+       id="circle6399"
+       sodipodi:cx="101.6"
+       sodipodi:cy="-116.84"
+       sodipodi:rx="0.50800002"
+       sodipodi:ry="0.50800002"
+       style="fill:#008000" />
+    <circle
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       class="j91"
+       cx="101.6"
+       cy="-114.3"
+       r="0.50800002"
+       id="circle6401"
+       sodipodi:cx="101.6"
+       sodipodi:cy="-114.3"
+       sodipodi:rx="0.50800002"
+       sodipodi:ry="0.50800002"
+       style="fill:#008000" />
+    <circle
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       class="j91"
+       cx="101.6"
+       cy="-111.76"
+       r="0.50800002"
+       id="circle6403"
+       sodipodi:cx="101.6"
+       sodipodi:cy="-111.76"
+       sodipodi:rx="0.50800002"
+       sodipodi:ry="0.50800002"
+       style="fill:#008000" />
+    <line
+       class="l91"
+       x1="257.60287"
+       y1="361.0379"
+       x2="257.60287"
+       y2="370.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6405" />
+    <line
+       class="l91"
+       x1="293.60287"
+       y1="370.0379"
+       x2="293.60287"
+       y2="361.0379"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6407" />
+    <line
+       class="l91"
+       x1="374.60287"
+       y1="204.32361"
+       x2="374.60287"
+       y2="213.32364"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6409" />
+    <line
+       class="l91"
+       x1="239.60286"
+       y1="222.32362"
+       x2="239.60286"
+       y2="231.32365"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6411" />
+    <line
+       class="l91"
+       x1="428.60287"
+       y1="195.32362"
+       x2="437.60287"
+       y2="195.32362"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6413" />
+    <line
+       class="l91"
+       x1="437.60287"
+       y1="195.32362"
+       x2="437.60287"
+       y2="213.32364"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6415" />
+    <line
+       class="l91"
+       x1="536.60284"
+       y1="195.32362"
+       x2="518.60284"
+       y2="213.32364"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6431" />
+    <line
+       class="l91"
+       x1="518.60284"
+       y1="213.32364"
+       x2="491.60287"
+       y2="213.32364"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6433" />
+    <circle
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       class="j91"
+       cx="124.46"
+       cy="-185.42"
+       r="0.50800002"
+       id="circle6435"
+       sodipodi:cx="124.46"
+       sodipodi:cy="-185.42"
+       sodipodi:rx="0.50800002"
+       sodipodi:ry="0.50800002"
+       style="fill:#008000" />
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g6489">
+      <title
+         id="title6491">NET N$3</title>
+      <line
+         id="line6493"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-190.5"
+         x2="96.519997"
+         y1="-190.5"
+         x1="91.440002"
+         class="l91" />
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g6689">
+      <title
+         id="title6691">NET USB_D+</title>
+      <line
+         id="line6693"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-144.78"
+         x2="33.02"
+         y1="-144.78"
+         x1="104.14"
+         class="l91" />
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g6695">
+      <title
+         id="title6697">NET USB_D-</title>
+      <line
+         id="line6699"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-147.32001"
+         x2="33.02"
+         y1="-147.32001"
+         x1="104.14"
+         class="l91" />
+    </g>
+    <line
+       class="l91"
+       x1="374.60287"
+       y1="186.32365"
+       x2="491.60287"
+       y2="186.32365"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6705" />
+    <line
+       class="l91"
+       x1="491.60287"
+       y1="186.32365"
+       x2="536.60284"
+       y2="186.32365"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6707" />
+    <line
+       class="l91"
+       x1="491.60287"
+       y1="186.32365"
+       x2="491.60287"
+       y2="128.72359"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6709" />
+    <line
+       class="l91"
+       x1="491.60287"
+       y1="128.72359"
+       x2="491.60287"
+       y2="123.32359"
+       style="fill:none;stroke:#008000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line6711" />
+    <circle
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       class="j91"
+       cx="124.46"
+       cy="-193.03999"
+       r="0.50800002"
+       id="circle6713"
+       sodipodi:cx="124.46"
+       sodipodi:cy="-193.03999"
+       sodipodi:rx="0.50800002"
+       sodipodi:ry="0.50800002"
+       style="fill:#008000" />
+    <circle
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       class="j91"
+       cx="124.46"
+       cy="-209.29601"
+       r="0.50800002"
+       id="circle6715"
+       sodipodi:cx="124.46"
+       sodipodi:cy="-209.29601"
+       sodipodi:rx="0.50800002"
+       sodipodi:ry="0.50800002"
+       style="fill:#008000" />
+    <text
+       class="l95"
+       x="500.60287"
+       y="186.32365"
+       style="font-size:8.66250038px;fill:#808080;font-family:sans-serif"
+       id="text6717">VBATT</text>
+    <text
+       class="l95"
+       x="500.60287"
+       y="123.32359"
+       style="font-size:8.66250038px;fill:#808080;font-family:sans-serif"
+       id="text6719">VBATT</text>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g6773">
+      <title
+         id="title6775">NET VCC</title>
+      <line
+         id="line6777"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-149.86"
+         x2="68.580002"
+         y1="-149.86"
+         x1="58.419998"
+         class="l91" />
+      <line
+         id="line6779"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-149.86"
+         x2="81.279999"
+         y1="-149.86"
+         x1="68.580002"
+         class="l91" />
+      <line
+         id="line6781"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-139.7"
+         x2="81.279999"
+         y1="-149.86"
+         x1="81.279999"
+         class="l91" />
+      <line
+         id="line6783"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-139.7"
+         x2="104.14"
+         y1="-139.7"
+         x1="81.279999"
+         class="l91" />
+      <line
+         id="line6785"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-149.86"
+         x2="68.580002"
+         y1="-134.62"
+         x1="68.580002"
+         class="l91" />
+      <line
+         id="line6787"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-149.86"
+         x2="58.419998"
+         y1="-134.62"
+         x1="58.419998"
+         class="l91" />
+      <line
+         id="line6789"
+         style="fill:none;stroke:#008000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-149.86"
+         x2="58.419998"
+         y1="-149.86"
+         x1="55.880001"
+         class="l91" />
+      <circle
+         d="m 69.088002,-149.86 c 0,0.28056 -0.22744,0.508 -0.508,0.508 -0.280561,0 -0.508,-0.22744 -0.508,-0.508 0,-0.28056 0.227439,-0.508 0.508,-0.508 0.28056,0 0.508,0.22744 0.508,0.508 z"
+         style="fill:#008000"
+         sodipodi:ry="0.50800002"
+         sodipodi:rx="0.50800002"
+         sodipodi:cy="-149.86"
+         sodipodi:cx="68.580002"
+         id="circle6791"
+         r="0.50800002"
+         cy="-149.86"
+         cx="68.580002"
+         class="j91" />
+      <circle
+         d="m 58.927998,-149.86 c 0,0.28056 -0.227439,0.508 -0.508,0.508 -0.28056,0 -0.508,-0.22744 -0.508,-0.508 0,-0.28056 0.22744,-0.508 0.508,-0.508 0.280561,0 0.508,0.22744 0.508,0.508 z"
+         style="fill:#008000"
+         sodipodi:ry="0.50800002"
+         sodipodi:rx="0.50800002"
+         sodipodi:cy="-149.86"
+         sodipodi:cx="58.419998"
+         id="circle6793"
+         r="0.50800002"
+         cy="-149.86"
+         cx="58.419998"
+         class="j91" />
+      <text
+         id="text6795"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-139.7"
+         x="96.519997"
+         class="l95">VCC</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g6797">
+      <title
+         id="title6799">PART 2KR</title>
+      <line
+         id="line6801"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-190.5"
+         x2="104.14"
+         y1="-190.5"
+         x1="106.68"
+         class="l94" />
+      <line
+         id="line6803"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-190.5"
+         x2="99.059998"
+         y1="-190.5"
+         x1="96.519997"
+         class="l94" />
+      <line
+         id="line6805"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-189.48399"
+         x2="103.759"
+         y1="-190.5"
+         x1="104.14"
+         class="l94" />
+      <line
+         id="line6807"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-191.51601"
+         x2="103.124"
+         y1="-189.48399"
+         x1="103.759"
+         class="l94" />
+      <line
+         id="line6809"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-189.48399"
+         x2="102.489"
+         y1="-191.51601"
+         x1="103.124"
+         class="l94" />
+      <line
+         id="line6811"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-191.51601"
+         x2="101.854"
+         y1="-189.48399"
+         x1="102.489"
+         class="l94" />
+      <line
+         id="line6813"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-189.48399"
+         x2="101.219"
+         y1="-191.51601"
+         x1="101.854"
+         class="l94" />
+      <line
+         id="line6815"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-191.51601"
+         x2="100.584"
+         y1="-189.48399"
+         x1="101.219"
+         class="l94" />
+      <line
+         id="line6817"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-189.48399"
+         x2="99.948997"
+         y1="-191.51601"
+         x1="100.584"
+         class="l94" />
+      <line
+         id="line6819"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-191.51601"
+         x2="99.314003"
+         y1="-189.48399"
+         x1="99.948997"
+         class="l94" />
+      <line
+         id="line6821"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-190.5"
+         x2="99.059998"
+         y1="-191.51601"
+         x1="99.314003"
+         class="l94" />
+      <text
+         id="text6823"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-187.2234"
+         x="105.41"
+         class="l95">2KR</text>
+      <text
+         id="text6825"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-192.024"
+         x="105.41"
+         class="l96">2k</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g6827">
+      <title
+         id="title6829">PART 4.7U</title>
+      <rect
+         style="fill:#800000"
+         id="rect6831"
+         transform="matrix(-1,0,0,-1,106.68,-374.396)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-187.452"
+         x="51.307999"
+         class="l94" />
+      <rect
+         style="fill:#800000"
+         id="rect6833"
+         transform="matrix(-1,0,0,-1,106.68,-372.364)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-186.436"
+         x="51.307999"
+         class="l94" />
+      <line
+         id="line6835"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-185.42"
+         x2="53.34"
+         y1="-182.88"
+         x1="53.34"
+         class="l94" />
+      <line
+         id="line6837"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-187.96001"
+         x2="53.34"
+         y1="-190.5"
+         x1="53.34"
+         class="l94" />
+      <line
+         id="line6839"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-185.92799"
+         x2="53.34"
+         y1="-185.42"
+         x1="53.34"
+         class="l94" />
+      <line
+         id="line6841"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-187.452"
+         x2="53.34"
+         y1="-187.96001"
+         x1="53.34"
+         class="l94" />
+      <text
+         id="text6843"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-183.261"
+         x="51.816002"
+         class="l95">4.7U</text>
+      <text
+         id="text6845"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-188.341"
+         x="51.816002"
+         class="l96">4.7u</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g6847">
+      <title
+         id="title6849">PART 4.7UF</title>
+      <rect
+         style="fill:#800000"
+         id="rect6851"
+         transform="matrix(-1,0,0,-1,248.92,-379.476)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-189.992"
+         x="122.428"
+         class="l94" />
+      <rect
+         style="fill:#800000"
+         id="rect6853"
+         transform="matrix(-1,0,0,-1,248.92,-377.444)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-188.976"
+         x="122.428"
+         class="l94" />
+      <line
+         id="line6855"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-187.96001"
+         x2="124.46"
+         y1="-185.42"
+         x1="124.46"
+         class="l94" />
+      <line
+         id="line6857"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-190.5"
+         x2="124.46"
+         y1="-193.03999"
+         x1="124.46"
+         class="l94" />
+      <line
+         id="line6859"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-188.468"
+         x2="124.46"
+         y1="-187.96001"
+         x1="124.46"
+         class="l94" />
+      <line
+         id="line6861"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-189.992"
+         x2="124.46"
+         y1="-190.5"
+         x1="124.46"
+         class="l94" />
+      <text
+         id="text6863"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-185.80099"
+         x="122.936"
+         class="l95">4.7UF</text>
+      <text
+         id="text6865"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-190.881"
+         x="122.936"
+         class="l96">4.7u</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g6887">
+      <title
+         id="title6889">PART 10U</title>
+      <rect
+         style="fill:#800000"
+         id="rect6891"
+         transform="matrix(-1,0,0,-1,137.16,-262.636)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-131.57201"
+         x="66.547997"
+         class="l94" />
+      <rect
+         style="fill:#800000"
+         id="rect6893"
+         transform="matrix(-1,0,0,-1,137.16,-260.604)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-130.556"
+         x="66.547997"
+         class="l94" />
+      <line
+         id="line6895"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-129.53999"
+         x2="68.580002"
+         y1="-127"
+         x1="68.580002"
+         class="l94" />
+      <line
+         id="line6897"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-132.08"
+         x2="68.580002"
+         y1="-134.62"
+         x1="68.580002"
+         class="l94" />
+      <line
+         id="line6899"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-130.048"
+         x2="68.580002"
+         y1="-129.53999"
+         x1="68.580002"
+         class="l94" />
+      <line
+         id="line6901"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-131.57201"
+         x2="68.580002"
+         y1="-132.08"
+         x1="68.580002"
+         class="l94" />
+      <text
+         id="text6903"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-127.381"
+         x="67.056"
+         class="l95">10U</text>
+      <text
+         id="text6905"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-132.461"
+         x="67.056"
+         class="l96">10u</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g6907">
+      <title
+         id="title6909">PART BATT</title>
+      <line
+         id="line6911"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-193.03999"
+         x2="142.24001"
+         y1="-193.03999"
+         x1="137.16"
+         class="l94" />
+      <text
+         id="text6913"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-193.3956"
+         x="139.9032"
+         class="l95">1</text>
+      <line
+         id="line6915"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-190.5"
+         x2="142.24001"
+         y1="-190.5"
+         x1="137.16"
+         class="l94" />
+      <text
+         id="text6917"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-190.85561"
+         x="139.9032"
+         class="l95">2</text>
+      <line
+         id="line6919"
+         style="fill:none;stroke:#800000;stroke-width:0.4064;stroke-linecap:round"
+         y2="-195.58"
+         x2="147.32001"
+         y1="-195.58"
+         x1="140.97"
+         class="l94" />
+      <line
+         id="line6921"
+         style="fill:none;stroke:#800000;stroke-width:0.60960001;stroke-linecap:round"
+         y2="-190.5"
+         x2="142.24001"
+         y1="-190.5"
+         x1="143.50999"
+         class="l94" />
+      <line
+         id="line6923"
+         style="fill:none;stroke:#800000;stroke-width:0.60960001;stroke-linecap:round"
+         y2="-193.03999"
+         x2="142.24001"
+         y1="-193.03999"
+         x1="143.50999"
+         class="l94" />
+      <line
+         id="line6925"
+         style="fill:none;stroke:#800000;stroke-width:0.4064;stroke-linecap:round"
+         y2="-195.58"
+         x2="147.32001"
+         y1="-187.96001"
+         x1="147.32001"
+         class="l94" />
+      <line
+         id="line6927"
+         style="fill:none;stroke:#800000;stroke-width:0.4064;stroke-linecap:round"
+         y2="-187.96001"
+         x2="140.97"
+         y1="-195.58"
+         x1="140.97"
+         class="l94" />
+      <line
+         id="line6929"
+         style="fill:none;stroke:#800000;stroke-width:0.4064;stroke-linecap:round"
+         y2="-187.96001"
+         x2="140.97"
+         y1="-187.96001"
+         x1="147.32001"
+         class="l94" />
+      <text
+         id="text6931"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-196.342"
+         x="147.32001"
+         class="l96">M021X02_NO_SILK</text>
+      <text
+         id="text6933"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-185.42"
+         x="147.32001"
+         class="l95">BATT</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g6963">
+      <title
+         id="title6965">PART C1</title>
+      <rect
+         style="fill:#800000"
+         id="rect6967"
+         transform="matrix(-1,0,0,-1,116.84,-262.636)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-131.57201"
+         x="56.388"
+         class="l94" />
+      <rect
+         style="fill:#800000"
+         id="rect6969"
+         transform="matrix(-1,0,0,-1,116.84,-260.604)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-130.556"
+         x="56.388"
+         class="l94" />
+      <line
+         id="line6971"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-129.53999"
+         x2="58.419998"
+         y1="-127"
+         x1="58.419998"
+         class="l94" />
+      <line
+         id="line6973"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-132.08"
+         x2="58.419998"
+         y1="-134.62"
+         x1="58.419998"
+         class="l94" />
+      <line
+         id="line6975"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-130.048"
+         x2="58.419998"
+         y1="-129.53999"
+         x1="58.419998"
+         class="l94" />
+      <line
+         id="line6977"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-131.57201"
+         x2="58.419998"
+         y1="-132.08"
+         x1="58.419998"
+         class="l94" />
+      <text
+         id="text6979"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-127.381"
+         x="56.896"
+         class="l95">C1</text>
+      <text
+         id="text6981"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-132.461"
+         x="56.896"
+         class="l96">0.1u</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g6983">
+      <title
+         id="title6985">PART C3</title>
+      <rect
+         style="fill:#800000"
+         id="rect6987"
+         transform="matrix(-1,0,0,-1,157.48,-262.636)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-131.57201"
+         x="76.708"
+         class="l94" />
+      <rect
+         style="fill:#800000"
+         id="rect6989"
+         transform="matrix(-1,0,0,-1,157.48,-260.604)"
+         height="0.50800002"
+         width="4.0640001"
+         y="-130.556"
+         x="76.708"
+         class="l94" />
+      <line
+         id="line6991"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-129.53999"
+         x2="78.739998"
+         y1="-127"
+         x1="78.739998"
+         class="l94" />
+      <line
+         id="line6993"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-132.08"
+         x2="78.739998"
+         y1="-134.62"
+         x1="78.739998"
+         class="l94" />
+      <line
+         id="line6995"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-130.048"
+         x2="78.739998"
+         y1="-129.53999"
+         x1="78.739998"
+         class="l94" />
+      <line
+         id="line6997"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-131.57201"
+         x2="78.739998"
+         y1="-132.08"
+         x1="78.739998"
+         class="l94" />
+      <text
+         id="text6999"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-127.381"
+         x="77.216003"
+         class="l95">C3</text>
+      <text
+         id="text7001"
+         style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-132.461"
+         x="77.216003"
+         class="l96">0.1u</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g7161">
+      <title
+         id="title7163">PART GND1</title>
+      <line
+         id="line7165"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-121.92"
+         x2="78.739998"
+         y1="-124.46"
+         x1="78.739998"
+         class="l94" />
+      <line
+         id="line7167"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-121.92"
+         x2="80.644997"
+         y1="-121.92"
+         x1="76.834999"
+         class="l94" />
+      <text
+         id="text7169"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-119.38"
+         x="76.199997"
+         class="l96">GND</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g7171">
+      <title
+         id="title7173">PART GND2</title>
+      <line
+         id="line7175"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-106.68"
+         x2="101.6"
+         y1="-109.22"
+         x1="101.6"
+         class="l94" />
+      <line
+         id="line7177"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-106.68"
+         x2="103.505"
+         y1="-106.68"
+         x1="99.695"
+         class="l94" />
+      <text
+         id="text7179"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-104.14"
+         x="99.059998"
+         class="l96">GND</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g7181">
+      <title
+         id="title7183">PART GND3</title>
+      <line
+         id="line7185"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-177.8"
+         x2="53.34"
+         y1="-180.34"
+         x1="53.34"
+         class="l94" />
+      <line
+         id="line7187"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-177.8"
+         x2="55.244999"
+         y1="-177.8"
+         x1="51.435001"
+         class="l94" />
+      <text
+         id="text7189"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-175.25999"
+         x="50.799999"
+         class="l96">GND</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g7191">
+      <title
+         id="title7193">PART GND4</title>
+      <line
+         id="line7195"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-182.88"
+         x2="109.22"
+         y1="-185.42"
+         x1="109.22"
+         class="l94" />
+      <line
+         id="line7197"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-182.88"
+         x2="111.125"
+         y1="-182.88"
+         x1="107.315"
+         class="l94" />
+      <text
+         id="text7199"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-180.34"
+         x="106.68"
+         class="l96">GND</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g7201">
+      <title
+         id="title7203">PART GND5</title>
+      <line
+         id="line7205"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-139.7"
+         x2="40.639999"
+         y1="-142.24001"
+         x1="40.639999"
+         class="l94" />
+      <line
+         id="line7207"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-139.7"
+         x2="42.544998"
+         y1="-139.7"
+         x1="38.735001"
+         class="l94" />
+      <text
+         id="text7209"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-137.16"
+         x="38.099998"
+         class="l96">GND</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g7221">
+      <title
+         id="title7223">PART GND7</title>
+      <line
+         id="line7225"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-121.92"
+         x2="58.419998"
+         y1="-124.46"
+         x1="58.419998"
+         class="l94" />
+      <line
+         id="line7227"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-121.92"
+         x2="60.325001"
+         y1="-121.92"
+         x1="56.514999"
+         class="l94" />
+      <text
+         id="text7229"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-119.38"
+         x="55.880001"
+         class="l96">GND</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g7231">
+      <title
+         id="title7233">PART GND8</title>
+      <line
+         id="line7235"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-121.92"
+         x2="68.580002"
+         y1="-124.46"
+         x1="68.580002"
+         class="l94" />
+      <line
+         id="line7237"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-121.92"
+         x2="70.485001"
+         y1="-121.92"
+         x1="66.675003"
+         class="l94" />
+      <text
+         id="text7239"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-119.38"
+         x="66.040001"
+         class="l96">GND</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g7241">
+      <title
+         id="title7243">PART GND9</title>
+      <line
+         id="line7245"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-182.88"
+         x2="91.440002"
+         y1="-185.42"
+         x1="91.440002"
+         class="l94" />
+      <line
+         id="line7247"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-182.88"
+         x2="93.345001"
+         y1="-182.88"
+         x1="89.535004"
+         class="l94" />
+      <text
+         id="text7249"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-180.34"
+         x="88.900002"
+         class="l96">GND</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g7251">
+      <title
+         id="title7253">PART GND10</title>
+      <line
+         id="line7255"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-182.88"
+         x2="124.46"
+         y1="-185.42"
+         x1="124.46"
+         class="l94" />
+      <line
+         id="line7257"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-182.88"
+         x2="126.365"
+         y1="-182.88"
+         x1="122.555"
+         class="l94" />
+      <text
+         id="text7259"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-180.34"
+         x="121.92"
+         class="l96">GND</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g7311">
+      <title
+         id="title7313">PART JP1</title>
+      <line
+         id="line7315"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-144.78"
+         x2="27.940001"
+         y1="-144.78"
+         x1="33.02"
+         class="l94" />
+      <text
+         id="text7317"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-145.1356"
+         x="30.2768"
+         class="l95">1</text>
+      <line
+         id="line7319"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-147.32001"
+         x2="27.940001"
+         y1="-147.32001"
+         x1="33.02"
+         class="l94" />
+      <text
+         id="text7321"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-147.6756"
+         x="30.2768"
+         class="l95">2</text>
+      <line
+         id="line7323"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-149.86"
+         x2="27.940001"
+         y1="-149.86"
+         x1="33.02"
+         class="l94" />
+      <text
+         id="text7325"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-150.21561"
+         x="30.2768"
+         class="l95">3</text>
+      <line
+         id="line7327"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-152.39999"
+         x2="27.940001"
+         y1="-152.39999"
+         x1="33.02"
+         class="l94" />
+      <text
+         id="text7329"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-152.7556"
+         x="30.2768"
+         class="l95">4</text>
+      <line
+         id="line7331"
+         style="fill:none;stroke:#800000;stroke-width:0.4064;stroke-linecap:round"
+         y2="-142.24001"
+         x2="22.860001"
+         y1="-142.24001"
+         x1="29.209999"
+         class="l94" />
+      <line
+         id="line7333"
+         style="fill:none;stroke:#800000;stroke-width:0.60960001;stroke-linecap:round"
+         y2="-149.86"
+         x2="27.940001"
+         y1="-149.86"
+         x1="26.67"
+         class="l94" />
+      <line
+         id="line7335"
+         style="fill:none;stroke:#800000;stroke-width:0.60960001;stroke-linecap:round"
+         y2="-147.32001"
+         x2="27.940001"
+         y1="-147.32001"
+         x1="26.67"
+         class="l94" />
+      <line
+         id="line7337"
+         style="fill:none;stroke:#800000;stroke-width:0.60960001;stroke-linecap:round"
+         y2="-144.78"
+         x2="27.940001"
+         y1="-144.78"
+         x1="26.67"
+         class="l94" />
+      <line
+         id="line7339"
+         style="fill:none;stroke:#800000;stroke-width:0.4064;stroke-linecap:round"
+         y2="-142.24001"
+         x2="22.860001"
+         y1="-154.94"
+         x1="22.860001"
+         class="l94" />
+      <line
+         id="line7341"
+         style="fill:none;stroke:#800000;stroke-width:0.4064;stroke-linecap:round"
+         y2="-154.94"
+         x2="29.209999"
+         y1="-142.24001"
+         x1="29.209999"
+         class="l94" />
+      <line
+         id="line7343"
+         style="fill:none;stroke:#800000;stroke-width:0.4064;stroke-linecap:round"
+         y2="-154.94"
+         x2="29.209999"
+         y1="-154.94"
+         x1="22.860001"
+         class="l94" />
+      <line
+         id="line7345"
+         style="fill:none;stroke:#800000;stroke-width:0.60960001;stroke-linecap:round"
+         y2="-152.39999"
+         x2="27.940001"
+         y1="-152.39999"
+         x1="26.67"
+         class="l94" />
+      <text
+         id="text7347"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-155.702"
+         x="22.860001"
+         class="l95">JP1</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g7377">
+      <title
+         id="title7379">PART PTC500MA</title>
+      <line
+         id="line7381"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-149.86"
+         x2="45.720001"
+         y1="-149.86"
+         x1="43.18"
+         class="l94" />
+      <line
+         id="line7383"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-149.86"
+         x2="53.34"
+         y1="-149.86"
+         x1="55.880001"
+         class="l94" />
+      <line
+         id="line7385"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-148.59"
+         x2="53.34"
+         y1="-151.13"
+         x1="53.34"
+         class="l94" />
+      <line
+         id="line7387"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-148.59"
+         x2="45.720001"
+         y1="-148.59"
+         x1="53.34"
+         class="l94" />
+      <line
+         id="line7389"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-151.13"
+         x2="45.720001"
+         y1="-148.59"
+         x1="45.720001"
+         class="l94" />
+      <line
+         id="line7391"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-151.13"
+         x2="53.34"
+         y1="-151.13"
+         x1="45.720001"
+         class="l94" />
+      <line
+         id="line7393"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-152.39999"
+         x2="52.07"
+         y1="-147.32001"
+         x1="46.736"
+         class="l94" />
+      <line
+         id="line7395"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-152.39999"
+         x2="53.34"
+         y1="-152.39999"
+         x1="52.07"
+         class="l94" />
+      <text
+         id="text7397"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-152.908"
+         x="45.720001"
+         class="l95">PTC500MA</text>
+      <text
+         id="text7399"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-144.78"
+         x="44.958"
+         class="l96">PTCPTH</text>
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,811.03789)"
+       id="g7691">
+      <title
+         id="title7693">PART U1</title>
+      <line
+         id="line7695"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-137.16"
+         x2="109.22"
+         y1="-137.16"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7697"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-136.39799"
+         x="111.5568"
+         class="l95">3V3OUT</text>
+      <text
+         id="text7699"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-137.51559"
+         x="106.8832"
+         class="l95">17</text>
+      <line
+         id="line7701"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-119.38"
+         x2="109.22"
+         y1="-119.38"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7703"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-118.618"
+         x="111.5568"
+         class="l95">AGND</text>
+      <text
+         id="text7705"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-119.7356"
+         x="106.8832"
+         class="l95">25</text>
+      <line
+         id="line7707"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-139.7"
+         x2="131.52119"
+         y1="-139.7"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-139.7 c 0,0.5471 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.4435 -0.9906,-0.9906 0,-0.54709 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.44351 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-139.7"
+         sodipodi:cx="130.53059"
+         id="circle7709"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-139.7"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7711"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-138.938"
+         x="127.2032"
+         class="l95">CTS</text>
+      <text
+         id="text7713"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-140.0556"
+         x="131.8768"
+         class="l95">11</text>
+      <line
+         id="line7715"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-129.53999"
+         x2="131.52119"
+         y1="-129.53999"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-129.53999 c 0,0.54709 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.44351 -0.9906,-0.9906 0,-0.5471 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.4435 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-129.53999"
+         sodipodi:cx="130.53059"
+         id="circle7717"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-129.53999"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7719"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-128.778"
+         x="127.2032"
+         class="l95">DCD</text>
+      <text
+         id="text7721"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-129.8956"
+         x="131.8768"
+         class="l95">10</text>
+      <line
+         id="line7723"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-132.08"
+         x2="131.52119"
+         y1="-132.08"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-132.08 c 0,0.54709 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.44351 -0.9906,-0.9906 0,-0.5471 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.4435 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-132.08"
+         sodipodi:cx="130.53059"
+         id="circle7725"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-132.08"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7727"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-131.31799"
+         x="127.2032"
+         class="l95">DSR</text>
+      <text
+         id="text7729"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-132.43559"
+         x="131.8768"
+         class="l95">9</text>
+      <line
+         id="line7731"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-134.62"
+         x2="131.52119"
+         y1="-134.62"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-134.62 c 0,0.5471 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.4435 -0.9906,-0.9906 0,-0.54709 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.44351 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-134.62"
+         sodipodi:cx="130.53059"
+         id="circle7733"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-134.62"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7735"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-133.858"
+         x="127.2032"
+         class="l95">DTR</text>
+      <text
+         id="text7737"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-134.9756"
+         x="131.8768"
+         class="l95">2</text>
+      <line
+         id="line7739"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-116.84"
+         x2="109.22"
+         y1="-116.84"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7741"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-116.078"
+         x="111.5568"
+         class="l95">GND7</text>
+      <text
+         id="text7743"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-117.1956"
+         x="106.8832"
+         class="l95">7</text>
+      <line
+         id="line7745"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-114.3"
+         x2="109.22"
+         y1="-114.3"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7747"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-113.538"
+         x="111.5568"
+         class="l95">GND18</text>
+      <text
+         id="text7749"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-114.6556"
+         x="106.8832"
+         class="l95">18</text>
+      <line
+         id="line7751"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-111.76"
+         x2="109.22"
+         y1="-111.76"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7753"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-110.998"
+         x="111.5568"
+         class="l95">GND21</text>
+      <text
+         id="text7755"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-112.1156"
+         x="106.8832"
+         class="l95">21</text>
+      <line
+         id="line7757"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-129.53999"
+         x2="109.22"
+         y1="-129.53999"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7759"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-128.778"
+         x="111.5568"
+         class="l95">OSCI</text>
+      <text
+         id="text7761"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-129.8956"
+         x="106.8832"
+         class="l95">27</text>
+      <line
+         id="line7763"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-127"
+         x2="109.22"
+         y1="-127"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7765"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-126.238"
+         x="111.5568"
+         class="l95">OSCO</text>
+      <text
+         id="text7767"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-127.3556"
+         x="106.8832"
+         class="l95">28</text>
+      <line
+         id="line7769"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-116.84"
+         x2="131.52119"
+         y1="-116.84"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-116.84 c 0,0.5471 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.4435 -0.9906,-0.9906 0,-0.54709 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.44351 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-116.84"
+         sodipodi:cx="130.53059"
+         id="circle7771"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-116.84"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7773"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-116.078"
+         x="127.2032"
+         class="l95">PWREN</text>
+      <text
+         id="text7775"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-117.1956"
+         x="131.8768"
+         class="l95">14</text>
+      <line
+         id="line7777"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-124.46"
+         x2="107.2388"
+         y1="-124.46"
+         x1="104.14"
+         class="l94" />
+      <circle
+         d="m 109.22,-124.46 c 0,0.54709 -0.44351,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.44351 -0.9906,-0.9906 0,-0.54709 0.44351,-0.9906 0.9906,-0.9906 0.54709,0 0.9906,0.44351 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-124.46"
+         sodipodi:cx="108.2294"
+         id="circle7779"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-124.46"
+         cx="108.2294"
+         class="l94" />
+      <text
+         id="text7781"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-123.698"
+         x="111.5568"
+         class="l95">RESET</text>
+      <text
+         id="text7783"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-124.8156"
+         x="106.8832"
+         class="l95">19</text>
+      <line
+         id="line7785"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-127"
+         x2="131.52119"
+         y1="-127"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-127 c 0,0.54709 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.44351 -0.9906,-0.9906 0,-0.54709 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.44351 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-127"
+         sodipodi:cx="130.53059"
+         id="circle7787"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-127"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7789"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-126.238"
+         x="127.2032"
+         class="l95">RI</text>
+      <text
+         id="text7791"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-127.3556"
+         x="131.8768"
+         class="l95">6</text>
+      <line
+         id="line7793"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-137.16"
+         x2="131.52119"
+         y1="-137.16"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-137.16 c 0,0.54709 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.44351 -0.9906,-0.9906 0,-0.5471 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.4435 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-137.16"
+         sodipodi:cx="130.53059"
+         id="circle7795"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-137.16"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7797"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-136.39799"
+         x="127.2032"
+         class="l95">RTS</text>
+      <text
+         id="text7799"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-137.51559"
+         x="131.8768"
+         class="l95">3</text>
+      <line
+         id="line7801"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-144.78"
+         x2="129.53999"
+         y1="-144.78"
+         x1="134.62"
+         class="l94" />
+      <text
+         id="text7803"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-144.01801"
+         x="127.2032"
+         class="l95">RXD</text>
+      <text
+         id="text7805"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-145.1356"
+         x="131.8768"
+         class="l95">5</text>
+      <line
+         id="line7807"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-119.38"
+         x2="131.52119"
+         y1="-119.38"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-119.38 c 0,0.5471 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.4435 -0.9906,-0.9906 0,-0.54709 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.44351 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-119.38"
+         sodipodi:cx="130.53059"
+         id="circle7809"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-119.38"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7811"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-118.618"
+         x="127.2032"
+         class="l95">RXLED</text>
+      <text
+         id="text7813"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-119.7356"
+         x="131.8768"
+         class="l95">22</text>
+      <line
+         id="line7815"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-111.76"
+         x2="131.52119"
+         y1="-111.76"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-111.76 c 0,0.54709 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.44351 -0.9906,-0.9906 0,-0.5471 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.4435 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-111.76"
+         sodipodi:cx="130.53059"
+         id="circle7817"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-111.76"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7819"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-110.998"
+         x="127.2032"
+         class="l95">SLEEP</text>
+      <text
+         id="text7821"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-112.1156"
+         x="131.8768"
+         class="l95">12</text>
+      <line
+         id="line7823"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-121.92"
+         x2="109.22"
+         y1="-121.92"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7825"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-121.158"
+         x="111.5568"
+         class="l95">TEST</text>
+      <text
+         id="text7827"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-122.2756"
+         x="106.8832"
+         class="l95">26</text>
+      <line
+         id="line7829"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-147.32001"
+         x2="129.53999"
+         y1="-147.32001"
+         x1="134.62"
+         class="l94" />
+      <text
+         id="text7831"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-146.558"
+         x="127.2032"
+         class="l95">TXD</text>
+      <text
+         id="text7833"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-147.6756"
+         x="131.8768"
+         class="l95">1</text>
+      <line
+         id="line7835"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-114.3"
+         x2="129.53999"
+         y1="-114.3"
+         x1="134.62"
+         class="l94" />
+      <text
+         id="text7837"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-113.538"
+         x="127.2032"
+         class="l95">TXDEN</text>
+      <text
+         id="text7839"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-114.6556"
+         x="131.8768"
+         class="l95">13</text>
+      <line
+         id="line7841"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-121.92"
+         x2="131.52119"
+         y1="-121.92"
+         x1="134.62"
+         class="l94" />
+      <circle
+         d="m 131.52119,-121.92 c 0,0.5471 -0.4435,0.9906 -0.9906,0.9906 -0.54709,0 -0.9906,-0.4435 -0.9906,-0.9906 0,-0.54709 0.44351,-0.9906 0.9906,-0.9906 0.5471,0 0.9906,0.44351 0.9906,0.9906 z"
+         sodipodi:ry="0.99059999"
+         sodipodi:rx="0.99059999"
+         sodipodi:cy="-121.92"
+         sodipodi:cx="130.53059"
+         id="circle7843"
+         style="fill:none;stroke:#800000;stroke-width:0.1524"
+         r="0.99059999"
+         cy="-121.92"
+         cx="130.53059"
+         class="l94" />
+      <text
+         id="text7845"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-121.158"
+         x="127.2032"
+         class="l95">TXLED</text>
+      <text
+         id="text7847"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-122.2756"
+         x="131.8768"
+         class="l95">23</text>
+      <line
+         id="line7849"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-147.32001"
+         x2="109.22"
+         y1="-147.32001"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7851"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-146.558"
+         x="111.5568"
+         class="l95">USBDM</text>
+      <text
+         id="text7853"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-147.6756"
+         x="106.8832"
+         class="l95">16</text>
+      <line
+         id="line7855"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-144.78"
+         x2="109.22"
+         y1="-144.78"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7857"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-144.01801"
+         x="111.5568"
+         class="l95">USBDP</text>
+      <text
+         id="text7859"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-145.1356"
+         x="106.8832"
+         class="l95">15</text>
+      <line
+         id="line7861"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-139.7"
+         x2="109.22"
+         y1="-139.7"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7863"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-138.938"
+         x="111.5568"
+         class="l95">VCC</text>
+      <text
+         id="text7865"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-140.0556"
+         x="106.8832"
+         class="l95">20</text>
+      <line
+         id="line7867"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-134.62"
+         x2="109.22"
+         y1="-134.62"
+         x1="104.14"
+         class="l94" />
+      <text
+         id="text7869"
+         style="font-size:2.09549999px;fill:#808080;font-family:sans-serif"
+         y="-133.858"
+         x="111.5568"
+         class="l95">VCCIO</text>
+      <text
+         id="text7871"
+         style="font-size:2.09549999px;text-anchor:end;fill:#808080;font-family:sans-serif"
+         y="-134.9756"
+         x="106.8832"
+         class="l95">4</text>
+      <line
+         id="line7873"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-149.86"
+         x2="129.53999"
+         y1="-149.86"
+         x1="109.22"
+         class="l94" />
+      <line
+         id="line7875"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-109.22"
+         x2="129.53999"
+         y1="-149.86"
+         x1="129.53999"
+         class="l94" />
+      <line
+         id="line7877"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-109.22"
+         x2="109.22"
+         y1="-109.22"
+         x1="129.53999"
+         class="l94" />
+      <line
+         id="line7879"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-149.86"
+         x2="109.22"
+         y1="-109.22"
+         x1="109.22"
+         class="l94" />
+      <text
+         id="text7881"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-150.368"
+         x="111.76"
+         class="l95">U1</text>
+      <text
+         id="text7883"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-106.68"
+         x="111.76"
+         class="l96">FT232R</text>
+    </g>
+    <line
+       class="l94"
+       x1="374.60287"
+       y1="195.32361"
+       x2="365.60287"
+       y2="195.32361"
+       style="fill:none;stroke:#800000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line7889" />
+    <text
+       class="l95"
+       x="357.32288"
+       y="198.02359"
+       style="font-size:7.42500019px;text-anchor:end;fill:#808080;font-family:sans-serif"
+       id="text7891">PROG</text>
+    <text
+       class="l95"
+       x="366.86285"
+       y="194.06358"
+       style="font-size:7.42500019px;fill:#808080;font-family:sans-serif"
+       id="text7893">5</text>
+    <line
+       class="l94"
+       x1="302.60287"
+       y1="204.32358"
+       x2="311.60287"
+       y2="204.32358"
+       style="fill:none;stroke:#800000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line7895" />
+    <text
+       class="l95"
+       x="319.88287"
+       y="207.02362"
+       style="font-size:7.42500019px;fill:#808080;font-family:sans-serif"
+       id="text7897">STAT</text>
+    <text
+       class="l95"
+       x="310.34286"
+       y="203.06361"
+       style="font-size:7.42500019px;text-anchor:end;fill:#808080;font-family:sans-serif"
+       id="text7899">1</text>
+    <line
+       class="l94"
+       x1="374.60287"
+       y1="186.32362"
+       x2="365.60287"
+       y2="186.32362"
+       style="fill:none;stroke:#800000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line7901" />
+    <text
+       class="l95"
+       x="357.32288"
+       y="189.02361"
+       style="font-size:7.42500019px;text-anchor:end;fill:#808080;font-family:sans-serif"
+       id="text7903">VBAT</text>
+    <text
+       class="l95"
+       x="366.86285"
+       y="185.06361"
+       style="font-size:7.42500019px;fill:#808080;font-family:sans-serif"
+       id="text7905">3</text>
+    <line
+       class="l94"
+       x1="302.60287"
+       y1="186.32362"
+       x2="311.60287"
+       y2="186.32362"
+       style="fill:none;stroke:#800000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line7907" />
+    <text
+       class="l95"
+       x="319.88287"
+       y="189.02361"
+       style="font-size:7.42500019px;fill:#808080;font-family:sans-serif"
+       id="text7909">VIN</text>
+    <text
+       class="l95"
+       x="310.34286"
+       y="185.06361"
+       style="font-size:7.42500019px;text-anchor:end;fill:#808080;font-family:sans-serif"
+       id="text7911">4</text>
+    <line
+       class="l94"
+       x1="374.60287"
+       y1="204.32358"
+       x2="365.60287"
+       y2="204.32358"
+       style="fill:none;stroke:#800000;stroke-width:0.54000002;stroke-linecap:round"
+       id="line7913" />
+    <text
+       class="l95"
+       x="357.32288"
+       y="207.02362"
+       style="font-size:7.42500019px;text-anchor:end;fill:#808080;font-family:sans-serif"
+       id="text7915">VSS</text>
+    <text
+       class="l95"
+       x="366.86285"
+       y="203.06361"
+       style="font-size:7.42500019px;fill:#808080;font-family:sans-serif"
+       id="text7917">2</text>
+    <line
+       class="l94"
+       x1="311.60287"
+       y1="177.32359"
+       x2="365.60287"
+       y2="177.32359"
+       style="fill:none;stroke:#800000;stroke-width:0.90000004;stroke-linecap:round"
+       id="line7919" />
+    <line
+       class="l94"
+       x1="365.60287"
+       y1="177.32359"
+       x2="365.60287"
+       y2="213.32361"
+       style="fill:none;stroke:#800000;stroke-width:0.90000004;stroke-linecap:round"
+       id="line7921" />
+    <line
+       class="l94"
+       x1="365.60287"
+       y1="213.32361"
+       x2="311.60287"
+       y2="213.32361"
+       style="fill:none;stroke:#800000;stroke-width:0.90000004;stroke-linecap:round"
+       id="line7923" />
+    <line
+       class="l94"
+       x1="311.60287"
+       y1="213.32361"
+       x2="311.60287"
+       y2="177.32359"
+       style="fill:none;stroke:#800000;stroke-width:0.90000004;stroke-linecap:round"
+       id="line7925" />
+    <text
+       class="l96"
+       x="311.60287"
+       y="222.32359"
+       style="font-size:8.66250038px;fill:#808080;font-family:sans-serif"
+       id="text7929">MCP73831</text>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,50.602859,870.3236)"
+       id="g8399">
+      <title
+         id="title8401">PART VBATT</title>
+      <circle
+         d="m 125.73,-213.106 c 0,0.7014 -0.5686,1.27 -1.27,1.27 -0.7014,0 -1.27,-0.5686 -1.27,-1.27 0,-0.7014 0.5686,-1.27 1.27,-1.27 0.7014,0 1.27,0.5686 1.27,1.27 z"
+         sodipodi:ry="1.27"
+         sodipodi:rx="1.27"
+         sodipodi:cy="-213.106"
+         sodipodi:cx="124.46"
+         id="circle8403"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001"
+         r="1.27"
+         cy="-213.106"
+         cx="124.46"
+         class="l94" />
+      <line
+         id="line8405"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-211.836"
+         x2="124.46"
+         y1="-209.29601"
+         x1="124.46"
+         class="l94" />
+    </g>
+  </g>
+</svg>

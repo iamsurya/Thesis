@@ -86,8 +86,8 @@ while(1)
 \label{Sec:SensorTesting}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.6\textwidth]{images/Cat5Twist.jpg}
-\caption{REPALCE WITH MPU6000 CAT5}
+\includegraphics[width=0.6\textwidth]{images/CAT6MPU.jpg}
+\caption{Photo of a MPU6000 Breakout Board connected to a CAT5 cable}
 \label{Fig:CAt5MPU}
 \end{center}
 \end{figure}
@@ -164,19 +164,51 @@ then flushing it to the memory.
 
 \subsection{Circuit Design}
 \label{Sec:CircuitDesign}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/MPU6000Circuit.eps}
+\caption{Circuits designed for the MPU 6000 (left) and the AT45DB642D (right).}
+\label{Fig:MPUCkt}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/USBPOWER.eps}
+\caption{Circuits designed to power the circuit and connet the USB to UART Bridge.}
+\label{Fig:USBPOWER}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/MSP430CKT.eps}
+\caption{Circuits designed to operate the MSP430F248.}
+\label{Fig:MSP430CKT}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[angle=-90,width=0.8\textwidth]{images/FULLCKT.eps}
+\caption{The complete circuit for the wrist motion activity tracker.}
+\label{COMPCKT}
+\end{center}
+\end{figure}
 Now that we know what the different typical operating cicruits for each device look like,
 and that they work as expected with the microcontroller connected,
 we need to connect all of these together and create our complete circuit.
-The circuits for different parts of the device that we designed are shown in figures X, Y, Z and E.
-The circuit we designed after consulting the different datasheets is shown in figure \ref{Fig:CompleteCircuit} in the Appendix.
+The circuits for different parts of the device that we designed are shown in figures \ref{Fig:MPUCkt}, \ref{Fig:USBPOWER}, and \ref{Fig:MSP430CKT}.
+The complete circuit we designed after consulting the different datasheets is shown in figure \ref{COMPCKT}.
 This circuit was created using EAGLE PCB's schematic layout tool.
 Each component had its circuit created seperately,
 and later these circuits were connected together to create the final device.
 A screenshot of Eagle PCB's schematic editor is shown in figure \ref{Fig:EaglePCBScreen}.
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\textwidth]{images/EagleScreen.jpg}
-\caption{REPLACE WITH PHOTO OF BREADBOARD PROTOTYPE}
+\includegraphics[width=0.8\textwidth]{images/BreadProto.jpg}
+\caption{Photograph of prototype made using a breadboard. Not shown: USB cable for connection.}
 \label{Fig:BreadBoardProto}
 \end{center}
 \end{figure}
@@ -201,7 +233,7 @@ A simplified version of the microcontrollers code is seen in figure \ref{Fig:Mai
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{images/MainAlgo.eps}
-\caption{REPALCE WITH MainAlgo}
+\caption{Flowchart showing simplified algorithm used for the device.}
 \label{Fig:MainAlgo}
 \end{center}
 \end{figure}
@@ -265,7 +297,7 @@ we were finally satisfied with the design.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{images/Layout3.jpg}
-\caption{Routing in EAGLE PCB. The incomplete Red line is guided by the yellow signal line.}
+\caption{Routing in EAGLE PCB. The incomplete (thick) red line is guided by the (thin) yellow signal line.}
 \label{Fig:Layout3}
 \end{center}
 \end{figure}
@@ -302,7 +334,7 @@ we placed the order for our PCB.
 \label{Sec:Software}
 Our PCB's would take an expected 21 days to arrive. While waiting for our PCB's to reach us,
 we decided to work on a software that would allow us to visually look at the data that was collected by the device.
-Work done by Reyes et. al. \cite{concha2014study} shows PhoneView,
+Work done by Reyes et al. \cite{concha2014study} shows PhoneView,
 a tool developed to analyze data collected by an iPhone.
 Instead of the wrist based activity monitor that we have planned,
 work done by the group previously used an iPhone mounted on the wrist.
@@ -319,7 +351,7 @@ We modified the source code of PhoneView to allow for our data from the wrist mo
 \label{Sec:Soldering}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{images/PCBBare.jpg}
+\includegraphics[width=0.5\textwidth]{images/BarePCB.jpg}
 \caption{The Bare PCB received after fabrication.}
 \label{Fig:PCBBare}
 \end{center}
@@ -369,7 +401,6 @@ The MPU-6000 datasheet mentions a pitch of 0.25 mm between two pads,
 which was smaller than the suggested distance of isolation by the tape.
 However given that the tape was expected to operate under extreme conditions of temperature (-40\degree C to 70\degree C),
 we decided to try this tape to bond our sensor chip to the PCB.
-The result of this experiment was photographed under a microscope and is shown in figure \ref{Fig:TapeMicroscope}.
 Our experiment showed that sufficient conductivity was attained after 24 hours to allow SPI communication between the sensor and the microcontroller,
 however this conductivity was lost over time,
 within seven days in our case.
@@ -418,8 +449,8 @@ This tutorial mentions four different methods that a hobbyist electrical enginee
 \hfill \\
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{images/PCBBare.jpg}
-\caption{REPLACE WITH STENCIL PHOTO.}
+\includegraphics[width=0.5\textwidth]{images/stencil.jpg}
+\caption{Photograph of the stencil used to apply solder paste to the PCB.}
 \label{Fig:Stencil}
 \end{center}
 \end{figure}
@@ -443,21 +474,22 @@ we could see the solder melt and the parts fall into place.
 Using a metal sheet,
 we picked up the PCB from the skillet and let it cool.
 Through hole components and smaller components like the crystal and resistors were individually soldered later by hand under a microscope.
-Figure \ref{Fig:PCBMicro} shows the hand soldering process through the microscope's lens, while figure \ref{Fig:FinalPCB} shows a photograph of the PCB once we were done with soldering components to the PCB.
+Figure \ref{Fig:PCBMicro} shows the hand soldering process through the microscope's lens. The Final PCB can be seen in \ref{Fig:PCBwithCase}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{images/PCBBare.jpg}
-\caption{REPLACE WITH PCB UNDER MICROSCOPE.}
+\includegraphics[width=0.95\textwidth]{images/PCBMicro.jpg}
+\caption{Photograph showing crystal oscillator being soldered under a microscope.}
 \label{Fig:PCBMicro}
 \end{center}
 \end{figure}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{images/PCBBare.jpg}
-\caption{REPLACE WITH PCB FINAL PHOTO.}
-\label{Fig:FinalPCB}
+\includegraphics[width=0.95\textwidth]{images/PCBBare.jpg}
+\caption{Photograph the PCB after soldering, along with top side of case.}
+\label{Fig:PCBwithCase}
 \end{center}
 \end{figure}
+
 
 \subsubsection{Final Device}
 \label{Sec:FinalDevice}

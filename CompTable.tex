@@ -1,0 +1,29 @@
+% Please add the following required packages to your document preamble:
+\begin{landscape}
+% \usepackage{booktabs}
+\begin{table}[h]
+\centering
+\resizebox{1.5\textwidth}{!}{%
+\begin{tabular}{@{}llllllll@{}}
+\toprule
+Name of Device   & Market Segments & Weight (g) & Active Battery Life  & Standby Battery Life & Sensors                  & Data Resolution & Extra Features                               \\ \midrule
+ADWMAT$^1$           & Health Monitor  & X          & ~~24~(hours)                          & \textgreater 168 (hours)                         & Accelerometer, Gyroscope & 15Mhz           &                                              \\[2ex]
+iPhone~\cite{Web:iphone4specs}           & Mobile Phone    & 137        & ~~40~(hours)$^2$                          & ~~300 (hours)                          & Accelerometer, Gyroscope & 15Mhz           & Phone Calls, LCD Screen, Media Player        \\[2ex]
+SHIMMER~\cite{Web:ShimmerHome}         & Health Monitor  & 23.6$^2$       & \textless 24~(hours)                & \textgreater 256 (hours)                         & Accelerometer, Gyroscope & 15Mhz           & Bluetooth Module                             \\[2ex]
+MetaWatch~\cite{Web:Metawatch}        & SmartWatch      & 76         & \textgreater 80(hours)                         & \textgreater 120 (hours)                         & Accelerometer            & N/A             & Display, Bluetooth Connectivity to phones    \\[2ex]
+Samsung Gear 2~\cite{Web:SGear2}   & SmartWatch      & 68$^4$         & ~~48~(hours)                          & ~~144 (hours)                          & Accelerometer, Gyroscope & Low             & Display, Phone Calls, Bluetooth Connectivity \\[2ex]
+Thalmic Labs Myo & Input Devices~\cite{Web:GetMyo}   & 95$^5$         & ~~48~(hours)                          & ~N/A (hours)                          & Accelerometer, Gyroscope & N/A             & EMG Sensors                                  \\[2ex] \bottomrule
+\end{tabular}
+}
+\caption{Comparison of Select Wrist based devices in the market.}
+\label{Tab:DevCompare}
+\end{table}
+
+\hfill \\
+Notes: \\
+1: All Day Wrist Motion Activity Tracker\\
+2: Battery Life for iPhone 4 while listening to music and display is turned off \cite{Web:iphone4specs}.\\
+3: Information provided by Shimmer Customer support over email.\\
+4: No specification sheet is available, but the weight was available on a product description page \cite{Web:AmazonGear2}.\\
+5: No specification sheet is available, but the weight was available on a product discussion page \cite{Web:SMyoWeight}.
+\end{landscape}
