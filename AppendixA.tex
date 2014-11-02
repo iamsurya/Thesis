@@ -1,0 +1,922 @@
+\chapter{C Code used to program the micrcontroller.}
+\label{Chap:CCODE}
+\begin{lstlisting}[caption=main.h,label=Code1]
+/* Define functions */
+#include <msp430f248.h>
+#include "mpu6000.h"
+#include "dataflash.h"
+
+/* General Defines */
+#define         LED             BIT0
+#define         BTN             BIT4            /* Button on P1.4 */
+
+/* SPI Pin defines */
+#define         nSS             BIT0    /* Enable Pin for Sensor */
+#define         SPI_SIMO        BIT1
+#define         SPI_SOMI        BIT2
+#define         SPI_CLK         BIT3
+#define         mSS             BIT4    /* Enable Pin for Memory Chip */
+
+/* SPI commands / vars */
+#define         MPU_READ        0x80
+#define PAGESIZE 1020 				/* PageSize for current Memory is set to 1024, but 6 * 170 = 1020, so we use this for all counters */
+
+/* UART Pins and vars */
+#define RXPIN   BIT5
+#define TXPIN   BIT4
+#define RS232_ESC       27
+#define ASCII0  0x30
+
+/* Variables for Button Debouncing */
+unsigned char debounce;              /* 1 Not waiting for Debounce Timer 0 Button was pressed very soon */
+
+
+/* Variables for SPI */
+unsigned char read = 0;
+unsigned char PageAddress_H = 0;
+unsigned char PageAddress_L = 0;
+
+/* Variables for Main Program and to store Data */
+unsigned char ActionMode = 0;       /* ActionModes: 0 = LPM3, 1 = Switch between Blink / No Blink modes, 2 = Switch Blink Frequencies, 3 = SPI reading*/
+signed char SensorData[PAGESIZE]; 	/* Stores data to output to Memory. Size of Buffer and Block on Memory is PAGESIZE bytes by default */
+unsigned int CurrentPage = 0;		/* The current page number we are reading or writing */
+unsigned int ctr = 0;		/* Variable used for counters. Being Lazy */
+unsigned char WritingMode = 0; /* 1 = Writing Sensor Data to Memory, 0 = Not Writing Data */
+unsigned char SwitchOn = 0; /* 1 = Writing Sensor Data to Memory, 0 = Not Writing Data */
+unsigned char FORCESTOP = 0; 
+void ONDANCE();
+void OFFDANCE();
+
+/* Timer for reading sensors */
+unsigned int BaseTime = 2184; 	   /* Blinking frequency / timer on startup 0x1000 is 1 second */
+unsigned char ReadingSensor = 0x00; /* Flag is set if Timer interrupts an SPI operation */
+
+/* Variables to store Timer Counts to evaluate communication times */
+unsigned int StartTime = 0;
+unsigned int EndTime = 0;
+unsigned int Time = 0;
+
+/* Variables for logging to UART */
+unsigned long ReadIndex = 0;
+char PhoneViewStart[] = "START 2014-21-04   07:30:20";
+char PhoneViewEnd[] = "END 2014-21-04   20:05:05";
+unsigned char UART_Working = 0;
+unsigned char UART_data[2];
+
+/* Functions */
+
+/* Sensor */
+unsigned char Sensor_TXRX(unsigned char add, unsigned char val);
+unsigned char _Sensor_write(unsigned char add, unsigned char val);
+unsigned char _Sensor_read(unsigned char add);
+
+/* General */
+void JustDance();
+void ReadPageNumberFromFlash();
+void WritePageNumberToFlash();
+
+/* Memory */
+unsigned char MEM_TXRX(unsigned char data);
+unsigned char Mem_ReadID();
+void FlushMemory(void);
+void Mem_WriteToBuffer();
+void Mem_ReadFromBuffer();
+void Mem_ReadFromMem();
+void Mem_BufferToPage();
+
+void Mem_ReadAllBinary();
+
+/* UART Functions */
+
+void ClearScreen();
+void UART_SendValue(signed char);
+void UART_SendChar(unsigned char);
+void UART_SendIndex(unsigned long num);
+void UART_SendTime(unsigned long index);
+void UART_SendValue2(unsigned char num);
+
+void UART_SendValue2(unsigned char num)
+{
+  unsigned char p = 0;
+  p = (unsigned char) num / 10;
+  UART_SendChar( p + ASCII0 );
+  num = num - (p * 10);
+  p = (unsigned char) num;
+  UART_SendChar( p + ASCII0 );  
+}
+\end{lstlisting}
+\pagebreak
+\begin{lstlisting}[caption=dataflash.h,label=Code2]
+/* Dataflash Commands. Source : http://playground.arduino.cc/Code/Dataflash */
+
+
+
+#define FlashPageRead			0x52	// Main memory page read
+#define FlashToBuf1Transfer 		0x53	// Main memory page to buffer 1 transfer
+#define Buf1Read			0xD1	// Buffer 1 read
+#define FlashToBuf2Transfer 		0x55	// Main memory page to buffer 2 transfer
+#define Buf2Read			0x56	// Buffer 2 read
+#define StatusReg			0x57	// Status register
+#define AutoPageReWrBuf1		0x58	// Auto page rewrite through buffer 1
+#define AutoPageReWrBuf2		0x59	// Auto page rewrite through buffer 2
+#define FlashToBuf1Compare    		0x60	// Main memory page to buffer 1 compare
+#define FlashToBuf2Compare	    	0x61	// Main memory page to buffer 2 compare
+#define ContArrayRead			0x68	// Continuous Array Read (Note : Only A/B-parts supported)
+#define FlashProgBuf1			0x82	// Main memory page program through buffer 1
+#define Buf1ToFlashWE   		0x83	// Buffer 1 to main memory page program with built-in erase
+#define Buf1Write			0x84	// Buffer 1 write
+#define FlashProgBuf2			0x85	// Main memory page program through buffer 2
+#define Buf2ToFlashWE   		0x86	// Buffer 2 to main memory page program with built-in erase
+#define Buf2Write			0x87	// Buffer 2 write
+#define Buf1ToFlash     		0x88	// Buffer 1 to main memory page program without built-in erase
+#define Buf2ToFlash		        0x89	// Buffer 2 to main memory page program without built-in erase
+#define PageErase                   0x81	// Page erase, added by Martin Thomas
+
+
+\end{lstlisting}
+\pagebreak
+\begin{lstlisting}[caption=MPU6000 Defines,label=Code3]
+/* Code from https://code.google.com/p/gentlenav/source/browse/branches/MatrixPilot_MPU6000/libUDB/mpu6000.h?r=1510 */
+#ifndef __MPU6000_H__
+#define __MPU6000_H__
+
+
+// MPU6000 registers
+#define MPUREG_AUX_VDDIO  0x01
+
+#define MPUREG_XG_OFFS_TC 0x00
+#define MPUREG_YG_OFFS_TC 0x01
+#define MPUREG_ZG_OFFS_TC 0x02
+#define MPUREG_X_FINE_GAIN 0x03
+#define MPUREG_Y_FINE_GAIN 0x04
+#define MPUREG_Z_FINE_GAIN 0x05
+#define MPUREG_XA_OFFS_H 0x06
+#define MPUREG_XA_OFFS_L 0x07
+#define MPUREG_YA_OFFS_H 0x08
+#define MPUREG_YA_OFFS_L 0x09
+#define MPUREG_ZA_OFFS_H 0x0A
+#define MPUREG_ZA_OFFS_L 0x0B
+#define MPUREG_PRODUCT_ID 0x0C
+#define MPUREG_XG_OFFS_USRH 0x13
+#define MPUREG_XG_OFFS_USRL 0x14
+#define MPUREG_YG_OFFS_USRH 0x15
+#define MPUREG_YG_OFFS_USRL 0x16
+#define MPUREG_ZG_OFFS_USRH 0x17
+#define MPUREG_ZG_OFFS_USRL 0x18
+#define MPUREG_SMPLRT_DIV 0x19
+#define MPUREG_CONFIG 0x1A
+#define MPUREG_GYRO_CONFIG 0x1B
+#define MPUREG_ACCEL_CONFIG 0x1C
+#define MPUREG_INT_PIN_CFG 0x37
+#define MPUREG_INT_ENABLE 0x38
+#define MPUREG_ACCEL_XOUT_H 0x3B
+#define MPUREG_ACCEL_XOUT_L 0x3C
+#define MPUREG_ACCEL_YOUT_H 0x3D
+#define MPUREG_ACCEL_YOUT_L 0x3E
+#define MPUREG_ACCEL_ZOUT_H 0x3F
+#define MPUREG_ACCEL_ZOUT_L 0x40
+#define MPUREG_TEMP_OUT_H 0x41
+#define MPUREG_TEMP_OUT_L 0x42
+#define MPUREG_GYRO_XOUT_H 0x43
+#define MPUREG_GYRO_XOUT_L 0x44
+#define MPUREG_GYRO_YOUT_H 0x45
+#define MPUREG_GYRO_YOUT_L 0x46
+#define MPUREG_GYRO_ZOUT_H 0x47
+#define MPUREG_GYRO_ZOUT_L 0x48
+#define MPUREG_USER_CTRL 0x6A
+#define MPUREG_PWR_MGMT_1 0x6B
+#define MPUREG_PWR_MGMT_2 0x6C
+#define MPUREG_BANK_SEL 0x6D
+#define MPUREG_MEM_START_ADDR 0x6E
+#define MPUREG_MEM_R_W 0x6F
+#define MPUREG_DMP_CFG_1 0x70
+#define MPUREG_DMP_CFG_2 0x71
+#define MPUREG_FIFO_COUNTH 0x72
+#define MPUREG_FIFO_COUNTL 0x73
+#define MPUREG_FIFO_R_W 0x74
+#define MPUREG_WHOAMI 0x75
+
+// Configuration bits MPU6000
+#define BIT_SLEEP                                       0x40
+#define BIT_H_RESET                             0x80
+#define BITS_CLKSEL                             0x07
+#define MPU_CLK_SEL_PLLGYROX            0x01
+#define MPU_CLK_SEL_PLLGYROZ            0x03
+#define MPU_EXT_SYNC_GYROX                      0x02
+#define BITS_FS_250DPS              0x00
+#define BITS_FS_500DPS              0x08
+#define BITS_FS_1000DPS             0x10
+#define BITS_FS_2000DPS             0x18
+#define BITS_FS_2G                  0x00
+#define BITS_FS_4G                  0x08
+#define BITS_FS_8G                  0x10
+#define BITS_FS_16G                 0x18
+#define BITS_FS_MASK                0x18
+#define BITS_DLPF_CFG_256HZ_NOLPF2  0x00
+#define BITS_DLPF_CFG_188HZ         0x01
+#define BITS_DLPF_CFG_98HZ          0x02
+#define BITS_DLPF_CFG_42HZ          0x03
+#define BITS_DLPF_CFG_20HZ          0x04
+#define BITS_DLPF_CFG_10HZ          0x05
+#define BITS_DLPF_CFG_5HZ           0x06
+#define BITS_DLPF_CFG_2100HZ_NOLPF  0x07
+#define BITS_DLPF_CFG_MASK          0x07
+//#define BIT_INT_ANYRD_2CLEAR        0x10
+//#define BIT_RAW_RDY_EN              0x01
+#define BIT_I2C_IF_DIS              0x10
+
+// Register 55 - INT Pin / Bypass Enable Configuration (INT_PIN_CFG)
+#define BIT_INT_LEVEL        0x80
+#define BIT_INT_OPEN         0x40
+#define BIT_LATCH_INT_EN     0x20
+#define BIT_INT_RD_CLEAR     0x10
+#define BIT_FSYNC_INT_LEVEL  0x08
+#define BIT_FSYNC_INT_EN     0x04
+#define BIT_I2C_BYPASS_EN    0x02
+#define BIT_CLKOUT_EN        0x01
+
+// Register 56 - Interrupt Enable (INT_ENABLE)
+#define BIT_FF_EN            0x80
+#define BIT_MOT_EN           0x40
+#define BIT_ZMOT_EN          0x20
+#define BIT_FIFO_OFLOW_EN    0x10
+#define BIT_I2C_MST_INT_EN   0x08
+#define BIT_DATA_RDY_EN      0x01
+
+// Register 58 - Interrupt Status (INT_STATUS)
+#define BIT_FF_INT           0x80
+#define BIT_MOT_INT          0x40
+#define BIT_ZMOT_INT         0x20
+#define BIT_FIFO_OFLOW_INT   0x10
+#define BIT_I2C_MST_INT      0x08
+#define BIT_DATA_RDY_INT     0x01
+
+
+// DMP output rate constants
+#define MPU6000_200HZ 0    // default value
+#define MPU6000_100HZ 1
+#define MPU6000_66HZ 2
+#define MPU6000_50HZ 3
+
+#endif // __MPU6000_H__
+
+\end{lstlisting}
+\pagebreak
+\begin{lstlisting}[caption=Main.c,label=Code4]
+#include "main.h"
+
+#define READMEM 0                               /* Set to 1 if you want to read data from memory */
+
+#define TIMETOWRITE 60
+#define TIMETOREAD 60
+
+#define PAGESTOWRITE 8189 // (TIMETOWRITE * 5.5)
+#define PAGESTOREAD 8189 //(TIMETOREAD * 5.5)
+
+
+/*
+** Main Function. We setup the clocks
+** and SPI, then leave the device into 
+** sleep mode to be activated by the Timer Interrupt
+*/
+void main(void)
+{
+  
+  /* Turn off Watchdog Timer */
+  WDTCTL = WDTPW+WDTHOLD;                   
+
+  BCSCTL3 |= XCAP_3;          /* Set the capacitance of the external crystal to 12.4pf. */  
+  
+   /* Initialize DCO */
+  BCSCTL1 = CALBC1_1MHZ;                /* Set DCO to 1MHz */
+  DCOCTL =  CALDCO_1MHZ;                /* Set DCO to 1MHz */
+  __delay_cycles(200000);
+  debounce = 1;
+  
+  FCTL2 = FWKEY + FSSEL0 + FN1;             // MCLK/3 for Flash Timing Generator (0x0040u)  /* Flash clock select: 1 - MCLK */ Divided by 2.
+  SVSCTL = 0x80;                       /* SVS to set at 2.8V */
+  
+  /* Initialize Port 1 For LED and Button */
+  P1DIR |= LED;                 /* Set LED as output */
+  P1REN |= BTN;                 /* Enable Pullup / Pulldown on BTN pin */
+  P1OUT |= BTN;           /* Turn LED OFF Till the BTN is pressed, Pull up BTN pin */
+  P1OUT &= ~LED;            
+  P1IFG = 0;                    /* Clear any interrupts on P1 */
+  P1IE  |= BTN;                 /* Set BTN as intterupt (default P1IES sets low to high )*/
+  P1IES |= BTN;                 /* Sensitive to (H->L) */
+  
+  /* Enable SPI */
+  P5SEL |= (BIT1 + BIT2 + BIT3);        /* Peripheral function instead of I/O */
+  UCB1CTL0 = UCCKPL | UCMSB | UCMST | UCMODE_0 | UCSYNC; /* SPI Polarity = 1, MSB First, Master, 3 Pin Mode, Synchronous Comm. UCCKPH = 0 is ~SPIPhase*/
+  UCB1CTL1 = UCSSEL_2 | UCSWRST;         /* Clock from SMCLK; hold SPI in reset */
+  
+  UCB1BR1 = 0x0;                          /* Upper byte of divider word */
+  UCB1BR0 = 0x1;                         /* Clock = SMCLK / 10 = 100 KHz */
+  
+  UCB1CTL1 &= ~UCSWRST;                 /* Remove SPI reset to enable it*/
+  
+  /* Configure Pins for SPI. These commands might not be needed */
+  P5DIR |= nSS | mSS | SPI_SOMI | SPI_CLK;    /* Output on the pins */      
+  P5OUT |= nSS | mSS | SPI_SOMI | SPI_CLK;    /* Set pins to high */
+  __delay_cycles(0x80);
+  
+  /* Read the Memory Device ID. Should be 1F */
+  read = Mem_ReadID();
+
+//  Mem_ReadAllBinary();
+  /* Initialize UART */
+  P3DIR = TXPIN;
+  P3OUT = TXPIN;
+  P3SEL = TXPIN | RXPIN;
+
+  /* Values from MSP430x24x Demo - USCI_A0, 115200 UART Echo ISR, DCO SMCLK */
+  
+  UCA0CTL1 |= UCSSEL_2;                     // CLK = SMCLK
+  UCA0BR0 = 8;                           // 32kHz/9600 = 3.41
+  UCA0BR1 = 0x00;
+  UCA0MCTL = UCBRS2 + UCBRS0;               // Modulation UCBRSx = 3
+  UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+  IE2 |= UCA0RXIE;                          // Enable USCI_A0 RX interrupt
+  /* End UART init */
+
+  /* Disable I2C on the sensor */
+  _Sensor_write(MPUREG_USER_CTRL, BIT_I2C_IF_DIS);
+  
+  /* Check the Sensor Device ID */
+  read = _Sensor_read(MPUREG_WHOAMI);
+
+  /* Trap uC if Sensor doesn't ID correctly */
+  if(read != 0x68) JustDance();                    /* Check WHOAMI Hopefully it is 0x68. Otherwise freak out. */
+
+ 
+  /* Sensor might be sleeping, read Register with Sleep Bit, reset the bit and write it back */
+  read = _Sensor_read(MPUREG_PWR_MGMT_1);
+  _Sensor_write(MPUREG_PWR_MGMT_1, (read & ~BIT_SLEEP));/* Reset the Sleep Bit to wake it up */
+  
+  /* Erase all data SensorData */
+  for(ctr = 0; ctr < PAGESIZE; ctr++)
+    SensorData[ctr] = 0;
+
+  
+  /* Reset Counter to 0 after previous for loop */
+  ctr = 0;
+  
+  /* 
+  ** TimerA for Blinking, Button Debouncing, Long Press wait 
+  ** TACTL = Timer A Control
+  ** TASSEL_1 => Set Timer source to ACLK (ACLK is from LFXT) | MC_2 = MODE => Continuous
+  ** TACLR => Clear Timer | ID_3 Divide Clock by 8 = > 4096 = 0x1000
+  ** This does not start the timer (Set mode to not 0, and have not zero value in TACCR0)).
+  */
+  TACTL = TACLR;
+  __delay_cycles(8254); /* Delay by 0.2 seconds DELAY CYCLES USES DCO @ 1MHZ*/
+  TACTL = TASSEL_1 | MC_2; /* Run Timer on ACLK */
+
+  
+    /* Other Housekeepigng */
+  __delay_cycles(8234);                 /* Delay 0.2s at 1Mhz to let clock settle */
+  __enable_interrupt();
+
+  
+  OFFDANCE();
+
+  /** Main Program **/
+  
+  while(1)
+  {
+    __low_power_mode_3();
+    
+    if(ActionMode == 1)                 /* Long Buttton Press from old Timer Code */
+    {
+      if(((WritingMode == 1) && ((P1IN & BTN) == 0)) || (FORCESTOP == 1))
+      {
+        /* Disable Sensor Reading */
+        /* Set timer to disable */
+        FORCESTOP = 0;
+        TACCR0 = 0;
+        TACCTL0 &= ~CCIE;
+        OFFDANCE();
+        WritingMode = 0;
+        SwitchOn = 0;
+        __enable_interrupt();
+        __delay_cycles(600);
+      }
+      else if((WritingMode == 0) && ((P1IN & BTN) == 0))
+      {
+        CurrentPage = 0;                /* Reset Memory count since device is off and LongPress */
+        WritePageNumberToFlash();
+        ctr = 0;
+        JustDance();
+        SwitchOn = 0;
+        
+      }
+      else if (SwitchOn == 1)
+      {
+        TACCR0 += (BaseTime);
+        TACCTL0 |= CCIE;
+        ONDANCE();
+        
+        P1OUT &= ~LED;
+        WritingMode = 1;
+        SwitchOn = 0;
+      }
+      ActionMode = 0;  
+    }
+    
+    if(ActionMode == 2)                 /* Short Button Press from old Timer Code */
+    {
+      if(WritingMode == 0)              /* Device is off and shortpress */
+      {
+      SwitchOn = 1;
+      }
+      ActionMode = 0;
+    }    
+    
+    if(ActionMode == 3)                  /* Timer A Freq at 15hz */
+    {
+      ReadingSensor = 1;
+      
+      if(CurrentPage == PAGESTOWRITE && ctr > 1007) /* 2nd to Last data should be -128, Last Should be 0 */
+      {
+      SensorData[ctr++] = -128;
+      SensorData[ctr++] = -128;
+      SensorData[ctr++] = -128;
+      SensorData[ctr++] = -128;
+      SensorData[ctr++] = -128;
+      SensorData[ctr++] = -128;
+      JustDance();
+      }
+      else
+      {
+      /* Read X Acc */
+      SensorData[ctr++] = _Sensor_read(MPUREG_ACCEL_XOUT_H); // rand--;//
+      /* Read Y Acc */
+      SensorData[ctr++] =  _Sensor_read(MPUREG_ACCEL_YOUT_H);
+      /* Read Z Acc */
+      SensorData[ctr++] =  _Sensor_read(MPUREG_ACCEL_ZOUT_H);
+      /* Read X Gyro */
+      SensorData[ctr++] =  _Sensor_read(MPUREG_GYRO_XOUT_H);
+      /* Read Y Gyro */
+      SensorData[ctr++] = _Sensor_read(MPUREG_GYRO_YOUT_H);
+      /* Read Z Gyro */
+      SensorData[ctr++] = _Sensor_read(MPUREG_GYRO_ZOUT_H);
+      }
+      
+
+          if(ctr >= PAGESIZE)   /* The Buffer is full */
+          {
+            __disable_interrupt();	/* Disable interrupts b/c the timer might interrupt otherwise */
+            P1OUT |= LED;
+            ReadPageNumberFromFlash();
+            StartTime = TAR;
+            Mem_WriteToBuffer();	/* Write the stored SensorData to the Memory chip Buffer */
+            Mem_BufferToPage();		/* Write the Buffer data to Page. Page Number is stored in Global CurrentPage */
+            CurrentPage++;			/* Increment current page for next write */
+            WritePageNumberToFlash();
+            ctr=0;					/* Reset ctr so its starts at 0 for next page */
+            EndTime = TAR;
+            Time = EndTime - StartTime;
+            for(int actr = 0; actr < PAGESIZE; actr++)	/* Erase SensorData. Using new ctr variable b/c ctr is used in loop above */
+                SensorData[actr] = 0;
+            ReadingSensor = 0; /* Flag set to 0 b/c we're done with communication */
+            ActionMode = 0;
+            P1OUT &= ~LED;
+            __enable_interrupt();	/* Enable Interrupts for the timer to start logging data again */
+
+          }
+      
+      ReadingSensor = 0; /* Flag set to 0 b/c we're done with communication */
+      ActionMode = 0;
+    }
+    
+    
+  }
+  
+}
+
+/*********************/
+/* Code for MPU 6000 */
+/*********************/
+
+unsigned char _Sensor_write(unsigned char add, unsigned char val)
+{
+  P5OUT |= mSS;                         /* Deselect Select Memory as SPI slave */  
+  P5OUT &= ~nSS;                        /* Select Sensor as SPI Slave */
+  unsigned char RXCHAR = 0x00;
+  
+  RXCHAR = Sensor_TXRX(add, val);
+  
+  P5OUT |= nSS;                         /* Deselect Sensor as SPI slave */        
+  return RXCHAR;
+}
+
+unsigned char _Sensor_read(unsigned char add)
+{
+  
+  unsigned char RXCHAR = 0x00;
+  P5OUT |= mSS;                         /* Deselect Select Memory as SPI slave */  
+  P5OUT &= ~nSS;                        /* Select Sensor as SPI Slave */
+  
+  RXCHAR = Sensor_TXRX(add | MPU_READ, 0x00);
+  
+  P5OUT |= nSS;                         /* Deselect Sensor as SPI slave */   
+  return RXCHAR;
+}
+
+unsigned char Sensor_TXRX(unsigned char add, unsigned char val)
+{
+  unsigned char RXCHAR = 0x00;
+          
+  while (!(UC1IFG & UCB1TXIFG));          /* Wait for TXBUF to be empty */
+  
+  UCB1TXBUF = add;                      /* Send Address of Register  */
+  while(!(UC1IFG & UCB1TXIFG));           /* Wait for TXBUF to be empty (TXBUF data moves to the shift register) */
+  while(!(UC1IFG & UCB1RXIFG));           /* Wait for RXBUF to be full */     
+ // while(UCB1STAT & UCBUSY);             /* Wait for SPI to complete communication. Shouldn't be needed */
+  RXCHAR = UCB1RXBUF;                   /* Read what is RX to clear buffer / flags*/
+  
+  
+  UCB1TXBUF = val;                      /* Write the val */      
+  while(!(UC1IFG & UCB1TXIFG));           /* Wait for TXBUF to be empty (TXBUF data moves to the shift register) */
+  while(!(UC1IFG & UCB1RXIFG));           /* Wait for RXBUF to be full */  
+    
+  RXCHAR = UCB1RXBUF;                     /* Read what is RX to clear buffer / flags*/
+        
+  //while(UCB1STAT & UCBUSY);             /* Wait for SPI to complete communication. Shouldn't be needed */
+  
+  return RXCHAR;
+}
+
+
+/**********************/
+/* Code for Dataflash */
+/**********************/
+unsigned char MEM_TXRX(unsigned char data)
+{
+  unsigned char RXCHAR = 0x00;
+  while (!(UC1IFG & UCB1TXIFG));          /* Wait for TXBUF to be empty */
+//  while(UCB1STAT & UCBUSY);             /* Wait for SPI to complete communication. Shouldn't be needed */
+  UCB1TXBUF = data;                      /* Send Address of Register  */
+  while(!(UC1IFG & UCB1TXIFG));           /* Wait for TXBUF to be empty (TXBUF data moves to the shift register) */
+  while(!(UC1IFG & UCB1RXIFG));           /* Wait for RXBUF to be full */ 
+//  while(UCB1STAT & UCBUSY);             /* Wait for SPI to complete communication. Shouldn't be needed */
+  RXCHAR = UCB1RXBUF;                   /* Read what is RX to clear buffer / flags*/
+//  while(UCB1STAT & UCBUSY);
+  return RXCHAR;
+  
+}
+
+unsigned char Mem_ReadID()
+{
+  unsigned char RXCHAR = 0x00;
+  P5OUT |= nSS;                         /* Deselect Sensor as SPI slave */ 
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+  P5OUT &= ~mSS;                        /* Select Memory as SPI Slave */
+  
+  MEM_TXRX(0x9F);                       /* Send the Buffer OpCode to the Memory */
+  RXCHAR = MEM_TXRX(0x00);                       /* Write 3 bytes of address. We starts at byte 0, so this is always 0 */
+  RXCHAR = RXCHAR;
+  
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+  return RXCHAR;
+}
+
+void Mem_WriteToBuffer()
+{
+  P5OUT |= nSS;                         /* Deselect Sensor as SPI slave */ 
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+  P5OUT &= ~mSS;                        /* Select Memory as SPI Slave */
+
+  MEM_TXRX(Buf1Write);                  /* Send the Buffer OpCode to the Memory */
+  MEM_TXRX(0x00);                       /* Write 3 bytes of address. We starts at byte 0, so this is always 0 */
+  MEM_TXRX(0x00);
+  MEM_TXRX(0x00);
+  
+  for(ctr = 0; ctr < PAGESIZE; ctr++)
+    MEM_TXRX(SensorData[ctr]);
+
+  
+  while(UCB1STAT & UCBUSY);             /* Wait for SPI to complete communication. Shouldn't be needed */
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+  __delay_cycles(100);
+}
+
+void Mem_ReadFromBuffer()
+{
+  P5OUT |= nSS;                         /* Deselect Sensor as SPI slave */ 
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+  P5OUT &= ~mSS;                        /* Select Memory as SPI Slave */
+  
+  MEM_TXRX(Buf1Read);                  /* Send the Buffer OpCode to the Memory */
+  MEM_TXRX(0x00);                      /* Don't Care Bytes */
+  MEM_TXRX(0x00);                      /* Upper and lower Byter. We starts at byte 0, so this is always 0 */
+  MEM_TXRX(0x00);                      /* Lower Byte */
+  
+  
+  for(ctr = 0; ctr < PAGESIZE; ctr++)
+      SensorData[ctr] = MEM_TXRX(0x00);
+
+  while(UCB1STAT & UCBUSY);             /* Wait for SPI to complete communication. Shouldn't be needed */
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+  
+}
+
+void Mem_BufferToPage()
+{
+  
+  PageAddress_H = (unsigned char) (((CurrentPage<<2) & 0xFF00)>>8);
+  PageAddress_L = (unsigned char) (((CurrentPage<<2) & 0xFF));
+  
+  P5OUT |= nSS;                         /* Deselect Sensor as SPI slave */ 
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+  P5OUT &= ~mSS;                        /* Select Memory as SPI Slave */
+  
+  MEM_TXRX(Buf1ToFlashWE);                  /* Send the Buffer OpCode to the Memory */
+  MEM_TXRX(PageAddress_H);                      /* Don't Care Bytes */
+  MEM_TXRX(PageAddress_L);                      /* Upper and lower Byter. We starts at byte 0, so this is always 0 */
+  MEM_TXRX(0x00);                      /* Lower Byte */
+  
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+}
+
+void Mem_ReadFromMem(unsigned int PageToRead)
+{
+  PageAddress_H = (unsigned char) (((PageToRead<<2) & 0xFF00)>>8);
+  PageAddress_L = (unsigned char) (((PageToRead<<2) & 0xFF));
+  
+  P5OUT |= nSS;                         /* Deselect Sensor as SPI slave */ 
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+  P5OUT &= ~mSS;                        /* Select Memory as SPI Slave */
+  
+  MEM_TXRX(0xD2);                  /* Send the Buffer OpCode to the Memory */
+  MEM_TXRX(PageAddress_H);                      /* Don't Care Bytes */
+  MEM_TXRX(PageAddress_L);                      /* Upper and lower Byter. We starts at byte 0, so this is always 0 */
+  MEM_TXRX(0x00);                      /* Lower Byte and Add*/
+
+  MEM_TXRX(0x00);                       /* Dummy Byte */
+  MEM_TXRX(0x00);                       /* Dummy Byte */
+  MEM_TXRX(0x00);                       /* Dummy Byte */
+  MEM_TXRX(0x00);                       /* Dummy Byte */
+  
+  for(ctr = 0; ctr < PAGESIZE; ctr++)
+      SensorData[ctr] = MEM_TXRX(0x00);
+  
+  while(UCB1STAT & UCBUSY);             /* Wait for SPI to complete communication. Shouldn't be needed */
+  P5OUT |= mSS;                         /* Deselect memory as SPI slave */ 
+  
+}
+
+
+/* Old function used when READMEM */
+void Mem_ReadAllBinary()
+{
+
+    
+    
+    for(int i = 0; i < CurrentPage ; i++)
+    {
+      
+      for(ctr = 0; ctr < PAGESIZE; ctr++)
+          SensorData[ctr] = 0;
+      
+      Mem_ReadFromMem(i);
+      
+      for(ctr = 0; ctr < 170; ctr++)
+        for(int ctr2 = 0; ctr2 < 6; ctr2++)
+		UART_SendChar(SensorData[(ctr*6)+ctr2]);
+    }
+    
+    while(UCA0STAT & UCBUSY);
+    
+
+}
+
+
+
+void UART_SendChar(unsigned char data)
+{ 
+  while(!(IFG2 & UCA0TXIFG));
+  UCA0TXBUF = data;  
+}
+
+
+
+
+/* Interrupt for TimerA Channel 0, runs short periods*/
+#pragma vector = TIMERA0_VECTOR
+__interrupt void TA0V_ISR(void)
+{
+  __disable_interrupt();
+  TACCR0 += (BaseTime); /* Next Interrupt at given time */
+  BaseTime ^= 0x01;             /* Flip between 2184 and 2185 to average at 2184.5 */
+  
+  ActionMode = 3;
+
+  if(ReadingSensor == 1)
+   JustDance(); 
+
+  if( (SVSCTL & SVSFG) == SVSFG)
+  {
+    ActionMode = 1;
+    FORCESTOP = 1;
+  }
+  else
+  {
+    FORCESTOP = 0;
+  }
+  __low_power_mode_off_on_exit();
+  P1IFG = 0;                    /* Changing P1 can change P1IFG */
+  __enable_interrupt();
+}
+
+
+
+/* Interrupt for Port 1 Button */
+#pragma vector = PORT1_VECTOR
+__interrupt void P1IV_ISR(void)
+{
+__disable_interrupt();  
+  
+  
+  P1IE &= ~BTN;                         /* Temporarily disable the interrupt (This is enabled after timer compares) */
+  switch(P1IFG)
+  {
+  case BTN:
+          if(debounce == 1)
+          {
+              debounce = 0;             /* Set debounce to 0 to indicate that timer needs to overflow before button can be read again */        
+              TACCR1 = TAR + 0x1800;    /* Timer 1 for half second later */
+              TACCTL1 = CCIE;           /* Enable Interrupt */        
+              TACCR2 = TAR+0x9000;      /* Timer 2 for long press */
+              TACCTL2 = CCIE;           /* Enable Timer 2 interrupt */
+          }
+          break;
+          
+  default: break;
+  }
+  
+  P1IFG = 0;                    /* Clear any interrupts on P1 */
+  P1IE  |= BTN;                 /* Set BTN as intterupt (default P1IES sets low to high )*/
+  P1IES |= BTN;                 /* Sensitive to (H->L) */
+  P1IFG = 0;                    /* Clear any interrupts on P1 */
+  __enable_interrupt();
+}
+
+/* Interrupt for TimerA Channel 1 */
+#pragma vector = TIMERA1_VECTOR
+__interrupt void TAIV_ISR(void)
+{
+  
+__disable_interrupt();    
+  
+switch(TAIV)
+  {
+  
+  case TAIV_TACCR1:                     /* half a second has passed, so process the button command */
+          TACCR1 = 0;
+          TACCTL1 &= ~CCIE;
+          debounce = 1;                 /* half Seconds later, so we can say button has been debounced */
+          ActionMode = 2;               /* Action - Short Button Press */ 
+          __low_power_mode_off_on_exit();
+                 
+          break;
+          
+          
+  case TAIV_TACCR2:
+          /* 3 Seconds later after button press. */
+          /* Turn Channel 1 to off. */
+          
+          TACCTL2 &= ~CCIE;
+          TACCR2 = 0;
+          ActionMode = 1;               /* Action = Long Button Press */
+
+          debounce = 1; /* half Seconds later, so we can say button has been debounced */
+          __low_power_mode_off_on_exit();
+          
+            break;
+  default:  break; 
+  }
+ 
+  P1IFG = 0;                    /* Clear any interrupts on P1 */
+  P1IE  |= BTN;                 /* Set BTN as intterupt (default P1IES sets low to high )*/
+  P1IES |= BTN;                 /* Sensitive to (H->L) */
+  P1IFG = 0;                    /* Clear any interrupts on P1 */
+}
+
+void JustDance()
+{
+  P1OUT &= ~LED;                    /* Turn LED off if the WRONG WHO_AM_I response is received */
+      for(int j = 0; j<0x05; j++) for(int i = 0; i<0xFFFF; i++);        /* Long LED off delay */
+      P1OUT ^= LED;
+      for(int j = 0; j<0x05; j++) for(int i = 0; i<0xFFFF; i++);        /* Long LED on */
+      P1OUT ^= LED;
+      for(int i = 0; i<0x8FFF; i++);        /* Short LED off */
+      P1OUT ^= LED;
+      for(int i = 0; i<0x8FFF; i++);        /* Short LED on */
+      P1OUT ^= LED;
+      for(int i = 0; i<0x8FFF; i++);        /* Short LED off */
+      P1OUT ^= LED;
+      for(int i = 0; i<0x8FFF; i++);        /* Short LED on */
+      P1OUT ^= LED;
+      for(int i = 0; i<0x8FFF; i++);        /* Short LED off */
+      P1OUT ^= LED;
+      for(int i = 0; i<0x8FFF; i++);        /* Short LED on */
+      P1OUT ^= LED;
+      for(int j = 0; j<0x05; j++) for(int i = 0; i<0xFFFF; i++);        /* Long LED on delay */
+//      P1OUT ^= LED;                                                     
+  P1IFG = 0;                    /* Clear any interrupts on P1 */
+  P1IE  |= BTN;                 /* Set BTN as intterupt (default P1IES sets low to high )*/
+  P1IES |= BTN;                 /* Sensitive to (H->L) */
+  P1IFG = 0;                    /* Clear any interrupts on P1 */
+}
+
+// USCI A0/B0 Receive ISR
+#pragma vector=USCIAB0RX_VECTOR
+__interrupt void USCI0RX_ISR(void)
+{
+  
+__disable_interrupt();
+ReadPageNumberFromFlash();
+//UC1IE &= ~UCA1RXIE;                          // Disable RX interrupt
+UART_data[0] = UART_data[1];
+UART_data[1] = UCA0RXBUF;
+
+if(UART_data[0] == 's' && UART_data[1] == 'd')
+{
+  
+  UART_data[0] = 0x00;
+  UART_data[1] = 0x00;
+  Mem_ReadAllBinary();
+  
+  
+}
+__enable_interrupt();
+//UC1IE |= UCA1RXIE;                          // Enable  RX interrupt
+}
+
+void ReadPageNumberFromFlash()
+{
+  char *Flash_ptr;                          // Flash pointer
+  unsigned char LSB,MSB;
+  
+  Flash_ptr = (char *)0x1040;              // Initialize Flash segment C ptr
+  MSB = *Flash_ptr++;                // Get Current Page number from the Flash location 0x1040
+  LSB = *Flash_ptr;
+  CurrentPage = (((unsigned int)MSB)<<8)+(unsigned int)LSB;
+  __no_operation();                       // SET BREAKPOINT HERE
+}
+
+void WritePageNumberToFlash()
+{
+  char *Flash_ptr;                          // Flash pointer
+  unsigned char LSB,MSB;
+  Flash_ptr = (char *)0x1040;              // Initialize Flash segment C ptr
+  
+  FCTL3 = FWKEY;                            // Clear Lock bit
+  FCTL1 = FWKEY + ERASE;                    // Set Erase bit
+  *Flash_ptr = 0;                          // Dummy write to erase Flash seg D
+  FCTL1 = FWKEY + WRT;                      // Set WRT bit for write operation
+  
+  MSB = (unsigned char)((CurrentPage & 0xFF00u)>>8);
+  LSB = (unsigned char)(CurrentPage & 0xFF);
+  *Flash_ptr++ = MSB;
+  *Flash_ptr = LSB;
+  
+  __no_operation();                       // SET BREAKPOINT HERE
+  
+  FCTL1 = FWKEY;                            // Clear WRT bit
+  FCTL3 = FWKEY + LOCK;                     // Set LOCK bit
+  
+}
+
+
+void OFFDANCE()
+{
+        P1OUT &= ~LED;
+        for(int j = 0; j<0x05; j++) for(int i = 0; i<0xFFFF; i++);        /* Long LED off delay */
+        P1OUT ^= LED;
+        for(int j = 0; j<0x05; j++) for(int i = 0; i<0xFFFF; i++);        /* Long LED on */
+        P1OUT ^= LED;
+        for(int j = 0; j<0x05; j++) for(int i = 0; i<0xFFFF; i++);        /* Long LED off */
+        P1OUT ^= LED;
+        for(int j = 0; j<0x05; j++) for(int i = 0; i<0xFFFF; i++);        /* Long LED on */
+        P1OUT ^= LED;
+        for(int j = 0; j<0x05; j++) for(int i = 0; i<0xFFFF; i++);        /* Long LED off */  
+}
+
+
+void ONDANCE()
+{
+  
+        P1OUT &= ~LED;
+        for(int i = 0; i<0x8FFF; i++);        /* Long LED off delay */
+        P1OUT ^= LED;
+        for(int i = 0; i<0x8FFF; i++);        /* Long LED on */
+        P1OUT ^= LED;
+        for(int i = 0; i<0x8FFF; i++);        /* Long LED off */
+        P1OUT ^= LED;
+        for(int i = 0; i<0x8FFF; i++);        /* Long LED on */
+        P1OUT ^= LED;
+        for(int i = 0; i<0x8FFF; i++);        /* Long LED off */  
+}
+\end{lstlisting}

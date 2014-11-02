@@ -31,7 +31,7 @@ This circuit was designed in the EAGLE PCB Design software.
 \label{Sec:PCBDesign}
 All components in the final device will be connected to each other using a Printed Circuit Board.
 PCB's replace wires between components by copper traces on the board,
-which are lines made of wire that can conduct electricity.
+which are lines made of copper, so that electricity is conducted across them.
 Creating a PCB requires three steps, the first being circuit design.
 Once the circuit is designed, the components are laid out on a PCB, and traces are created based on the circuit design.
 The third process comprises of of using this layout to create the actual PCB.
@@ -57,7 +57,7 @@ it is easier to work through with our devices knowing where a bug is,
 if one shows up during the creation process.
 Unit Testing is a method of testing individual units of source code to check if they work as expected before introducing them into a larger piece of code.
 We extend this to our device creation process by testing each unit of hardware seperately.
-We would have to test the microcontroller, the sensor, the memory chip, the USB to UART bridge and the battery charger.
+We would have to test the microcontroller, the sensor, the memory chip, the USB to UART bridge and the battery charger seperately.
 The microcontroller would have to be the first component to be tested because the other components require a master device that controls them.
 
 \subsubsection{Micrcontroller Testing}
@@ -98,22 +98,22 @@ which allow us to prototype sensors without worrying about soldering them.
 Breakout boards for the MPU-6000 were obtained from an Ebay seller.
 The breakout board has 6 pins that need to be connected for operation,
 which means we need 6 wires between the microcontroller and the breakout board.
-These pins on the breakout board were connected to the microcontroller target board using a CAT5 cable as can be seen in figrure \ref{FIG:Cat5MPU}.
+These pins on the breakout board were connected to the microcontroller target board using a CAT5 cable as can be seen in figrure \ref{Fig:CAt5MPU}.
 This is the same cable used for Ethernet connections, and thus was easy to obtain.
 As shown in the same figure,
 a regular CAT5 cable consists of 4 pairs of twisted wires,
-so one pair in this cable would not be used.
+so one pair in this cable was not needed.
 This pair was connected to the GND pin on the microcontroller to reduce noise.
 
 Our sensor uses SPI for communication.
 The datasheet mentions that once the sensor is powered on and woken from sleep mode,
 the sensor will start recording what the acceleration and angular velocity are.
-This information is storing in an internal memory on the sensor which can be read using SPI instructions.
+This information is stored in an internal memory on the sensor which can be read using SPI instructions.
 We initially had trouble verifying if our sensor is working correctly and did not know if the sensor was faulty,
 or if there was a mistake in our connections or code.
 The datasheet for the sensor mentions a register called ``WHO\_AM\_I'' which containst he device's I$^2$C address.
 This address by default is set to 0x68.
-Since this register contains a constant number, we can read it to check if the device is indeed correctly connected.
+Since this register contains constant data, we can read it to check if the device is indeed correctly connected.
 
 After some troubleshooting we learnt that the length of the cable was too long for SPI communication and signals would strength.
 Also, SPI is time sensitive, so if the cable length was too long,
@@ -126,7 +126,7 @@ Once it was established that the sensors were working correctly and SPI communic
 we carried out simple tests where the acceleration on one axis would turn an LED on if positive,
 otherwise turn it off.
 Since gravity would show as -1g on the Z Axis in the Earth Frame of reference,
-we could test all three sensor axes by rotatin the sensor and observing the LED's behaviour.
+we could test all three sensor axes by rotating the sensor and observing the LED's behaviour.
 These tests concluded that communication between the sensor and microcontroller was as expected.
 
 \subsubsection{Memory Chip Testing}
@@ -137,7 +137,7 @@ we created our own breakout board to break the pins out from the memory chip.
 To check if SPI communication was running fine,
 we used a method similar to what was used for the sensor.
 The datasheet for our memory chip mentions a command known as ``Manufacturer and Device ID''.
-Issuing this command to the memory chip causes the memory chip to send 4 bytes of data to the master device.
+Issuing this command to the memory chip requests the memory chip to send 4 bytes of data to the master device.
 These bytes identify the device and contain other information about it. 
 For example, the second byte contains the family code and the density code,
 telling us what the size of the memory is.
@@ -160,7 +160,7 @@ and timing errors were being created.
 Once we reduced the length of this cable,
 data transfer behaved as expected,
 and we were able to record data from the sensor,
-then flushing it to the memory.
+then flush it to the memory.
 
 \subsection{Circuit Design}
 \label{Sec:CircuitDesign}
@@ -224,7 +224,7 @@ and this can be seen in figure \ref{Fig:BreadBoardProto}.
 \subsection{Programming and Testing}
 \label{Sec:Programming}
 Now that we had all our components connected together on the breadboard,
-it was possible to program our microcontroller and make it perform its required functions.
+it was possible to program our microcontroller and make it perform the required functions.
 As described in Hardware Selection (section \ref{Sec:Hardware}),
 our program would poll the sensors repeatedly.
 The data from these sensors would be stored in the microcontrollers memory till the total data crossed a threshold.
@@ -260,16 +260,16 @@ This PCB would be fit inside the case along with the battery.
 The PCB was laid out using EAGLE PCB's layout editor.
 The software first generates parts and their footprints from the schematic we created.
 This can be seen in figure \ref{Fig:Layout1}.
-The parts are placed in random locations by the editor.
+The parts are placed in randomized locations by the software.
 The software connects these parts by direction lines (seen in yellow in figure \ref{Fig:Layout1}) called signals.
 Signals do not exist on the PCB,
 and are used only to guide us when creating copper traces on the PCB to connect components.
 We are free to move parts around on the PCB, and resize the PCB to our will.
-We sized the PCB to be smaller than the case so that it would fit easily, and moved the parts around so that pins that need to connect are close to each other.
+We sized the PCB to be smaller than the case so that it would fit easily, and moved the parts around so that pins that need to connect components are close to each other.
 This can be see in figure \ref{Fig:Layout2}.
 Once we have parts placed to our desire,
 we route the signals through the copper board,
-using the signals as a guide as seen in figure \ref{Fig:Layout3}.
+using the signals as a guide, as seen in figure \ref{Fig:Layout3}.
 This process is like a puzzle where we are trying to draw lines through objects that we cannot cross.
 Routing all the signals can take a considerable time,
 and requires a lot of creativity.
@@ -302,9 +302,9 @@ we were finally satisfied with the design.
 \end{center}
 \end{figure}
 \subsubsection{PCB Manufacture}
-To manufacture our PCB, we used a small service provided by OSH Park\footnote{http://oshpark.com}.
+To manufacture our PCB, we used a service provided by OSH Park\footnote{http://oshpark.com}.
 Most PCB manufactueres expect a high volume of production (100 - 1000 PCB's per order).
-We only required some prototype PCB's so our order was only a few PCB's.
+We only required a few prototype PCB's so our order was only a few PCB's.
 OSH Park takes multiple orders from its clients and combines this into a large PCB.
 This is then cut into the requested PCB and sent back to the client.
 This process takes time, but costs lesser than what most other PCB manufactureres charge.
@@ -322,11 +322,11 @@ OSH Park,
 on the other hand offer's high quality PCB's at a lower cost.
 The turn around time is much longer (approximately 21 days),
 however we were able to procure 6 PCB's for a total of \$15,
-costing us roughly \$2.5 per PCB.
+costing us approximately \$2.5 per PCB.
 
 To create our PCB's, we uploaded our PCB Layout file generated by Eagle PCB to the OSH Park website.
 The website shows you an approximate render of how the PCB will look once it is delivered,
-and also notifies you if it thinks there could be issues with part placement (some parts are too close to the border).
+and also notifies you if it thinks there could be issues with part placement (for example, parts may be too close to the border).
 After we were happy with what the render shown to us by the website,
 we placed the order for our PCB.
 
@@ -336,7 +336,7 @@ Our PCB's would take an expected 21 days to arrive. While waiting for our PCB's 
 we decided to work on a software that would allow us to visually look at the data that was collected by the device.
 Work done by Reyes et al. \cite{concha2014study} shows PhoneView,
 a tool developed to analyze data collected by an iPhone.
-Instead of the wrist based activity monitor that we have planned,
+Instead of the wrist based activity monitor that we are developing,
 work done by the group previously used an iPhone mounted on the wrist.
 This data could be loaded into PhoneView,
 which would then plot the instantaneous values of each sensor versus time,
@@ -361,7 +361,7 @@ A photograph of the bare PCB can be seen in figure \ref{Fig:PCBBare}.
 As it can be seen,
 most components are going to be surface mounted to this PCB,
 and there are very few through hole components.
-Through out this thesis we have emphasized on how small the components we are dealing with are.
+Throughout this thesis we have emphasized on how small the components we are dealing with are.
 These components are so small that we lost a couple of the parts when trying to handle them because someone was breathing too hard.
 In the industry,
 pick and place machines are used to move these components around.
@@ -385,7 +385,7 @@ so we researched for other techniques.
 
 \subsubsection{Z Axis Conductive Tape}
 \label{Sec:ZTape}
-Sparkfun.com demoed a new product from 3M,
+Sparkfun.com demoed \cite{Web:SFETAPEV} a new product from 3M,
 called the Z-Axis Tape,
 just as we were looking for methods to solder our sensor.
 The Z-Axis Conductive Tape is described by Sparkfun as ``an easy to use,
@@ -399,7 +399,7 @@ The datasheet also mentions that the minimum distance between two adjacent condu
 however, the method used to bond the parts together and temperature would affect this number.
 The MPU-6000 datasheet mentions a pitch of 0.25 mm between two pads,
 which was smaller than the suggested distance of isolation by the tape.
-However given that the tape was expected to operate under extreme conditions of temperature (-40\degree C to 70\degree C),
+However given that the tape was expected to operate under extreme conditions of temperature (-40$\degree$ C-70$\degree$C),
 we decided to try this tape to bond our sensor chip to the PCB.
 Our experiment showed that sufficient conductivity was attained after 24 hours to allow SPI communication between the sensor and the microcontroller,
 however this conductivity was lost over time,
@@ -417,7 +417,7 @@ This tutorial mentions four different methods that a hobbyist electrical enginee
 \begin{description}
 
 	\item[Hand Soldering] \hfill \\
-	This is the regular method of soldering witha a soldering iron that we have already tried with our memory chip.
+	This is the regular method of soldering with a soldering iron that we have already tried with our memory chip.
 	\item[Toasting] \hfill \\
 	This process involves placing solder paste and parts on the PCB,
 	then heating them in a temperature regulated toaster oven to the temperature required by the solder to melt.
@@ -427,7 +427,7 @@ This tutorial mentions four different methods that a hobbyist electrical enginee
 	\item[Industrial Ovens] \hfill \\
 	Similar to the method mentioned above,
 	this technique uses Industrial ovens specially constructed for SMD soldering.
-	We did not have access to these.
+	We did not have access to these industrial ovens.
 	\item[Hot Air Rework] \hfill \\
 	This method uses a hot air blower that increases the temperature of the PCB to that of the solder's melting point.
 	This method is used frequently to desolder or rework SMT components.
@@ -440,7 +440,7 @@ This tutorial mentions four different methods that a hobbyist electrical enginee
 	Once this is done,
 	we place the components over their approximate locations on the PCB.
 	After this is done,
-	we place the PCB with the components over a skillet that is headted to the temperature of the solder.
+	we place the PCB with the components over a skillet that is heated to the temperature of the solder.
 	If everything goes right,
 	the molten solder will behave like a liquid,
 	and due to force of adhesion,
@@ -459,21 +459,21 @@ we decided to try the Hot Plate reflowing method.
 Our first step would require that we place solder paste over the PCB's pads.
 To do this,
 a stencil was used.
-Similar to OSH Park, a website OSH Stencils accepts Eagle layout files,
-and provides stencils for the PCB.
+Similar to OSH Park, a website, OSH Stencils accepts EAGLE PCB layout files,
+and provides laser cut stencils for the PCB.
 Using this stencil,
 we were able to apply solder paste only to the exposed pads of the PCB.
 A photo of the stencil is shown in figure \ref{Fig:Stencil}.
 Once this was done,
-we placed some of the components on the PCB,
+we placed some of the components on the PCB by hand,
 and placed the PCB over the heated skillet.
 We only placed the microcontroller, memory chip, sensor and the USB to UART chip on the PCB.
-This was done because it was very hard to place the smaller components like capacitors and resistors by hand and not have them move in the process.
+This was done because it was very hard to place the smaller components like capacitors and resistors by hand and not have them move other parts in the process.
 After about 23 seconds on the skillet,
 we could see the solder melt and the parts fall into place.
 Using a metal sheet,
 we picked up the PCB from the skillet and let it cool.
-Through hole components and smaller components like the crystal and resistors were individually soldered later by hand under a microscope.
+Through hole components and smaller components like the crystal osciallator and resistors were individually soldered later by hand under a microscope.
 Figure \ref{Fig:PCBMicro} shows the hand soldering process through the microscope's lens. The Final PCB can be seen in \ref{Fig:PCBwithCase}
 \begin{figure}
 \begin{center}
@@ -499,7 +499,7 @@ After verfifying that the behaviour was expected,
 we modified our case to seat the LED and the button.
 The LED and the button were stuck to the upper side of the case using hot glue.
 The PCB was placed under this button, and the battery was the last part to enter the case.
-The case had a ring which allowed a strap to fit through,
+The case had a ring which allowed a wrist watch style strap to fit through,
 and we added this to the case.
 
 \subsection{Verification of Data log}

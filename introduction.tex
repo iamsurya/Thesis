@@ -4,24 +4,24 @@
 This thesis considers the problem of tracking human wrist movements during free living.
 This is motivated by the fact that wrist and hand movements can be used detect periods of eating
 as shown in~\cite{dong2013detecting}. Further, with similar wrist motion data,
-it is possible to track the amount of food that is being ingested by a person~\cite{dong2012new}.
+it is possible to track the amount of food that is being ingested by a person as shown in~\cite{dong2012new}.
 Eating can occur at any time of the day, and it very hard to monitor the activity as such.
 We propose a solution which uses a wrist watch like device to monitor how the wrist is moving throughout the day,
-and store it on a memory chip. We consider the problem deuring free living,
+and store it on a memory chip. We consider the problem during free living,
 because data from constrained living (consider a case where the test subject cannot move one hand)
-have been shown to not accurately recreate the real life conditions created during the consumption of a meal.
+does not accurately recreate the real life conditions created during the consumption of a meal.
 \section{Motivation}
 \label{Sec:Motivation}
 
  Obesity is an increasing problem. CDC (Centers for Disease Control and Prevention) reports mention one
  \textemdash{} third of the adult American population as 
  obese, while sixty nine percent of the population is considered 
- overweight. The CDC defines individuals with a Body Mass
+ overweight. The agency defines individuals with a Body Mass
  Index of twenty five and above as overweight~\cite{ogden2010prevalence}.
  This number is rising in children too, with eighteen
  percent children between the ages of 12 \textemdash{} 18
  years considered obese. Modern advances in technology
- have helped our minds work without much thought into our action.
+ have helped our minds act without much thought into our action.
  Consider the example of driving a car, where your thought might drift
  into an event that happened during the day, but you are still able to drive the car.
  Similarly, not only is it easy to order prepared food, but eating
@@ -34,8 +34,8 @@ have been shown to not accurately recreate the real life conditions created duri
  for a person to consume a large amount of calories without realizing 
  that they are doing so. Children who ate fast food, compared with those who did not,
  consumed an average of 187 kcal more every day ~\cite{bowman2004effects}.
- A study has shown that eating slowly is shown to help decrease the amount of calories
- consumed during a meal~\cite{Andrade2008}, however it is not an
+ A study in~\cite{Andrade2008} has shown that eating slowly is shown to help decrease the amount of calories
+ consumed during a meal, however it is not an
  easy change to make in our busy lives, or one that can be sustained.
 
 \begin{figure}
@@ -78,7 +78,7 @@ and requires frequent user intervention and foresight.
 It may be possible to create a device that could detect our movements,
 predict what we are doing, and record this information autonomously.
 Smaller sensors and components have allowed wearable devices to enter the market,
-which allows these devices to be a part of clothing or accessories that contain
+which allows these devices to be a part of clothing or accessory that contains
 a microcomputer. This microcomputer can perform electronic functions that allow it to monitor and
 detect human movement. Based on these detections, some kind of action can be performed.
 These devices are shown to have a battery life of 24 to 48 hours.
@@ -91,21 +91,21 @@ These devices are shown to have a battery life of 24 to 48 hours.
 
 \end{center}
 \end{figure}
-Fitness trackers in the market currently offer a range of services. The Fitbit \cite{Web:FitBitOfficial},\cite{Web:FitbitFlex} and Jawbone \cite{Web:JawBoneWebsite} series of sensors allow for exercise and sleep monitoring using wrist movements. This data is then synchronized with a computer or a mobile phone, and can be viewed graphically by the user. Another consumer electronic segment that has now emerged is smart watches. These watches contain electronic components that make them functionally similar to a mobile phone, and are small enough to wear on the wrist. They contain low power displays and have a host of power saving techniques to have a long battery life. However most of the wearable devices on are limited to counting the number of calories expended and thus not many options exist for counting the number of calories consumed.
+Fitness trackers in the market currently offer a range of services. The Fitbit \cite{Web:FitBitOfficial},\cite{Web:FitbitFlex} and Jawbone \cite{Web:JawBoneWebsite} series of sensors allow for exercise and sleep monitoring using wrist movements. This data is then synchronized with a computer or a mobile phone, and can be viewed graphically by the user. Another consumer electronic segment that has now emerged is smart watches. These watches contain electronic components that make them functionally similar to a mobile phone, and are small enough to wear on the wrist. They contain low power displays and have a host of power saving techniques to have a long battery life. However most of the wearable devices in the market are limited to counting the number of calories expended and thus not many options exist for counting the number of calories consumed.
 
-\section{Shimmer}
+\section{SHIMMER}
 \label{Sec:Shimmer}
 \begin{figure}
 \begin{center}
 \includegraphics{images/shimmerphoto.jpg}
 \caption{Product photo of the SHIMMER sensing platform.}
-\label{fig:AccAxis}
+\label{Fig:ShimmerHand}
 \end{center}
 \end{figure}
 Our application of using wrist movement to detect bites is very similar to biomedical research where the body is being monitored.
 Similar constraints on the size of devices and battery life exist when they have to be used in biomedical research.
-Burns et al. \cite{burns2010shimmer} have demonstrated a device called the SHIMMER,
-which is an acronym for Sensing Health with Intelligence, Modularity, Mobility and Experiment Resusability.
+Burns et al. \cite{burns2010shimmer} have demonstrated a device called the SHIMMER
+(an acronym for Sensing Health with Intelligence, Modularity, Mobility and Experiment Resusability).
 The device is available in a small form factor (50mm X 25mm X 12.5mm),
 and has a battery life of over twenty four hours with data from an acceleromter actively being recorded.
 It features an MSP430 Ultra-low power microcontroller,
@@ -113,7 +113,7 @@ SD Card for storage,
 a Bluetooth module for wireless communication,
 and a lightweight battery (15).
 It is possibble to connect an external sensor to the SHIMMER by using its general purpose I/O pins.
-Figure \ref{Fig:ShimmerHand} shows a product photo of the device from the Shimmer website \cite{Web:ShimmerBuyKit}.
+Figure \ref{Fig:ShimmerHand} shows a product photograph of the device from the Shimmer website \cite{Web:ShimmerBuyKit}.
 Power is extended by disabling most components when not needed.
 \cite{burns2010shimmer} mentions that the duty cycle of writing to the memory chip or the bluetooth module can be reduced to save power,
 however this is not possible in situations where the frequency is high because of the wake up time on these modules.
@@ -137,7 +137,7 @@ and predict the total number of bites taken by the user in a meal.
 This device was able to store only the number of bites, 
 but not the actual data captured from the sensors.
 It was widely reviewed and reported by the media.
-Figure \ref{Fig:BCEater} shows images from the research groups website showing the final device which was mass manufactured.
+Figure \ref{Fig:BCEater} shows a photograph from the research groups website showing the final device which was mass manufactured.
 
 \begin{figure}
         \centering
@@ -159,7 +159,7 @@ Figure \ref{Fig:BCEater} shows images from the research groups website showing t
 \section{Wearable Wrist Motion Tracker}
 \label{Sec:WearbleTracker}
 Work done in \cite{drennan2010assessment} shows a device that is capable of detecting bites by monitoring wrist movement.
-We are motivated by the problem of monitoring calorie consumption by creating a wrist watch like device that automates the process.
+We are motivated by the problem of monitoring calorie consumption by creating a wrist watch like device that automates this process of monitoring wrist movements.
 Since the device is to be worn by the user everyday, it needs to be comfortable to wear.
 This would required the device to have a small size.
 To avoid having to recharge often, or risking the battery dying during a meal,

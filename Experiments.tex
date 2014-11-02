@@ -4,10 +4,10 @@
 Our proposal for this thesis was to create an all day wrist motion activity monitor
 that was small, cost effective and comfortable.
 This device would also have to be able to record data for an entire day of activity,
-approximated to 16 hours.
+decided as 16 hours.
 The final device we have created can worn on the wrist like a wrist watch by using its strap.
 Figure \ref{Fig:WristPhoto} shows a photograph of this arrangement when the device is worn around a wrist.
-In this chapter we consider how we have compared against the requirements for the wrist activity monitor that we proposed to create.
+In this chapter we consider how we have compared against the requirements for the wrist activity monitor that we had set.
 Users are expected to wear the device at the start of the day,
 and press a button to start recording wrist motion movement data.
 At the end of the day,
@@ -17,26 +17,26 @@ We use WristView, a modified version of a software previously created by our gro
 \begin{figure}
 \begin{center}
 \includegraphics[width=\textwidth]{images/WristPhoto.jpg}
-\caption{Photograph of the Activity Monitor mounted on the hand.}
+\caption{Photograph of the Activity Monitor mounted on a wrist.}
 \label{Fig:WristPhoto}
 \end{center}
 \end{figure}
 
 \section{Size and comfort}
 \label{Sec:ResultsSize}
-The final device fit comfortably inside OKW Enclosures' Ergo Minitec Small.
+The final device fit comfortably inside OKW Enclosures' Ergo Minitec Small enclosure.
 The dimensions of the device are the same as the enclosure,
 52mm X 32mm X 15mm.
 A strap that is 12cm wide and 20cm long allows the user to wear this device on their wrist.
 The device weighs Xg, including the strap.
 The device was tested by two volunteers for 10 hours each,
-and reported to be similar to a wrist watch with regards to the comfort level.
+and reported to be similar to a wrist watch with regards to comfort.
 
 \section{Battery Life}
 \label{Sec:ResultsBatteryLife}
 We would need to check if the battery life of the device meets our specifications.
 Battery manufacturers are known to inflate the battery life on datasheets for their products.
-Current draw and how the battery is used also changes the output of the battery.
+Current draw and how the battery is used also changes the output capacity of the battery.
 Section \ref{Sec:Programming} lays out the methods used to test our prototype,
 and the techniques used to measure the battery life of the product.
 After testing the battery three times,
@@ -62,11 +62,11 @@ and this data was then transferred to a computer in the form of a binary file.
 Each bite in the file represents data recorded from a sensor,
 with the time of the record being calculated by using the byte address.
 Analysing this data as numbers is not something feasible for humans,
-and we our much better at detecting patterns in visual information.
+and we our much better at detecting patterns in visually displayed information.
 Work done by our group previously could display motion data collected by an iPhone in a visual format.
 We modified work done by Concha et al. \cite{concha2014study} and created our own software to display the data logged by the wrist motion activity tracker.
 This software, as mentioned in section \ref{Sec:Software},
-was called WristView and allowed us to visually compare data captured by the device.
+was named WristView and allowed us to visually compare data captured by the device.
 A screenshot of WristView can be seen in figure \ref{Fig:WristView}.
 The figure shows the data plotted as amplitude versus time.
 For acceleration data the amplitude was in g's, where 1g = 9.8 m/s$^2$. For gyroscopes, the data was in deg/sec.
@@ -92,13 +92,13 @@ WristView can also smooth these signals based on code from PhoneView, which uses
 
 \section{Device Cost}
 \label{Sec:DevCost}
-We mentioned the different device on the market available to be used as health monitors,
+Earlier, we had mentioned the different devices on the market marketed as health monitors,
 and also the high costs attached to using them.
-The costs would help pay for manufacturing and research costs.
+The costs include expenditure on manufacturing and research.
 After our device was created, 
 we tabulated the cost of the parts of the device, and this can be seen in table \ref{BomTable}.
 The total cost for the parts used per device was US\$52.5.
-This number includes costs for PCB and Stencil manufacture, but does not include any costs for the research of the device or hourly labour associated with writing code.
+This number includes costs for PCB and stencil manufacture, but does not include any costs for the research of the device or hourly labour associated with writing code.
 \inputfile{BOMTable.tex}
 
 
