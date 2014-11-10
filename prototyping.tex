@@ -3,7 +3,7 @@
 Once we have the parts we selected,
 we need to connect them correctly so that they can communicate with each other.
 Most electronic components are accompanied by a datasheet created by its manufacturer.
-This datasheet details the behaviour of the component,
+This datasheet details the behavior of the component,
 its electrical and non-electrical characteristics,
 its physical design,
 pin layout,
@@ -51,20 +51,20 @@ reducing any mistakes that might creep into our final PCB design and cost us mon
 \subsection{Unit Testing}
 \label{Sec:UnitTesting}
 Before we connect all our devices together,
-we need to test each component seperately and make sure they work as expected.
+we need to test each component separately and make sure they work as expected.
 Although most parts have a low failure rate,
 it is easier to work through with our devices knowing where a bug is,
 if one shows up during the creation process.
 Unit Testing is a method of testing individual units of source code to check if they work as expected before introducing them into a larger piece of code.
-We extend this to our device creation process by testing each unit of hardware seperately.
-We would have to test the microcontroller, the sensor, the memory chip, the USB to UART bridge and the battery charger seperately.
+We extend this to our device creation process by testing each unit of hardware separately.
+We would have to test the microcontroller, the sensor, the memory chip, the USB to UART bridge and the battery charger separately.
 The microcontroller would have to be the first component to be tested because the other components require a master device that controls them.
 
 \subsubsection{Micrcontroller Testing}
 To test the microcontroller we used a simple "Hello World" program.
 Since microcontrollers do not have a display, instead of displaying text,
 it is easier to just blink an LED using one of the pins.
-Pseudocode to blink the LED is showin in listing \ref{LST:LEDHello}.
+Pseudo code to blink the LED is show in in listing \ref{LST:LEDHello}.
 We programmed our microcontroller using IAR's Code Composer Studio,
 and then flashed the microcontroller using the software and the MSP430 Flash Emulation Tool.
 If our connections were correct,
@@ -98,7 +98,7 @@ which allow us to prototype sensors without worrying about soldering them.
 Breakout boards for the MPU-6000 were obtained from an Ebay seller.
 The breakout board has 6 pins that need to be connected for operation,
 which means we need 6 wires between the microcontroller and the breakout board.
-These pins on the breakout board were connected to the microcontroller target board using a CAT5 cable as can be seen in figrure \ref{Fig:CAt5MPU}.
+These pins on the breakout board were connected to the microcontroller target board using a CAT5 cable as can be seen in figure \ref{Fig:CAt5MPU}.
 This is the same cable used for Ethernet connections, and thus was easy to obtain.
 As shown in the same figure,
 a regular CAT5 cable consists of 4 pairs of twisted wires,
@@ -111,11 +111,11 @@ the sensor will start recording what the acceleration and angular velocity are.
 This information is stored in an internal memory on the sensor which can be read using SPI instructions.
 We initially had trouble verifying if our sensor is working correctly and did not know if the sensor was faulty,
 or if there was a mistake in our connections or code.
-The datasheet for the sensor mentions a register called ``WHO\_AM\_I'' which containst he device's I$^2$C address.
+The datasheet for the sensor mentions a register called ``WHO\_AM\_I'' which contains he device's I$^2$C address.
 This address by default is set to 0x68.
 Since this register contains constant data, we can read it to check if the device is indeed correctly connected.
 
-After some troubleshooting we learnt that the length of the cable was too long for SPI communication and signals would strength.
+After some troubleshooting we learned that the length of the cable was too long for SPI communication and signals would strength.
 Also, SPI is time sensitive, so if the cable length was too long,
 the delay created between two times would be too high,
 causing incorrect data to be received.
@@ -126,7 +126,7 @@ Once it was established that the sensors were working correctly and SPI communic
 we carried out simple tests where the acceleration on one axis would turn an LED on if positive,
 otherwise turn it off.
 Since gravity would show as -1g on the Z Axis in the Earth Frame of reference,
-we could test all three sensor axes by rotating the sensor and observing the LED's behaviour.
+we could test all three sensor axes by rotating the sensor and observing the LED's behavior.
 These tests concluded that communication between the sensor and microcontroller was as expected.
 
 \subsubsection{Memory Chip Testing}
@@ -151,7 +151,7 @@ Since both the devices use the SPI bus,
 it was possible to connect the devices to the same pins on the microcontroller.
 Before reading sensor values or storing them,
 we check if the Device ID's are received correctly.
-This was done everytime the microcontroller booted up.
+This was done every time the microcontroller booted up.
 For some reason, the memory chip did not respond with the correct device ID.
 This meant that even if we were sending correct data,
 it was not being received correctly with the new connection.
@@ -176,7 +176,7 @@ then flush it to the memory.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{images/USBPOWER.eps}
-\caption{Circuits designed to power the circuit and connet the USB to UART Bridge.}
+\caption{Circuits designed to power the circuit and connect the USB to UART Bridge.}
 \label{Fig:USBPOWER}
 \end{center}
 \end{figure}
@@ -196,13 +196,13 @@ then flush it to the memory.
 \label{COMPCKT}
 \end{center}
 \end{figure}
-Now that we know what the different typical operating cicruits for each device look like,
+Now that we know what the different typical operating circuits for each device look like,
 and that they work as expected with the microcontroller connected,
 we need to connect all of these together and create our complete circuit.
 The circuits for different parts of the device that we designed are shown in figures \ref{Fig:MPUCkt}, \ref{Fig:USBPOWER}, and \ref{Fig:MSP430CKT}.
 The complete circuit we designed after consulting the different datasheets is shown in figure \ref{COMPCKT}.
 This circuit was created using EAGLE PCB's schematic layout tool.
-Each component had its circuit created seperately,
+Each component had its circuit created separately,
 and later these circuits were connected together to create the final device.
 A screenshot of Eagle PCB's schematic editor is shown in figure \ref{Fig:EaglePCBScreen}.
 \begin{figure}
@@ -303,11 +303,11 @@ we were finally satisfied with the design.
 \end{figure}
 \subsubsection{PCB Manufacture}
 To manufacture our PCB, we used a service provided by OSH Park\footnote{http://oshpark.com}.
-Most PCB manufactueres expect a high volume of production (100 - 1000 PCB's per order).
+Most PCB manufactures expect a high volume of production (100 - 1000 PCB's per order).
 We only required a few prototype PCB's so our order was only a few PCB's.
 OSH Park takes multiple orders from its clients and combines this into a large PCB.
 This is then cut into the requested PCB and sent back to the client.
-This process takes time, but costs lesser than what most other PCB manufactureres charge.
+This process takes time, but costs lesser than what most other PCB manufacturers charge.
 For example,
 Advanced Circuits LLC,
 a well known PCB manufacturer charges \$120 for 4 bare bones PCB's,
@@ -319,7 +319,7 @@ or what their value is.
 Since there is no silkscreen,
 the copper traces on the PCB oxidize over time and lose conductivity.
 OSH Park,
-on the other hand offer's high quality PCB's at a lower cost.
+on the other hand offers high quality PCB's at a lower cost.
 The turn around time is much longer (approximately 21 days),
 however we were able to procure 6 PCB's for a total of \$15,
 costing us approximately \$2.5 per PCB.
@@ -375,7 +375,7 @@ We did not have access to an industrial facility with these features,
 so we would have to use a different technique to solder these components.
 Our first attempt was mentioned when we discussed our memory chip in section \ref{Sec:Memory}.
 As seen, we flipped the chip over to expose its pads,
-then soldered thin strands of a multistrand wire to the chip.
+then soldered thin strands of a multi strand wire to the chip.
 These strands connected to thicker wire at the other end,
 which allowed us to use the chip as a through hole component.
 All this was done very carefully under a microscope.
@@ -432,7 +432,7 @@ This tutorial mentions four different methods that a hobbyist electrical enginee
 	This method uses a hot air blower that increases the temperature of the PCB to that of the solder's melting point.
 	This method is used frequently to desolder or rework SMT components.
 	We tried this method,
-	but did not get a hig degree of success.
+	but did not get a high degree of success.
 	One of the reasons for failure was that our parts would fly away under the air pressure,
 	and it was not feasible to hold down the part in place correctly because our hands would shake while doing so.
 	\item[Hot Plate Reflowing] \hfill \\
@@ -473,7 +473,7 @@ After about 23 seconds on the skillet,
 we could see the solder melt and the parts fall into place.
 Using a metal sheet,
 we picked up the PCB from the skillet and let it cool.
-Through hole components and smaller components like the crystal osciallator and resistors were individually soldered later by hand under a microscope.
+Through hole components and smaller components like the crystal oscillator and resistors were individually soldered later by hand under a microscope.
 Figure \ref{Fig:PCBMicro} shows the hand soldering process through the microscope's lens. The Final PCB can be seen in \ref{Fig:PCBwithCase}
 \begin{figure}
 \begin{center}
@@ -495,7 +495,7 @@ Figure \ref{Fig:PCBMicro} shows the hand soldering process through the microscop
 \label{Sec:FinalDevice}
 Now that we had our PCB soldered,
 we programmed the microcontroller with the same code used in our breadboard based prototype.
-After verfifying that the behaviour was expected,
+After verifying that the behavior was expected,
 we modified our case to seat the LED and the button.
 The LED and the button were stuck to the upper side of the case using hot glue.
 The PCB was placed under this button, and the battery was the last part to enter the case.
