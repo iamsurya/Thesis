@@ -1,0 +1,35 @@
+\begin{landscape}
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{1.5\textwidth}{!}{%
+\begin{tabular}{@{}lllllllll@{}}
+\toprule
+Name of Device   & Type & Body Position         & Dimensions (mm)            & Weight & Cost  & Battery (hrs) & Programmability & Features                                                                                                  \\ \midrule
+iPhone           & Mobile phone    & Handheld              & \texttt{115.2 x ~58.6~ x ~9.3}    		& 148.9 	& \$239$^3$ & 40$^1$                          & High            & \begin{tabular}[c]{@{}l@{}}Gyroscope, accelerometer\\ Phone calls, LCD screen\\ Media player\end{tabular}        \\
+SHIMMER          & Health monitor  & Wrist                 & \texttt{50.0~ x ~25.0~ x 12.5}         & ~~23.6   	& \$249 & 24$^2$                          & High            & \begin{tabular}[c]{@{}l@{}}Gyroscope, accelerometer,\\ Bluetooth module\end{tabular}                            \\
+MetaWatch        & Smartwatch      & Wrist                 & \texttt{51.0~ x ~38.0~ x 13.0}         & ~~81.0    & \$249$^3$ & 80                          & High            & \begin{tabular}[c]{@{}l@{}}Gyroscope, accelerometer\\ Display\\ Bluetooth connectivity\end{tabular}    \\
+Samsung Gear 2   & Smartwatch      & Wrist                 & \texttt{58.4~ x ~36.9~ x 10.0}      	& ~~68.0    & \$275$^3$ & 48                          & Medium          & \begin{tabular}[c]{@{}l@{}}Gyroscope, accelerometer\\ Display, Phone calls\\ Bluetooth connectivity\end{tabular} \\
+Thalmic Labs Myo & Input devices   & Upper arm             & N/A                   & ~~93.0$^4$     	& \$149 	& 48                          & Medium          & \begin{tabular}[c]{@{}l@{}}Gyroscope, Accelerometer\\ EMG Sensors\end{tabular}                                  \\[1em]
+Fitbit Zip       & Fitness tracker & Waist / Torso / Wrist & \texttt{36.0~ x ~28.0~ x 10.0}         & ~~~8.0    & \$49$^3$  & 6 months                        & Low             & Accelerometer                                                                                                   \\[1em]
+Fitbit Flex      & Fitness tracker & Wrist                 & \texttt{140.0 x 161.0~ x 13.9}     	& ~N/A    	& \$99$^3$  & 120                         & Low             & Accelerometer                                                                                                   \\[1em]
+Jawbone Up Move  & Fitness tracker & Torso/Waist           & \texttt{27.6~ x ~27.6~ x 27.6} 			& ~~~6.8    & \$49$^3$  & 168                         & Low             & Accelerometer                                                                                                   \\[1em]
+Jawbone Up 3     & Fitness tracker & Wrist                 & \texttt{220.0  x ~12.2~ x ~3.0}      	& ~~29.0    & N/A   & 168                         & Low             & Accelerometer                                                                                                   \\[1em]
+Fitbit One       & Fitness tracker & Torso                 & \texttt{48.0~ x ~20.0~ x  10.0}        & ~~~8.0    & \$99$^3$  & 240                         & Low             & Accelerometer                                                                                                   \\[1em]
+Nike FuelBand    & Fitness tracker & Wrist                 & \texttt{147.0	 (circumference)}   	& ~~30.0   	& \$149$^3$ & 96                          & Low             & Accelerometer                                                                                                   \\ \bottomrule
+\end{tabular}
+}
+\caption{Comparison of select wrist based motion tracking devices in the market.}
+\label{Tab:IntroComp}
+\end{table}
+
+
+\hfill \\
+Notes: \\
+1: Battery Life for iPhone 4 while listening to music and display is turned off \cite{Web:iphone4specs}.\\
+2: Information provided by Shimmer Customer support over email.\\
+3: Information from an Amazon product page \cite{Web:AmazonGear2}.\\
+4: No specification sheet is available, but the weight was available on a product discussion page \cite{Web:SMyoWeight}.
+\end{landscape}

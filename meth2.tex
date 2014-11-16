@@ -1,0 +1,21 @@
+This section covers the actual methods and techniques used to create our wrist 
+motion activity tracker. We discuss the various hardware techniques used to 
+create the device in section \ref{Sec:Hardware}.
+This section covers researching on the various sensors available in the market,
+picking the right one for our purpose and then prototyping a device.
+Since the wrist activity motion tracker is to be mounted on the wrist, it needs
+to be a small device that can be worn for a long interval\footnote{At least
+16 hours} without discomfort to the user.% This means that it also needs to
+%have a long battery life, which is dictated by two factors: The size of the 
+%battery, and the current consumption of the parts on the device.
+
+Next in this section, we discuss the software techniques and code
+used to create the device or the software to interact with it that runs on a desktop computer.
+Two different software were used to analyze the data from the device.
+This is briefly discussed in the Software section (section \ref{Sec:Software}).
+Dong~\cite{dong2013detecting}, showed that rotational and linear movement data can be used to detect
+periods of eating. This made us look towards the rotational and linear movements of the wrist.
+To capture this information, we consider devices like Accelerometers and Gyroscopes, which can measure such movements.
+
+\section{Hardware Selection}
+\label{Sec:Hardware}

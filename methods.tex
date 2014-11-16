@@ -1,26 +1,6 @@
 \chapter{A new device to record wrist movement in free living humans}
 \label{Chap:Methods}
-This section covers the actual methods and techniques used to create our wrist 
-motion activity tracker. We discuss the various hardware techniques used to 
-create the device in section \ref{Sec:Hardware}.
-This section covers researching on the various sensors available in the market,
-picking the right one for our purpose and then prototyping a device.
-Since the wrist activity motion tracker is to be mounted on the wrist, it needs
-to be a small device that can be worn for a long interval\footnote{At least
-16 hours} without discomfort to the user.% This means that it also needs to
-%have a long battery life, which is dictated by two factors: The size of the 
-%battery, and the current consumption of the parts on the device.
 
-Next in this section, we discuss the software techniques and code
-used to create the device or the software to interact with it that runs on a desktop computer.
-Two different software were used to analyze the data from the device.
-This is briefly discussed in the Software section (section \ref{Sec:Software}).
-Dong~\cite{dong2013detecting}, showed that rotational and linear movement data can be used to detect
-periods of eating. This made us look towards the rotational and linear movements of the wrist.
-To capture this information, we consider devices like Accelerometers and Gyroscopes, which can measure such movements.
-
-\section{Hardware Selection}
-\label{Sec:Hardware}
 Our planned device design for the all day wrist motion activity tracker revolves around a system of sensors that are polled at 15Hz by a microcontroller. This data is logged throughout the day, after which it is transferred to a computer for processing. Once the data for a day has been logged, the device is connected to a computer and data from the memory chip is dumped to a computer where it can be analyzed. As all this happens throughout the day, we need some kind of display to inform the user of the status of the device.
 
 To create the prototype device, different prototype breakout boards were used (section~\ref{Sec:Breakouts}). These boards allow rapid prototyping by hooking up components using wires. This reduces any time spent to solder an integrated circuit to a PCB or to understand its typical application circuit components. Next, we consider the different devices used to create our wrist motion activity tracker. We would need a power source in the form of a battery (section~\ref{Sec:Battery}), sensors to measure acceleration (section~\ref{Sec:Accelerometer}) and angular velocity(section~\ref{Sec:Gyroscope}), a memory chip (section~\ref{Sec:Memory}) to store data from the sensors and a microcontroller (section~\ref{Sec:MicroController}) to control this system and act as a communication channel between the different devices. To connect this device to a computer, we would need a translator. We use a USB to UART bridge (section~\ref{Sec:FT232}) to accomplish this.
@@ -43,10 +23,10 @@ This will hopefully give the reader a better idea of the scale of devices we are
 Remembering that device size and power consumption are very important,
 we look at the different hardware in our device in the next section.
 
-\subsection{Sensors}
+\section{Sensors}
 Since we want to log acceleration and rotation data, we looked at the different sensors available in the market and their sizes. The leader in this field was a category of sensors called MEMS sensors. MicroElectroMechcanicalSystems based sensors are small devices ranging from about 4 mm\textsuperscript{2} to  25 mm\textsuperscript{2}. Our device design uses an MEMS gyroscope and accelerometer in a single electronic chip to sense movements. This chips may also be called the IMU or the Inertial Measurement Unit. The orientation and axes for this chip when it is worn on the wrist as a part of our final device is shown in figure \ref{fig:HandAxis}.
 
-\subsection{Accelerometers}
+\section{Accelerometers}
 \label{Sec:Accelerometer}
 Accelerometers are devices that sense linear acceleration.
 In the case of our device we would like to measure the linear acceleration in all three Cartesian co - ordinate axes: X, Y, and Z.
@@ -91,7 +71,7 @@ and due to this, a reading of 1g will always be read on the Z axis in the ``eart
 If there is no motion, we can empirically know which direction gravitational force is acting in by looking at the sensed data,
 and can subtract this from later readings obtained from the accelerometer.
 
-\subsection{Gyroscopes}
+\section{Gyroscopes}
 \label{Sec:Gyroscope}
 
 Gyroscopes are devices used to measure angular movement. In our case, we use MEMS gyroscopes to measure angular velocity in three axes, X, Y and Z (as shown in figure \ref{fig:HandAxis}). How a gyroscope works is explained in a Sparkfun tutorial~\cite{Web:SparkfunGyros}. We will review the same here.
@@ -105,7 +85,7 @@ Gyroscopes are devices used to measure angular movement. In our case, we use MEM
 
 An MEMS gyroscope contains a small mass that oscillates inside it as shown in figure \ref{fig:GyroDiag}. When the gyroscope rotates, the oscillating mass is displaced between two oscillations. This change in location is converted into a very low current, that is then amplified (and converted to a voltage) by a microcontroller inside the gyroscope integrated chip.
 
-\subsection{Accelerometer and Gyroscope Device selection}
+\section{Accelerometer and Gyroscope Device selection}
 There are a variety of MEMS accelerometers and gyroscopes available in the market with different specifications. Our purpose was to pick the most suitable device for logging wrist movement data. We will first look at the different parameter's that we have for MEMS devices. These parameters are referenced from Analog Devices' website\footnote{\href{http://www.analog.com/en/content/td_accelerometer_specifications_definitions/fca.html}{Analog Devices - Accelerometer Specifications - Quick Definitions. Last accessed October 2014}} :
 
 \begin{description}
@@ -187,7 +167,7 @@ The device operates at a voltage of 2.375V to 3.46V.
 An operating current of 3.8mA means that the device can operate for roughly 24 hours on a standard coin cell battery.
 This makes the MPU 6000 very suitable for our requirements.
 
-\subsection{Breakouts}
+\section{Breakouts}
 \label{Sec:Breakouts}
 Newer integrated chips are packaged very densely, and have very small pins to connect to a PCB. With surface mount technology, it is possible to solder these devices to PCB's, however it is very hard for hobbyists to do so, because of the lack of expensive equipment. Electronic part retailers provide products in the form of Breakout boards, which means that they provide PCB's with the integrated chip soldered. These PCB's have pins to connect to that can be used conveniently. In effect, a breakout board converts pin - less packages like BGA (Ball grid array) and LGA (Land grid array) to DIP (Dual inline package).
 \begin{figure}
@@ -200,7 +180,7 @@ Newer integrated chips are packaged very densely, and have very small pins to co
 
 These breakout boards are easier to prototype with, and allow modular creation of a complete circuit. Although we have selected the MPU 6000, we still have to work it into our circuit and ensure that it will work in our device. To do so, conventional methods would require us to first solder this IC to a PCB containing the other components, and then programming a microcontroller to read from the sensor. However, PCB fabrication and soldering can be expensive, and are not a viable option during the prototype phase of product design. PCB manufacture can also take a considerable amount of time (up to a month), and is not a feasible strategy to work with. To prototype and test the sensor without fabricating a complete PCB, we decided to use a breakout board containing the sensor. Figure ~\ref{Fig:MPUBreakOut} shows an example of a breakout board. The image was sourced from Sparkfuns' website~\cite{Web:SFBreakout}.
 
-\subsection{Memory}
+\section{Memory}
 \label{Sec:Memory}
 
 The information sensed by the sensors has to be logged, and then processed by a computer. We could either store this information or transmit it wirelessly as soon as it is gathered. For a system designed to read sensors at 15Hz, and logging data for 24 hours, we estimate the amount of data as shown in Equation \ref{Eqn:DataAmount}
@@ -249,7 +229,7 @@ To avoid the delay incurred because of PCB fabrication (which can take up to two
 \end{figure}
  
 
-\subsection{Microcontroller}
+\section{Microcontroller}
 \label{Sec:MicroController}
 
 The sensors we discussed in the previous section cannot function on their own. They are primarily slave devices that can be requested for data. To get this data, we require a master device, which we have in the form of a microcontroller. Our microcontroller would need to support the communication protocol used by our sensors and memory chip. It would also need to have a sufficient memory to be able to temporarily buffer sensor data before it is flushed to the external memory chip. 
@@ -293,7 +273,7 @@ the following characteristics~\cite{msp430F24xfamily}:
 \end{itemize}
 We select the MSP430F248 as our microcontroller. This chip comes with a 48KB+256B Flash Memory, and 4KB of RAM. Assuming our program size would not be more than 1 KB, this would allow us to buffer about 3KB of data from the sensors before flushing it to the external memory, allowing the memory to remain in sleep mode for a large amount of time.
 
-\subsection{MSP 430 Target Board}
+\section{MSP 430 Target Board}
 \label{MSP430Target}
 
 \begin{figure}
@@ -333,7 +313,7 @@ allowing us to program the microcontroller without having soldered it.
 
 Figure \ref{Fig:MSPTarget} shows us what the MSP430 Target Board \cite{Web:MSPTarget} looks like, with the socket in the center. We can see a connector in the top-right of the figure, which is labeled JTAG. The socket is surrounded by holes on all sides which connect to the microcontrollers pins, allowing for easy connections. The target board also allows for a crystal to be soldered next to the microcontroller if the programmer wants to use the Low Frequency Clock based on an external crystal. We use this crystal for and accurate clock when polling our sensors, and also when communicating with a host computer as we will see in section \ref{Sec:FT232}.
 
-\subsection{MSP430 Flash Emulation Tool}
+\section{MSP430 Flash Emulation Tool}
 \label{Sec:MSP430FET}
 Now that we have a microcontroller selected, and a target board that allows us to easily set it up electrically, we need a way to program it with our code. The MSP430 series of microcontrollers are programmed by using JTAG using 4 wires. Modern computers usually lack a serial or parallel port for communication, so Texas Instruments provides programmers with the MSP430 Flash Emulation Tool. This tool (seen in Figure \ref{Fig:MSP430FET}) connects to a desktop computer through USB, and the other end connects to a standardized JTAG connector, as seen in \ref{Fig:MSPTarget} \cite{Web:MSPFETPAGE}. 
 \begin{figure}
@@ -346,7 +326,7 @@ Now that we have a microcontroller selected, and a target board that allows us t
 
 The tool also supports powering the system it is programming, so we were able to program our microcontroller without an external power source. Once we had our battery selected, a jumper on the MSP430 Target Board allowed us to disable the power supply of the Flash Emulation Tool. The FET can be used by various software, paid or free. For our use, we picked IAR's Code Composer Studio as it was available free of cost to students. Through the MSP430FET, IAR supports not only programming and flashing the microcontroller, but also debugging the code while it is running. This feature enabled us to fix multiple bugs in a short amount of time, something that would be hard to do without the debugging capabilities. We can also inspect different sections of the memory, allowing us to see live how the code is behaving.
 
-\subsection{USB to UART Bridge}
+\section{USB to UART Bridge}
 \label{Sec:FT232}
 With the above hardware in place, hopefully we have a system which reads from sensors and stores this data in the memory chip. Once data for an entire day is logged, we would like to transfer the contents of this memory to a computer where the sensor data can be analyzed for different patterns and behaviors. Broadly speaking, there are two methods to transfer data, wireless and wired. Both these methods required parts that consume a current of about 18 mA when actively in use. Wireless transfer of data would consume power from the battery (unless a wire is connected to power the system), and assuming a speed of 115Kbps, this would take about 30 minutes to transfer. With an active current draw of 18mA for most wireless technologies, this would require a huge amount of power, something that the battery cannot sustain.
 \begin{figure}
@@ -375,7 +355,7 @@ The FT232 was also obtained in a breakout board for quick prototyping.
 USB 2.0 had a default maximum current of 0.5mA. We add a fuse between the computer's USB module and the FT232 to make sure that voltage spikes or unwanted current draw does not harm the USB module of the computer connected to the FT232.
 
 
-\subsection{Case}
+\section{Case}
 \label{Sec:Case}
 \begin{figure}
 \begin{center}
@@ -412,7 +392,7 @@ Ergo Large   & 78 mm  & 48 mm & 20 mm  \\ \bottomrule
 \label{Tab:OKWSize}
 \end{table}
 
-\subsection{Battery}
+\section{Battery}
 \label{Sec:Battery}
 
 While the wrist activity monitor is mounted and active, it needs a power source to operate on.
@@ -450,7 +430,7 @@ allowing a slightly thicker battery.
 \inputfile{tables/BatteryTable.tex}
 
 
-\subsection{Battery Charger}
+\section{Battery Charger}
 \label{Sec:BattCharger}
 \begin{figure}
 \begin{center}
@@ -477,7 +457,7 @@ and outputs a charge current based on the status of the battery cell connected t
 When the MCP73831 detects a battery is charged to its maximum capacity,
 it stops supplying current to avoid harming the battery.
 
-\subsection{LED}
+\section{LED}
 \label{Sec:LED}
 When the wrist activity monitor is worn,
 the user would require some kind of feedback on its operation.
@@ -506,7 +486,7 @@ Since the LED is being turned on for very short periods of time,
 (the duty cycle for this operation being 0.37\%) very little power is being consumed by the LED.
 For this reason, we used an LED found in our departments' lab. A photograph of the LED is seen in figure \ref{Fig:LEDPHOTO}.
 
-\subsection{Button}
+\section{Button}
 \label{Sec:Button}
 As with any consumer electronic device, we require the option to turn our device on or off. We might also want to provide our user with the option of erasing the memory for the device. This would require some kind of button (or buttons) to allow such interaction. We consider a scheme that required one button, with a state machine behavior as given in table \ref{Tab:ButtonTable}. Based on this state machine behavior, we recognize that a single pole single throw momentarily on switch is the most convenient device for our purpose. This button can be see in figure \ref{Fig:MomButton} \cite{Web:SFEMOM}.
 A momentary on button is similar to those seen on a remote, where the button switches on momentarily when pressed, and then deactivates as soon as pressure on it is released.
@@ -520,7 +500,7 @@ A momentary on button is similar to those seen on a remote, where the button swi
 \inputfile{tables/ButtonTable.tex}
 
 
-\subsection{Connectors}
+\section{Connectors}
 \label{Sec:Connetors}
 Instead of soldering wires to our device (so that we can connect the JTAG cable or the USB to UART bridge to a computer), we prefer to use connectors. This allows us to disengage with ease without having to cut the cable or de-solder it from the device before it can be used. The JTAG connection required 7 pins to connect to our microcontroller, and a standard seven pin header is 17.78 mm X 4.85 mm in size. The pitch (distance between two pins) in a standard header is 0.1 inches or 2.54 mm. Since space on the PCB is at a premium, we use a smaller header instead, with a pitch of 0.059 inches or 1.50 mm. This allows us to conserve space on the PCB.
 \begin{figure}
