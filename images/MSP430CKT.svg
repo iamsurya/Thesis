@@ -14,7 +14,7 @@
    id="svg14564"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 14">
+   sodipodi:docname="MSP430CKT.svg">
   <defs
      id="defs14566" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="620.17962"
-     inkscape:cy="444.91688"
+     inkscape:zoom="11.2"
+     inkscape:cx="230.56155"
+     inkscape:cy="423.13872"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -3000,6 +3000,34 @@
          y1="-209.29601"
          x1="157.48"
          class="l94" />
+    </g>
+    <g
+       transform="matrix(3.5433071,0,0,3.5433071,-357.86459,1042.7467)"
+       id="g7211">
+      <title
+         id="title7213">PART GND6</title>
+      <line
+         id="line7215"
+         style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+         y2="-121.92"
+         x2="149.86"
+         y1="-124.46"
+         x1="149.86"
+         class="l94" />
+      <line
+         id="line7217"
+         style="fill:none;stroke:#800000;stroke-width:0.25400001;stroke-linecap:round"
+         y2="-121.92"
+         x2="151.765"
+         y1="-121.92"
+         x1="147.955"
+         class="l94" />
+      <text
+         id="text7219"
+         style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
+         y="-119.38"
+         x="147.32001"
+         class="l96">GND</text>
     </g>
   </g>
 </svg>

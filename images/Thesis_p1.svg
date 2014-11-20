@@ -13,7 +13,7 @@
    viewBox="9.567334 -222.588666 256.543584 223.096666"
    id="svg6290"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Thesis_p1.svg">
+   sodipodi:docname="FULLCKT.eps">
   <metadata
      id="metadata8425">
     <rdf:RDF>
@@ -40,12 +40,12 @@
      id="namedview8423"
      showgrid="false"
      inkscape:zoom="1.6888268"
-     inkscape:cx="440.06635"
-     inkscape:cy="454.33294"
+     inkscape:cx="361.44858"
+     inkscape:cy="501.7031"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg6290" />
+     inkscape:current-layer="g7467" />
   <title
      id="title6292">C:/Users/Surya/Dropbox/BiteCounter/Other Stuff/Eagle 7/Thesis.sch - sheet 1</title>
   <desc
@@ -2131,111 +2131,100 @@ polygon.l254 {fill:#808080; }
        x="96.519997"
        class="l95">VCC</text>
   </g>
-  <g
-     id="g6797">
-    <title
-       id="title6799">PART 2KR</title>
-    <line
-       id="line6801"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-190.5"
-       x2="104.14"
-       y1="-190.5"
-       x1="106.68"
-       class="l94" />
-    <line
-       id="line6803"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-190.5"
-       x2="99.059998"
-       y1="-190.5"
-       x1="96.519997"
-       class="l94" />
-    <line
-       id="line6805"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-189.48399"
-       x2="103.759"
-       y1="-190.5"
-       x1="104.14"
-       class="l94" />
-    <line
-       id="line6807"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-191.51601"
-       x2="103.124"
-       y1="-189.48399"
-       x1="103.759"
-       class="l94" />
-    <line
-       id="line6809"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-189.48399"
-       x2="102.489"
-       y1="-191.51601"
-       x1="103.124"
-       class="l94" />
-    <line
-       id="line6811"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-191.51601"
-       x2="101.854"
-       y1="-189.48399"
-       x1="102.489"
-       class="l94" />
-    <line
-       id="line6813"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-189.48399"
-       x2="101.219"
-       y1="-191.51601"
-       x1="101.854"
-       class="l94" />
-    <line
-       id="line6815"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-191.51601"
-       x2="100.584"
-       y1="-189.48399"
-       x1="101.219"
-       class="l94" />
-    <line
-       id="line6817"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-189.48399"
-       x2="99.948997"
-       y1="-191.51601"
-       x1="100.584"
-       class="l94" />
-    <line
-       id="line6819"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-191.51601"
-       x2="99.314003"
-       y1="-189.48399"
-       x1="99.948997"
-       class="l94" />
-    <line
-       id="line6821"
-       style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
-       y2="-190.5"
-       x2="99.059998"
-       y1="-191.51601"
-       x1="99.314003"
-       class="l94" />
-    <text
-       id="text6823"
-       style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
-       y="-187.2234"
-       x="105.41"
-       class="l95">2KR</text>
-    <text
-       id="text6825"
-       style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
-       y="-192.024"
-       x="105.41"
-       class="l96">2k</text>
-  </g>
+  <line
+     class="l94"
+     x1="106.68"
+     y1="-190.5"
+     x2="104.14"
+     y2="-190.5"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6801" />
+  <line
+     class="l94"
+     x1="96.519997"
+     y1="-190.5"
+     x2="99.059998"
+     y2="-190.5"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6803" />
+  <line
+     class="l94"
+     x1="104.14"
+     y1="-190.5"
+     x2="103.759"
+     y2="-189.48399"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6805" />
+  <line
+     class="l94"
+     x1="103.759"
+     y1="-189.48399"
+     x2="103.124"
+     y2="-191.51601"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6807" />
+  <line
+     class="l94"
+     x1="103.124"
+     y1="-191.51601"
+     x2="102.489"
+     y2="-189.48399"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6809" />
+  <line
+     class="l94"
+     x1="102.489"
+     y1="-189.48399"
+     x2="101.854"
+     y2="-191.51601"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6811" />
+  <line
+     class="l94"
+     x1="101.854"
+     y1="-191.51601"
+     x2="101.219"
+     y2="-189.48399"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6813" />
+  <line
+     class="l94"
+     x1="101.219"
+     y1="-189.48399"
+     x2="100.584"
+     y2="-191.51601"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6815" />
+  <line
+     class="l94"
+     x1="100.584"
+     y1="-191.51601"
+     x2="99.948997"
+     y2="-189.48399"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6817" />
+  <line
+     class="l94"
+     x1="99.948997"
+     y1="-189.48399"
+     x2="99.314003"
+     y2="-191.51601"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6819" />
+  <line
+     class="l94"
+     x1="99.314003"
+     y1="-191.51601"
+     x2="99.059998"
+     y2="-190.5"
+     style="fill:none;stroke:#800000;stroke-width:0.1524;stroke-linecap:round"
+     id="line6821" />
+  <text
+     class="l95"
+     x="103.23756"
+     y="-187.39052"
+     style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
+     id="text6823">2K</text>
   <g
      id="g6827">
     <title
@@ -2290,12 +2279,6 @@ polygon.l254 {fill:#808080; }
        y1="-187.96001"
        x1="53.34"
        class="l94" />
-    <text
-       id="text6843"
-       style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
-       y="-183.261"
-       x="51.816002"
-       class="l95">4.7U</text>
     <text
        id="text6845"
        style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
@@ -2358,16 +2341,10 @@ polygon.l254 {fill:#808080; }
        x1="124.46"
        class="l94" />
     <text
-       id="text6863"
-       style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
-       y="-185.80099"
-       x="122.936"
-       class="l95">4.7UF</text>
-    <text
        id="text6865"
        style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
-       y="-190.881"
-       x="122.936"
+       y="-188.54144"
+       x="120.93066"
        class="l96">4.7u</text>
   </g>
   <g
@@ -2423,16 +2400,10 @@ polygon.l254 {fill:#808080; }
        x1="157.48"
        class="l94" />
     <text
-       id="text6883"
-       style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
-       y="-193.42101"
-       x="159.004"
-       class="l95">10KPF</text>
-    <text
        id="text6885"
        style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
-       y="-188.341"
-       x="159.004"
+       y="-191.01479"
+       x="160.3409"
        class="l96">10000pf</text>
   </g>
   <g
@@ -2582,12 +2553,6 @@ polygon.l254 {fill:#808080; }
        y1="-187.96001"
        x1="147.32001"
        class="l94" />
-    <text
-       id="text6931"
-       style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
-       y="-196.342"
-       x="147.32001"
-       class="l96">M021X02_NO_SILK</text>
     <text
        id="text6933"
        style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
@@ -4034,18 +3999,11 @@ polygon.l254 {fill:#808080; }
        x1="158.496"
        class="l94" />
     <text
-       id="text7453"
-       transform="matrix(0,-1,1,0,155.9814,-196.85)"
-       style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
-       y="0"
-       x="0"
-       class="l95">R2K</text>
-    <text
        id="text7455"
-       transform="matrix(0,-1,1,0,160.782,-196.85)"
+       transform="matrix(0,-1,1,0,0,0)"
        style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
-       y="0"
-       x="0"
+       y="161.45044"
+       x="199.52379"
        class="l96">2k</text>
   </g>
   <g
@@ -4270,18 +4228,11 @@ polygon.l254 {fill:#808080; }
        class="l94" />
     <text
        id="text7527"
-       transform="matrix(0,-1,1,0,194.564,-221.996)"
+       transform="matrix(0,-1,1,0,0,0)"
        style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
-       y="0"
-       x="0"
-       class="l96">AVR_MINI_PROGSMD</text>
-    <text
-       id="text7529"
-       transform="matrix(0,-1,1,0,215.9,-220.98)"
-       style="font-size:2.44475007px;text-anchor:end;fill:#808080;font-family:sans-serif"
-       y="0"
-       x="0"
-       class="l95">U$2</text>
+       y="193.89555"
+       x="220.99333"
+       class="l96">JTAG_CON</text>
   </g>
   <line
      class="l94"
@@ -5616,12 +5567,6 @@ polygon.l254 {fill:#808080; }
        y1="-185.42"
        x1="73.660004"
        class="l94" />
-    <text
-       id="text7927"
-       style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"
-       y="-196.088"
-       x="73.660004"
-       class="l95">U2</text>
     <text
        id="text7929"
        style="font-size:2.44475007px;fill:#808080;font-family:sans-serif"

@@ -115,7 +115,7 @@ frame=b
 \DeclareCaptionFont{white}{ \color{white} }
 \DeclareCaptionFormat{listing}{
   \colorbox[cmyk]{0.43, 0.35, 0.35,0.01 }{
-    \parbox{\textwidth}{#1#2#3}
+    \parbox{0.9\textwidth}{#1#2#3}
   }
 }
 \captionsetup[lstlisting]{ format=listing, labelfont=white, textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize} }
@@ -191,13 +191,13 @@ frame=b
     % If you want just one, see the formatting guidelines.
     %
     \begin{appendices}
-        \begin{subappendices}
-            \inputfile{AppendixA.tex}
+\singlespacing
+    %    \begin{subappendices}
+           \inputfile{AppendixA.tex}
      %      \inputfile{appendixB.tex}
             %\inputfile{appendixC.tex}
-        \end{subappendices}
+   %     \end{subappendices}
     \end{appendices}
-
 
 
     \singlespacing                             % Single space the Bibliography

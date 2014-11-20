@@ -17,7 +17,7 @@ We use WristView, a modified version of a software previously created by our gro
 \begin{figure}
 \begin{center}
 \includegraphics[width=\textwidth]{images/WristPhoto.jpg}
-\caption{Photograph of the Activity Monitor mounted on a wrist.}
+\caption{Photograph of the our activity monitor mounted on a wrist.}
 \label{Fig:WristPhoto}
 \end{center}
 \end{figure}
@@ -27,12 +27,12 @@ We use WristView, a modified version of a software previously created by our gro
 The final device fit comfortably inside OKW Enclosures' Ergo Minitec Small enclosure.
 The dimensions of the device are the same as the enclosure,
 52mm X 32mm X 15mm.
-A strap that is 12cm wide and 20cm long allows the user to wear this device on their wrist.
-The device weighs Xg, including the strap.
+A strap that is 12mm wide and 20cm long allows the user to wear this device on their wrist.
+The device weighs 26.6g, including the strap.
 The device was tested by two volunteers for 10 hours each,
 and reported to be similar to a wrist watch with regards to comfort.
 
-\section{Battery Life}
+\section{Battery life}
 \label{Sec:ResultsBatteryLife}
 We would need to check if the battery life of the device meets our specifications.
 Battery manufacturers are known to inflate the battery life on data sheets for their products.
@@ -45,12 +45,16 @@ which was higher than the required battery life for our device,
 16 hours.
 On standby mode (where the device is not recording any data), the battery life was up to one week.
 Figure \ref{Fig:BatteryGraph} shows how the battery voltage drops versus time when it is actively recording motion data.
-Data is not shown once the voltage dropped lower than 2.8V. The device was programmed to stop operating and enter standby mode once the voltage was lower then 2.8V. This was to avoid recording incorrect data or corrupting the memory chip once supply voltage was near the minimum level for devices on our circuit.
+Data is not shown once the voltage dropped lower than 2.8V.
+The device was programmed to stop operating and enter standby mode
+once the voltage was lower then 2.8V.
+This was to avoid recording incorrect data or corrupting the memory chip once supply
+voltage was near the minimum level for devices on our circuit.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{images/BattLife.eps}
-\caption{Graph showing Battery Life of the device.}
+\caption{Graph showing battery life of the device.}
 \label{Fig:BatteryGraph}
 \end{center}
 \end{figure}
@@ -73,7 +77,9 @@ For acceleration data the amplitude was in g's, where 1g = 9.8 m/s$^2$. For gyro
 Raw data from sensors usually contains noise.
 Also, the data isn't available at all times,
 but instead in discrete time intervals, with 66ms between each point.
-WristView can also smooth these signals based on code from PhoneView, which uses algorithm used by the research group previously \cite{concha2014study}. This can be seen in figure \ref{Fig:WristViewSoomth}
+WristView can also smooth these signals based on code from PhoneView,
+which uses algorithm used by the research group previously \cite{concha2014study}.
+This can be seen in figure \ref{Fig:WristViewSoomth}
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{images/WristView.jpg}
@@ -90,7 +96,7 @@ WristView can also smooth these signals based on code from PhoneView, which uses
 \end{center}
 \end{figure}
 
-\section{Device Cost}
+\section{Device cost}
 \label{Sec:DevCost}
 Earlier, we had mentioned the different devices on the market marketed as health monitors,
 and also the high costs attached to using them.
@@ -102,20 +108,60 @@ This number includes costs for PCB and stencil manufacture, but does not include
 \inputfile{BOMTable.tex}
 
 
-\section{Comparison of Devices}
+\section{Comparison of devices}
 \label{Sec:Comparison}
-Activity Trackers like the Fitbit and Nike Fuelband created a new market segment of
+Activity Trackers like the Fitbit Flex and Nike Fuelband created a new market segment of
 wrist watch style activity trackers.
 Other improvements in technology have allowed multiple manufacturers to launch new
 wrist based smart watches in the past two years,
 with a major rush in the past two months.
-Another market segment uses wrist motion or gestures to control computers / digital devices.
+A new market segment has emerged where
+wrist motion or gestures can be used to control computers or digital devices.
 These devices may be able to support the different bite counting and meal detection algorithms created by our group.
 We compared our wrist motion activity tracker to the different wrist mounted devices on the market
 including some new ones that have been announced but are yet to release in the United States of America.
 Table \ref{Tab:DevCompare} select devices and their important parameters.
 Our requirements call for a device that can record data from an accelerometer and gyroscope for 24 hours,
-and be comfortable to wear for that period repeatedly. Comparison in Table \ref{Tab:DevCompare} shows that our device performs better than other devices on the market for our specific purpose, and that most devices lack the support for our bite counting application while maintaining comfort.
+and be comfortable to wear for that period repeatedly.
+%Table \ref{Tab:DevCompare} shows that our device performs better than other devices on the market for our specific purpose, and that most devices lack the support for our bite counting application while maintaining comfort.
+
+We see that our device costs are comparable to the lower end of the spectrum,
+allowing us to procure more devices at a lesser cost.
+Our work allows a high degree of modification and programmability compared to other
+wrist mounted devices.
+This also allows for a higher resolution capture of wrist movement data.
+Table \ref{Tab:DevCompare} shows that for our application of tracking wrist movement data at an economical cost,
+our customized device is the only one in the market meeting the specifications.
+
+\section{Prototype challenges}
+\label{Sec:ProtoChall}
+Throughout this work we have emphasized on the small sizes of the parts we used.
+Integrating these parts into our device was a considerable challenge since we did not have access to industrial machines.
+Before any of our parts could be connected and used,
+they needed to be in a format that was easy to connect to.
+The parts are manufactured to be used in an industrial setting,
+and provided in surface mount packages.
+An option available to us was to outsource the physical design of the device.
+Once we had the design ready,
+it could be provided to a manufacturer for soldering and assembling the device.
+However this would double the cost of our device in the prototype phase, 
+and not an acceptable solution.
+Testing the different methods of soldering that could be used and then finally using
+the solder reflow method as explained in section \ref{Sec:ToasterReflow}
+took a considerable amount of time.
+
+Another issue we faced was devices overheating due to incorrect connection or a short circuit
+created during the soldering phase.
+To replace the burnt integrated chip,
+we had to cut off the burnt chip from the PCB using an Exacto knife,
+and then desolder the pins. This was done under a microscope.
+
+Our first prototype had the device reporting incorrect motion data.
+This was due to the fact that the SPI lines were extended beyond the typical specifications ($\approx$150 mm),
+and the signal's power would drop rapidly as it traveled.
+We accommodated for this in our PCB based prototype,
+where the signal traveled very short distances ($\approx$5 mm).
+
 \inputfile{CompTable.tex}
 \chapter{Conclusion and Future Work}
 \label{Chap:Concl}
@@ -126,7 +172,7 @@ taken by a user,
 or predict the tool being used to take a bite.
 The device could be worn for extended intervals of time
 without causing discomfort to the user.
-As mentioned in Results (Chapter \ref{Chap:Results}),
+As mentioned in Results (chapter \ref{Chap:Results}),
 we were able to create a wrist motion activity tracker that records data at good resolution
 for our purpose of detecting periods of eating or non-eating, 
 or for our purpose of counting the number of bites taken.
@@ -135,7 +181,7 @@ the device has a button that allows the device to be turned on and off.
 When the device is turned off,
 it enters standby mode,
 and returns to recording data when turned on again.
-This data is recorded serially,
+This data is recorded consecutively without a pause,
 and the device has no concept of local time.
 
 In the future,
@@ -149,18 +195,18 @@ a large amount of power is utilized by the sensors which are always turned on.
 While we were working through this thesis,
 newer technology has allowed sensor manufacturers to improve the sensors they are producing.
 Some new sensors now come with microcontrollers in-built which can be programmed by the user.
-In our thesis,
+In our work,
 the sensors we used
-were operating based on an internal clock of 8Hz.
+were operating based on an internal clock of 8KHz.
 We would then read from the sensors at 15Hz.
 Since we only need the sensors to be polled at 15Hz,
 it should be possible to decrease the rate at which the sensors are operating.
-If the sensors could sleep between two pools,
+If the sensors could sleep between two readings,
 it would allow us to have a huge improvement in battery life as it would reduce the average current draw by the sensors.
 
 When we compared the different devices on the market,
 we noticed that the wrist band device MYO uses EMG sensors coupled with accelerometer and gyroscope data to increase the accuracy of detection.
 Thalmic Labs \cite{Web:GetMyo} claims that the EMG sensors help pin point the pose of a users hand.
 We consider that this claim might be true,
-based on newer EMG sensors that are smaller and comfortable to wear around the wrist,
+and based on newer EMG sensors that are smaller and comfortable to wear around the wrist,
 we plan to incorporate these sensors in future work.

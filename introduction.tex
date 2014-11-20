@@ -2,9 +2,9 @@
 \chapter{Introduction}
 \label{Chap:Intro}
 This thesis considers the problem of tracking human wrist movements during free living.
-These movements would need to be tracked cintinuously all day,
+These movements would need to be tracked continuously all day,
 storing the data so that it can be processed later.
-To capture this information we need an accekerometer and a gyroscope.
+To capture this information we need an accelerometer and a gyroscope.
 Accelerometers typically draw a current of 270$\mu$,
 while a gyroscope can consume 3 - 10$\mu$ of current.
 These devices are powered by a battery,
@@ -46,29 +46,29 @@ Our group is motivated by the vision of a wrist-worn device that can continuousl
 track wrist motion to detect when a person is eating, and to count the number
 of bites consumed during each eating activity.  The group has previously demonstrated
 algorithms that achieve 81\% accuracy for detecting eating activities during all-day
-wrist motion tracking \cite{dong2013detecting}, and for counting bites with 86\% accuracy during meals \cite{dong2012new}.
+wrist motion tracking \cite{dong2013detecting}, and for counting bites with 86\% accuracy during meals ~\cite{dong2012new}.
 To improve these techniques, we require a device that allows us to collect data from
 a large number of subjects over a period of days to weeks. Thus, we require a device that is
 comfortable to wear, will operate for an entire day on a single battery charge, and
 has a relatively low cost.
  
-\section{Wrist Based Activity Monitors}
+\section{Wrist based activity monitors}
 \label{Sec:FitnessTracking}
 With the increase in smart phone sales,
 we see a huge rise in devices that help track our daily activities.
-Fitness trackers in the market currently offer a range of services. The Fitbit \cite{Web:FitBitOfficial},\cite{Web:FitbitFlex} and Jawbone \cite{Web:JawBoneWebsite} series of sensors allow for exercise and sleep monitoring using wrist movements. This data is then synchronized with a computer or a mobile phone, and can be viewed graphically by the user. Another consumer electronic segment that has now emerged is smart watches. These watches contain electronic components that make them functionally similar to a mobile phone, and are small enough to wear on the wrist. They contain low power displays and have a host of power saving techniques to have a long battery life. Table \ref{Tab:IntroComp} shows a list of select devices on the market that can track wrist motion and could potentially be used for the bite counting applicaiton.
+Fitness trackers in the market currently offer a range of services. The Fitbit \cite{Web:FitBitOfficial} and Jawbone \cite{Web:JawBoneWebsite} series of sensors allow for exercise and sleep monitoring using wrist movements. The Fibit activity monitor can be seen in figure \ref{fig:FitbitJawbone}~\cite{Web:FitbitImage}.This data is then synchronized with a computer or a mobile phone, and can be viewed graphically by the user. Another consumer electronic segment that has now emerged is smart watches. These watches contain electronic components that make them functionally similar to a mobile phone, and are small enough to wear on the wrist. They contain low power displays and have a host of power saving techniques to have a long battery life. Table \ref{Tab:IntroComp} shows a list of select devices on the market that can track wrist motion and could potentially be used for the bite counting application.
 \inputfile{IntroCompTable.tex}
 As we can see, most of the wearable devices in the market are limited to counting the number of calories expended and thus not many options exist for counting the number of calories consumed. Most of the options available are not optimized for recording wrist movement data for an entire day.
 The iPhone, which would work as expected is not suitable as a wrist mounted device, and the SHIMMER has a high procurement cost for development.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.4\textwidth]{images/JawFit.png}
-\caption{The Fitbit flex activity tracker \cite{Web:FitbitImage}}
+\caption{The Fitbit flex activity tracker.}
 \label{fig:FitbitJawbone}
 \end{center}
 \end{figure}
 
-\section{Previous Work}
+\section{Previous work}
 Our group has been involved with bite counting by tracking wrist motion for half a decade.
 Initial research~\cite{dong2012new} worked on identifying if this was a feasible idea.
 During the early stages,
@@ -102,7 +102,7 @@ Figure \ref{Fig:BCEater} shows a photograph from the research groups website sho
          \caption{Photograph of a person using the Bite Counter while eating.}\label{Fig:BCEater}
 \end{figure}
 
-\section{Wearable Wrist Motion Tracker}
+\section{Wearable wrist motion tracker}
 \label{Sec:WearbleTracker}
 \begin{figure}
 \begin{center}
