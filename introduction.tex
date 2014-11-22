@@ -1,65 +1,56 @@
 
 \chapter{Introduction}
 \label{Chap:Intro}
-This thesis considers the problem of tracking human wrist movements during free living.
-These movements would need to be tracked continuously all day,
-storing the data so that it can be processed later.
-To capture this information we need an accelerometer and a gyroscope.
-Accelerometers typically draw a current of 270$\mu$,
-while a gyroscope can consume 3 - 10$\mu$ of current.
-These devices are powered by a battery,
-and common small batteries used in wrist based devices have a capacity of 20 - 200mAh.
-These capacities allow for an accelerometer based device to operate up to a week,
-however, depending on the size of the battery,
-devices with a gyroscope typically operate for a couple of hours because of their higher current consumption.
-The battery size also affects the size of the device as the battery is usually the largest part in the device.
-Since we want our device to be mounted on the wrist,
-we would like our battery size to be small enough to be comfortably worn on the wrist.
 
-Our group is motivated by the vision of a wrist mounted device that can track wrist motion activity and
-detect when a person is eating,
-and also be able to count the number of bites in each meal.
-In previous research we have demonstrated algorithms where periods of eating can be detected with 81\% accuracy,
-and the number of bites in these meals can be detected with 86\% accuracy.
-To further this research,
-we reqyure a device that will allow us to record wrist motion data for a period of days to weeks and can be used across a large number of subjects.
-Due to this extended interval of use,
-the device needs a long battery life,
-and has to be comfortable to wear.
+This thesis considers the problem of tracking human wrist movements during free living.
+The goal is to build a device that can track these movements continuously all day,
+storing the data so that it can be processed later.
+While many wrist-worn devices with tracking capabilities are manufactured for the commercial and research markets, none has specifically addressed the need of recording translational and rotational wrist motion for an extended period of time.  Many devices do not include the necessary sensors to track rotational motion, or include unneeded features that make the device larger than necessary and require frequent recharging.
+Device cost is also a factor given the desire to record data for many subjects over extended periods of time.
+The work in this thesis was motivated by the goal of designing and prototyping a device that limits functionality to the goal of tracking and recording wrist motion all day while minimizing device size and cost.
+
+The technical challenges of the problem are motivated by the size and power usage of the required components.
+The sensors necessary for tracking wrist motion are a 3-axis accelerometer and a 3-axis gyroscope.
+At the time of this writing, both types of sensors are available in small microelectricalmechanical systems (MEMS) packages with chip dimensions only a few millimeters.
+Thus, they can be comfortably worn in a wrist-mounted package.
+However, their power consumption varies by an order of magnitude.  MEMS accelerometers typically draw a current in the range of 300-500 $\mu$A and MEMS gyroscopes typically draw 3-10 mA of current.
+To be worn on a wrist, these sensors must be powered by a battery.
+Common small batteries used in wrist based devices have a capacity of 20-200 mAh.
+These capacities allow for the continuous operation of a MEMS accelerometer for up to a week on a single charge.
+However, a MEMS gyroscope
+could typically operate for only 5-15 hours on a single charge.
+The battery size is particularly important because it is usually the largest part in the device.
+Since the goal is to mount the device on the wrist,
+we are motivated to keep the battery size as small as possible.
+These technical challenges are confounded if other unnecessary parts are included in the device.
 
 
 \section{Motivation}
 \label{Sec:Motivation}
 
- CDC (Centers for Disease Control and Prevention) reports mention one
- \textemdash{} third of the adult American population as 
- obese, while sixty nine percent of the population is considered 
- overweight. The agency defines individuals with a Body Mass
- Index of twenty five and above as overweight~\cite{ogden2010prevalence}.
- This number is rising in children too, with eighteen
- percent children between the ages of 12 \textemdash{} 18
- years considered obese. When a group
- of individuals was asked to count the number of bites taken over
- a 24 hour period, 40\% lost count or forgot the count entirely~\cite{mahoney1975obese}.
+The motivating vision for this work is a wrist mounted device that trackings wrist motion to detect when a person is eating,
+counting the number of bites consumed in each meal.
+In previous research our group has demonstrated algorithms where periods of eating can be detected with 81\% accuracy \cite{Dong2014},
+and the number of bites in these meals can be counted with 86\% accuracy \cite{Dong2012}.
+To further this research,
+a device is needed that will facilitate the recording of wrist motion data for a large number of subjects, preferably with each subject recording for several days or even weeks.  This data could then be used to improve the detection and measurement algorithms.
 
-Our group is motivated by the vision of a wrist-worn device that can continuously
-track wrist motion to detect when a person is eating, and to count the number
-of bites consumed during each eating activity.  The group has previously demonstrated
-algorithms that achieve 81\% accuracy for detecting eating activities during all-day
-wrist motion tracking \cite{dong2013detecting}, and for counting bites with 86\% accuracy during meals ~\cite{dong2012new}.
-To improve these techniques, we require a device that allows us to collect data from
-a large number of subjects over a period of days to weeks. Thus, we require a device that is
-comfortable to wear, will operate for an entire day on a single battery charge, and
-has a relatively low cost.
+For example, our previous work has suggested that the gyroscopes may not need to be powered continuously to detect periods of eating \cite{Dong2014}.  Instead, accelerometers could be powered continuously with gyroscopes only powered during periods of suspected eating to determine a final classification \cite{Dong2014}.  To test this idea, a large data set of continuous full wrist motion needs to be recorded.  Algorithms that processed the gyroscope data at intermittent intervals could be compared to algorithms that processed all the gyroscope data.
+
+As another example, algorithms could be custom calibrated to an individual, perhaps improving performance over algorithms that are only tuned to the group level.  This is only feasible if sufficient data is recorded per person to enable custom tuning of thresholds or other algorithm parameters.  To facilitate collecting this amount of data, a device that is comfortable to wear for many days is necessary in order to encourage enough subjects to collect the necessary data.
  
-\section{Wrist based activity monitors}
+
+\section{Existing devices}
 \label{Sec:FitnessTracking}
-With the increase in smart phone sales,
-we see a huge rise in devices that help track our daily activities.
-Fitness trackers in the market currently offer a range of services. The Fitbit \cite{Web:FitBitOfficial} and Jawbone \cite{Web:JawBoneWebsite} series of sensors allow for exercise and sleep monitoring using wrist movements. The Fibit activity monitor can be seen in figure \ref{fig:FitbitJawbone}~\cite{Web:FitbitImage}.This data is then synchronized with a computer or a mobile phone, and can be viewed graphically by the user. Another consumer electronic segment that has now emerged is smart watches. These watches contain electronic components that make them functionally similar to a mobile phone, and are small enough to wear on the wrist. They contain low power displays and have a host of power saving techniques to have a long battery life. Table \ref{Tab:IntroComp} shows a list of select devices on the market that can track wrist motion and could potentially be used for the bite counting application.
+
+Table \ref{Tab:IntroComp} shows a list of some devices on the market that can be used to track wrist motion and could potentially be used for the envisioned work.
+There are four main categories.  The first category is fitness trackers.  It includes devices like the
+Fitbit \cite{Web:FitBitOfficial} and Jawbone \cite{Web:JawBoneWebsite} series of sensors.
 \inputfile{IntroCompTable.tex}
-As we can see, most of the wearable devices in the market are limited to counting the number of calories expended and thus not many options exist for counting the number of calories consumed. Most of the options available are not optimized for recording wrist movement data for an entire day.
-The iPhone, which would work as expected is not suitable as a wrist mounted device, and the SHIMMER has a high procurement cost for development.
+These devices allow for exercise and sleep monitoring. The Fibit activity monitor can be seen in figure \ref{fig:FitbitJawbone}~\cite{Web:FitbitImage}.  Its data is sent to a computer or a mobile phone to be viewed graphically by the user.
+Many of these devices can be worn the wrist, are small, relatively low-cost, and can be powered for a week or longer on a single battery charge.
+However, they do not include gyroscopes.  Activity monitoring is accomplished solely through the use of accelerometers.  In addition, accelerometer data is not stored continuously.  Instead, 10-60 second windows of data are reduced to single measurements that are related to step count, physical activity, or sleep activity, by on board processing of the raw sensor data.    Thus, none of these devices are designed to sense or record continuous wrist motion data.
+
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.4\textwidth]{images/JawFit.png}
@@ -68,54 +59,15 @@ The iPhone, which would work as expected is not suitable as a wrist mounted devi
 \end{center}
 \end{figure}
 
-\section{Previous work}
-Our group has been involved with bite counting by tracking wrist motion for half a decade.
-Initial research~\cite{dong2012new} worked on identifying if this was a feasible idea.
-During the early stages,
-sensors were mounted directly on the wrist,
-and a cable connected the sensor to a personal computer.
-The computer would log data from the sensors and identify when the user took a bite of food.
-Needless to say,
-mobility by the user was limited,
-and they would have to consume all of their meal within range of the computer cable.
-Later work switched to a device that could process this information from the sensor in real time,
-and predict the total number of bites taken by the user in a meal.
-This device was able to store only the number of bites, 
-but not the actual data captured from the sensors.
-It was widely reviewed and reported by the media.
-Figure \ref{Fig:BCEater} shows a photograph from the research groups website showing the final device which was mass manufactured.
+Another relevant class of devices is smart phones.  These devices commonly include gyroscopes and can be custom programmed to sense and record data continuously.  They contain larger batteries than fitness monitors, and so can power gyroscopes for more than 10 hours.  They also contain large memories that can store the raw sensor data for an extended period of time.  In our group's preliminary work, an Apple iPhone was used to record data from 44 subjects for a single day each \cite{Dong2014}.  However, smart phones are large and not intended to be worn on the wrist.  The comfort level of participants was lower than desired.  Smart phones are also relatively expensive.
 
-\begin{figure}
-        \centering
-        % \begin{subfigure}[b]{0.3\textwidth}
-                \includegraphics[]{images/BCEater.JPG}
+A third class of devices that has recently emerged is the smart watch.  Examples include the Pebble and Samsung Gear.  These devices include many parts common to smart phones and are packaged in a wrist-worn assembly.  The goal is to enable viewing of text messages and other data commonly viewed on a smart phone on a smaller screen worn on the wrist.  A smart watch typically uses low power Bluetooth to communicate with a paired smart phone.  Some of these devices include gyroscopes and most can be custom programmed.  However, they are relatively larger than fitness devices due to their inclusion of a large display, wireless connectivity, and other features typically associated with smart phones.  They are also relatively expensive.
 
-                \label{fig:gull}
-        % \end{subfigure}%
-        ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
-          %(or a blank line to force the subfigure onto a new line)
-        % \begin{subfigure}[b]{0.3\textwidth}
-        %         \includegraphics[width=\textwidth]{images/BCWrist.JPG}
-        %         \caption{Close up photo of the bite counter mounted on a wrist.}
-        %         \label{fig:tiger}
-        % \end{subfigure}
-         \caption{Photograph of a person using the Bite Counter while eating.}\label{Fig:BCEater}
-\end{figure}
+A fourth class of relevant devices are those produced for research use.  Examples include devices produced by XSens and Shimmer labs.  These devices provide generic tracking capabilities.  They are generally intended to be positioned or worn anywhere, so few specialize in wrist-mounted packaging.  While they can include gyroscopes and facilitate custom programming, they also serve wide markets and thus tend to include parts and capabilities not necessary for the goal of this work.  This tends to increase size and expense.
 
-\section{Wearable wrist motion tracker}
+
+\section{Novelty}
 \label{Sec:WearbleTracker}
-\begin{figure}
-\begin{center}
-\includegraphics{images/HandAxis.eps}
-\caption{A wrist watch shaped device showing the different axis being recorded.}
-\label{fig:HandAxis}
-\end{center}
-\end{figure}
-Earlier work by the group showed a device that is capable of
-detecting bites by monitoring wrist movement~\cite{drennan2010assessment}.
-We are motivated by the problem of monitoring calorie consumption by
-creating a wrist watch like device that is specifically designed
-to for the function of tracking and storing wrist motion data all day
-on a single battery. Our goal for this device is to improve on the
-battery life, programmability and the cost of procurement compared to
-the devices seen in table \ref{Tab:IntroComp}
+
+The purpose of this work is to design and prototype a device that targets the goal of tracking and recording wrist motion continuously for a day.  The challenges are to meet or surpass the existing devices listed in Table \ref{Tab:IntroComp} in terms of the collective listed criteria.  Towards that goal, this thesis describes an investigation of the parts currently available for use in building such a device, including sensors, memory, batteries, connectors, and materials and methods used for embedded device construction.  After selecting parts and an overall design, a functioning prototype device was consructed.  Its operating characteristics are compared to the devices listed in table \ref{Tab:DevCompare} at the end of this thesis.
+

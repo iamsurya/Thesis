@@ -5,7 +5,7 @@ Our proposal for this thesis was to create an all day wrist motion activity moni
 that was small, cost effective and comfortable.
 This device would also have to be able to record data for an entire day of activity,
 decided as 16 hours.
-The final device we have created can worn on the wrist like a wrist watch by using its strap.
+The final device we have created can be worn on the wrist like a watch by using its strap.
 Figure \ref{Fig:WristPhoto} shows a photograph of this arrangement when the device is worn around a wrist.
 In this chapter we consider how we have compared against the requirements for the wrist activity monitor that we had set.
 Users are expected to wear the device at the start of the day,
@@ -24,20 +24,24 @@ We use WristView, a modified version of a software previously created by our gro
 
 \section{Size and comfort}
 \label{Sec:ResultsSize}
-The final device fit comfortably inside OKW Enclosures' Ergo Minitec Small enclosure.
+The final PCB and components fit comfortably inside an OKW Ergo Minitec Small enclosure.
 The dimensions of the device are the same as the enclosure,
-52mm X 32mm X 15mm.
-A strap that is 12mm wide and 20cm long allows the user to wear this device on their wrist.
+52 mm X 32 mm X 15 mm.
+A strap that is 12 mm wide and 20 cm long allows the user to wear this device on their wrist.
 The device weighs 26.6g, including the strap.
 The device was tested by two volunteers for 10 hours each,
 and reported to be similar to a wrist watch with regards to comfort.
+Note that this size is limited to the fact that we used a case available off the shelf.
+If a custom design process was used which would allow for a case to be molded,
+the size could be halved,
+or spread around like a strap.
 
 \section{Battery life}
 \label{Sec:ResultsBatteryLife}
-We would need to check if the battery life of the device meets our specifications.
+We needed to check if the battery life of the device met our specifications.
 Battery manufacturers are known to inflate the battery life on data sheets for their products.
 Current draw and how the battery is used also changes the output capacity of the battery.
-Section \ref{Sec:Programming} lays out the methods used to test our prototype,
+Section \ref{Chap:Prototype} describes the methods used to test our prototype,
 and the techniques used to measure the battery life of the product.
 After testing the battery three times,
 we concluded that the 130mAh battery would log wrist motion data for at least 24 hours,
@@ -45,11 +49,11 @@ which was higher than the required battery life for our device,
 16 hours.
 On standby mode (where the device is not recording any data), the battery life was up to one week.
 Figure \ref{Fig:BatteryGraph} shows how the battery voltage drops versus time when it is actively recording motion data.
-Data is not shown once the voltage dropped lower than 2.8V.
+Data is not shown once the voltage dropped lower than 2.8 V.
 The device was programmed to stop operating and enter standby mode
-once the voltage was lower then 2.8V.
+once the voltage was lower then 2.8 V.
 This was to avoid recording incorrect data or corrupting the memory chip once supply
-voltage was near the minimum level for devices on our circuit.
+voltage was near the minimum level for components on our circuit.
 
 \begin{figure}
 \begin{center}
@@ -63,23 +67,19 @@ voltage was near the minimum level for devices on our circuit.
 \label{Sec:ResultsSoftware}
 We had been able to log data from the sensors into a memory chip,
 and this data was then transferred to a computer in the form of a binary file.
-Each bite in the file represents data recorded from a sensor,
+Each byte in the file represents data recorded from a sensor,
 with the time of the record being calculated by using the byte address.
-Analyzing this data as numbers is not something feasible for humans,
-and we our much better at detecting patterns in visually displayed information.
 Work done by our group previously could display motion data collected by an iPhone in a visual format.
-We modified work done by Concha et al. \cite{concha2014study} and created our own software to display the data logged by the wrist motion activity tracker.
-This software, as mentioned in section \ref{Sec:Software},
+We modified work done by Concha \cite{concha2014study} and created our own software to display the data logged by the wrist motion activity tracker.
+This software, as mentioned in section \ref{Chap:Prototype},
 was named WristView and allowed us to visually compare data captured by the device.
 A screen shot of WristView can be seen in figure \ref{Fig:WristView}.
 The figure shows the data plotted as amplitude versus time.
-For acceleration data the amplitude was in g's, where 1g = 9.8 m/s$^2$. For gyroscopes, the data was in deg/sec.
+For acceleration data the amplitude was in g, where 1 g = 9.8 m/s$^2$. For gyroscopes, the data was in deg/sec.
 Raw data from sensors usually contains noise.
-Also, the data isn't available at all times,
-but instead in discrete time intervals, with 66ms between each point.
-WristView can also smooth these signals based on code from PhoneView,
-which uses algorithm used by the research group previously \cite{concha2014study}.
-This can be seen in figure \ref{Fig:WristViewSoomth}
+WristView can smooth these signals based on code from PhoneView,
+which uses an algorithm used by the research group previously \cite{concha2014study}.
+This can be seen in figure \ref{Fig:WristViewSoomth}.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{images/WristView.jpg}
@@ -98,44 +98,58 @@ This can be seen in figure \ref{Fig:WristViewSoomth}
 
 \section{Device cost}
 \label{Sec:DevCost}
-Earlier, we had mentioned the different devices on the market marketed as health monitors,
+Earlier, we had mentioned the different devices on the market marketed as research devices,
 and also the high costs attached to using them.
 The costs include expenditure on manufacturing and research.
 After our device was created, 
 we tabulated the cost of the parts of the device, and this can be seen in table \ref{BomTable}.
 The total cost for the parts used per device was US\$52.5.
-This number includes costs for PCB and stencil manufacture, but does not include any costs for the research of the device or hourly labor associated with writing code.
+This number includes costs for PCB and stencil manufacture, but does not include any costs for the research of the device or hourly labor associated with assembly.
 \inputfile{BOMTable.tex}
 
-
+\inputfile{CompTable.tex}
 \section{Comparison of devices}
 \label{Sec:Comparison}
-Activity Trackers like the Fitbit Flex and Nike Fuelband created a new market segment of
-wrist watch style activity trackers.
-Other improvements in technology have allowed multiple manufacturers to launch new
-wrist based smart watches in the past two years,
-with a major rush in the past two months.
-A new market segment has emerged where
-wrist motion or gestures can be used to control computers or digital devices.
-These devices may be able to support the different bite counting and meal detection algorithms created by our group.
-We compared our wrist motion activity tracker to the different wrist mounted devices on the market
-including some new ones that have been announced but are yet to release in the United States of America.
-Table \ref{Tab:DevCompare} select devices and their important parameters.
-Our requirements call for a device that can record data from an accelerometer and gyroscope for 24 hours,
-and be comfortable to wear for that period repeatedly.
 %Table \ref{Tab:DevCompare} shows that our device performs better than other devices on the market for our specific purpose, and that most devices lack the support for our bite counting application while maintaining comfort.
-
-We see that our device costs are comparable to the lower end of the spectrum,
-allowing us to procure more devices at a lesser cost.
+We see that our device cost is comparable to that of devices at the lower end of the spectrum.
+Fitness Trackers like the Fitbit Zip cost \$49,
+while research oriented devices like the SHIMMER cost \$249.
+When procured in a large quantity so that wrist motion data can be captured
+for 100 - 200 test subjects,
+devices like the SHIMMER prove to be very expensive.
+In comparison,
+our work costs \$53 per device which allows us to obtain required quantities at lower costs.
+Most Fitness trackers that are inexpensive, however,
+do not allow custom programs or modifications.
 Our work allows a high degree of modification and programmability compared to other
-wrist mounted devices.
-This also allows for a higher resolution capture of wrist movement data.
-Table \ref{Tab:DevCompare} shows that for our application of tracking wrist movement data at an economical cost,
-our customized device is the only one in the market meeting the specifications.
+wrist mounted devices across the board.
+Table \ref{Tab:DevCompare} shows only three devices which allow a significant level of programmability.
+Since our device can be programmed using our custom code
+it allows for a very high level of control.
+Due to this, we can capture a higher resolution of wrist movement data
+compared to other devices. Devices in table \ref{Tab:DevCompare} either do not offer this data at all,
+offer it at a very low resolution (3 Hz for the Samsung Gear 2), or offer it for a short interval of time.
+
+Devices that would suit our purpose, like the iPhone are not viable options due to their size or weight.
+Our device measures 52 mm X 32 mm X 15 mm and weighs 26.6 g,
+which makes it similar in size and weight to a watch.
+This size gives the wearer a good level of comfort compared to wearing a heavy device like the iPhone on the wrist.
+Most features of the device were obtained by limiting the components
+to what we required for our purpose of tracking wrist movement data.
+By not including components like a Bluetooth\texttrademark~module,
+an LCD display or a speaker,
+we have managed to keep the device small in size.
+Note that this size was a limitation of the case we used,
+an off the shelf option.
+It is possible to reduce the size of the device much further by using industrial techniques and mass production methods to build a custom case.
+The same philosophy of minimal components has allowed us to have an active battery life of 24 hours,
+which is seen only in devices targeted towards research.
+These facts show that for the application of logging wrist movement data for extended periods of time,
+our customized device is the most economical option.
 
 \section{Prototype challenges}
 \label{Sec:ProtoChall}
-Throughout this work we have emphasized on the small sizes of the parts we used.
+Throughout this work we have emphasized the small sizes of the parts we used.
 Integrating these parts into our device was a considerable challenge since we did not have access to industrial machines.
 Before any of our parts could be connected and used,
 they needed to be in a format that was easy to connect to.
@@ -144,10 +158,10 @@ and provided in surface mount packages.
 An option available to us was to outsource the physical design of the device.
 Once we had the design ready,
 it could be provided to a manufacturer for soldering and assembling the device.
-However this would double the cost of our device in the prototype phase, 
+However this would at least double the cost of our device in the prototype phase, 
 and not an acceptable solution.
 Testing the different methods of soldering that could be used and then finally using
-the solder reflow method as explained in section \ref{Sec:ToasterReflow}
+the solder reflow method as explained in section \ref{Chap:Prototype}
 took a considerable amount of time.
 
 Another issue we faced was devices overheating due to incorrect connection or a short circuit
@@ -162,30 +176,22 @@ and the signal's power would drop rapidly as it traveled.
 We accommodated for this in our PCB based prototype,
 where the signal traveled very short distances ($\approx$5 mm).
 
-\inputfile{CompTable.tex}
 \chapter{Conclusion and Future Work}
 \label{Chap:Concl}
-In this thesis, we proposed to create a device that would record information on 
+In this thesis, we proposed to create a device that would record data on 
 the movement of a human wrist during a day.
 This was motivated by the fact that wrist motion information can be used to count the number of bites
 taken by a user,
 or predict the tool being used to take a bite.
-The device could be worn for extended intervals of time
-without causing discomfort to the user.
-As mentioned in Results (chapter \ref{Chap:Results}),
-we were able to create a wrist motion activity tracker that records data at good resolution
-for our purpose of detecting periods of eating or non-eating, 
-or for our purpose of counting the number of bites taken.
-At this point of time,
-the device has a button that allows the device to be turned on and off.
-When the device is turned off,
-it enters standby mode,
-and returns to recording data when turned on again.
-This data is recorded consecutively without a pause,
-and the device has no concept of local time.
+Other devices in the market did not have the required sensors to track this motion,
+or had extra features which increased the size of the device and reduced its battery life.
+As mentioned in Chapter \ref{Chap:Results},
+we were able to create a wrist motion activity tracker that records this data at a good resolution,
+allows a high level of customization,
+has a sufficient battery life and has a size that is comfortable to wear for extended periods of time.
 
-In the future,
-we aim to solve this problem by adding a time synchronization feature when the device is connected to a computer.
+Future work for the device
+involves the addition of a time synchronization feature when the device is connected to a computer.
 This would store the local time of the user on the wrist motion activity tracker,
 and will allow the device to time stamp when it was stopped and started,
 allowing data analysis to be performed to detect periods of eating and non-eating.
@@ -197,16 +203,21 @@ newer technology has allowed sensor manufacturers to improve the sensors they ar
 Some new sensors now come with microcontrollers in-built which can be programmed by the user.
 In our work,
 the sensors we used
-were operating based on an internal clock of 8KHz.
-We would then read from the sensors at 15Hz.
-Since we only need the sensors to be polled at 15Hz,
+were operating based on an internal clock of 8 KHz.
+We would then read from the sensors at 15 Hz.
+Since we only need the sensors to be polled at 15 Hz,
 it should be possible to decrease the rate at which the sensors are operating.
 If the sensors could sleep between two readings,
 it would allow us to have a huge improvement in battery life as it would reduce the average current draw by the sensors.
 
 When we compared the different devices on the market,
 we noticed that the wrist band device MYO uses EMG sensors coupled with accelerometer and gyroscope data to increase the accuracy of detection.
-Thalmic Labs \cite{Web:GetMyo} claims that the EMG sensors help pin point the pose of a users hand.
+Thalmic Labs \cite{Web:GetMyo} claims that the EMG sensors help estimate the pose of a users hand with very high accuracy.
 We consider that this claim might be true,
-and based on newer EMG sensors that are smaller and comfortable to wear around the wrist,
-we plan to incorporate these sensors in future work.
+and we plan to incorporate these newer EMG sensors that are smaller in future work.
+
+Creating a dataset of wrist motion data using this device is our next step forward.
+We plan to have 100 - 200 subjects wear the device for up to
+2 weeks each to record their wrist movement data.
+This may require the production of 20 - 50 units of the device.
+This large data set will be used to improve the algorithms for detecting eating events and counting the bites during these events.

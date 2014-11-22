@@ -28,13 +28,13 @@ This circuit was designed in the EAGLE PCB Design software.
 
 \subsection{Overview}
 \label{Sec:PCBDesign}
-All components in the final device are connected to each other using a Printed Circuit Board.
-PCB's replace wires between components by copper traces on the board,
+All components in the final device are connected to each other using a printed circuit board.
+A PCB replaces wires between components by copper traces on the board,
 which are lines made of copper, so that electricity is conducted across them.
 Creating a PCB requires three steps, the first being circuit design.
 Once the circuit is designed, the components are laid out on a PCB, and traces are created based on the circuit design.
-The third process comprises of of using this layout to create the actual PCB.
-This third step is completed by PCB manufacturers after we provide them with our PCB layout design.
+The third process comprises of using this layout to create the actual PCB.
+This third step is completed by a PCB manufacturer after we provide them with our PCB layout design.
 The benefit of creating a schematic in EAGLE instead of directly creating a layout connected by traces
 is that the software uses the connections in the schematic to guide us while connecting the pins or pads of the different components.
 This reduces the chances of an incorrect connection between two components,
@@ -53,7 +53,7 @@ We need to test each component separately and make sure they work as expected.
 Although most parts have a low failure rate,
 it is easier to work through with our devices knowing where a bug is 
 if one shows up.
-Unit Testing is a method of testing individual units of source code to check if they work as expected before introducing them into a larger piece of code.
+Unit testing is a method of testing individual units of source code to check if they work as expected before introducing them into a larger piece of code.
 We extend this to our device creation process by testing each unit of hardware separately.
 We would have to test the microcontroller, the sensor, the memory chip, the USB to UART bridge and the battery charger separately.
 The microcontroller would have to be the first component to be tested because the other components require a master device that controls them.
@@ -109,7 +109,7 @@ while(1)
 \end{figure}
 
 After confirming that the microcontorller chip is performing as expected,
-we tested our sensor. We talked about Breakout Boards \ref{Sec:Breakouts} earlier,
+we tested our sensor. Breakout boards were previously discussed in section \ref{Sec:Breakouts},
 which allow us to prototype sensors without worrying about soldering them.
 Breakout boards for the MPU-6000 were obtained from an Ebay seller.
 The breakout board has 6 pins that need to be connected for operation,
@@ -131,7 +131,7 @@ The datasheet for the sensor mentions a register called ``WHO\_AM\_I'' which con
 This address by default is set to 0x68.
 Since this register contains constant data, we can read it to check if the device is indeed correctly connected.
 
-After some troubleshooting we learned that the length of the cable was too long for SPI communication and signals would strength.
+After some troubleshooting we learned that the length of the cable was too long for SPI communication and the signal would lose strength.
 Also, SPI is time sensitive, so if the cable length was too long,
 the delay created between two times would be too high,
 causing incorrect data to be received.
@@ -141,7 +141,7 @@ so this was not an issue we needed to worry about.
 Once it was established that the sensors were working correctly and SPI communication between them was also as expected,
 we carried out simple tests where the acceleration on one axis would turn an LED on if positive,
 otherwise turn it off.
-Since gravity would show as -1g on the Z Axis in the Earth Frame of reference,
+Since gravity would show as -1 g on the Z Axis in the earth frame of reference,
 we could test all three sensor axes by rotating the sensor and observing the LED's behavior.
 These tests concluded that communication between the sensor and microcontroller was as expected.
 
@@ -164,7 +164,7 @@ Our next step was to store data from the sensor into the memory.
 Since both the devices use the SPI bus,
 it was possible to connect the devices to the same pins on the microcontroller.
 Before reading sensor values or storing them,
-we check if the Device ID's are received correctly.
+we check if the device ID's are received correctly.
 This was done every time the microcontroller booted up.
 On our initial attempt, the memory chip did not respond with the correct device ID.
 This meant that even if we were sending correct data,
@@ -233,11 +233,10 @@ and this can be seen in figure \ref{Fig:BreadBoardProto}.
 \label{Sec:Programming}
 With our components connected,
 it was possible to program our microcontroller and make it perform the required functions.
-As described in Hardware Selection (chapter \ref{Chap:Methods}),
-our program would poll the sensors repeatedly.
-The data from these sensors would be stored in the microcontrollers memory till the total data crossed a threshold.
+Our program polls the sensors repeatedly.
+The data from these sensors is then stored in the microcontrollers memory until the total data crossed a threshold.
 Once this threshold was crossed, the data would be sent to the memory chip.
-A simplified version of the microcontrollers code is seen in figure \ref{Fig:MainAlgo}.
+A simplified version of the microcontroller code is seen in figure \ref{Fig:MainAlgo}.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{images/MainAlgo.eps}
@@ -273,7 +272,7 @@ Seven revisions were required for our final PCB.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{images/Layout1.jpg}
-\caption{Screenshot of Eagle PCB's layout editor}
+\caption{Screenshot of Eagle PCB's layout editor.}
 \label{Fig:Layout1}
 \end{center}
 \end{figure}
@@ -292,35 +291,35 @@ Seven revisions were required for our final PCB.
 \end{center}
 \end{figure}
 \subsubsection{PCB manufacture}
-PCB's were manufactured by OSH Park\footnote{http://oshpark.com}.
-Most PCB manufactures expect a high volume of production (100 - 1000 PCB's per order).
-We only required a few prototype PCB's so our order was only a few PCB's.
+PCBs were manufactured by OSH Park\footnote{http://oshpark.com}.
+Most PCB manufactures expect a high volume of production (100 - 1000 PCBs per order).
+We only required a few prototype PCBs so our order was only a few PCBs.
 OSH Park takes multiple orders from its clients and combines this into a large PCB.
-This is then cut into the requested PCB and sent back to the client.
-This process takes time, but costs lesser than what most other PCB manufacturers charge.
+This is then cut into the requested PCBs and sent back to the client.
+This process takes time, but costs less than what most other PCB manufacturers charge.
 For example,
 Advanced Circuits LLC,
-a well known PCB manufacturer charges \$120 for 4 bare bones PCB's,
+a well known PCB manufacturer charges \$120 for 4 bare bones PCBs,
 and has a turnaround time of a week.
-These PCB's lack any kind of silkscreen,
+These PCB lack any kind of silkscreen,
 or printed text,
-which means it is hard to known where parts are located,
+which means it is hard to know where parts are located,
 or what their value is.
 Since there is no silkscreen,
 the copper traces on the PCB oxidize over time and lose conductivity.
 OSH Park,
-on the other hand offers high quality PCB's at a lower cost.
+on the other hand offers high quality PCBs at a lower cost.
 The turn around time is much longer (approximately 21 days),
-however we were able to procure 6 PCB's for a total of \$15,
+however we were able to procure 6 PCBs for a total of \$15,
 costing us approximately \$2.5 per PCB.
 
-To create our PCB's, we uploaded our PCB Layout file generated by Eagle PCB to the OSH Park website.
+To create our PCBs, we uploaded our PCB layout file generated by Eagle PCB to the OSH Park website.
 The website shows you an approximate render of how the PCB will look once it is delivered,
 and also notifies you if it thinks there could be issues with part placement (for example, parts may be too close to the border).
 
 \subsubsection{Software}
 \label{Sec:Software}
-Work done by Reyes et al. \cite{concha2014study} shows PhoneView,
+Work done by Concha \cite{concha2014study} shows PhoneView,
 a tool developed to analyze data collected by an iPhone.
 Instead of the wrist based activity monitor that we are developing,
 work done by the group previously used an iPhone mounted on the wrist.
@@ -343,7 +342,7 @@ We modified the source code of PhoneView to allow for our data from the wrist mo
 \end{center}
 \end{figure}
 A photograph of the bare PCB can be seen in figure \ref{Fig:PCBBare}.
-As it can be seen,
+As can be seen,
 most components are going to be surface mounted to this PCB,
 and there are very few through hole components.
 Throughout this thesis we have emphasized on how small the components we are dealing with are.
@@ -370,9 +369,9 @@ so we researched for other techniques.
 
 \subsubsection{Z axis conductive tape}
 \label{Sec:ZTape}
-Sparkfun.com demoed \cite{Web:SFETAPEV} a new product from 3M,
+Sparkfun.com demoed a new product from 3M,
 called the Z-Axis Tape,
-just as we were looking for methods to solder our sensor.
+just as we were looking for methods to solder our sensor \cite{Web:SFETAPEV}.
 The Z-Axis Conductive Tape is described by Sparkfun as ``an easy to use,
 pressure sensitive double sided tape designed for connecting,
 bonding and grounding flex circuits and PCBs.''
@@ -411,10 +410,10 @@ This tutorial mentions four different methods that a hobbyist electrical enginee
 	and so could not test this method.
 	\item[Industrial Ovens] \hfill \\
 	Similar to the method mentioned above,
-	this technique uses Industrial ovens specially constructed for SMD soldering.
+	this technique uses industrial ovens specially constructed for SMD soldering.
 	We did not have access to these industrial ovens.
 	\item[Hot Air Rework] \hfill \\
-	This method uses a hot air blower that increases the temperature of the PCB to that of the solder's melting point.
+	This method uses a hot air blower that increases the temperature of the PCB to that of the solder melting point.
 	This method is used frequently to desolder or rework SMT components.
 	We tried this method,
 	but did not get a high degree of success.
@@ -440,7 +439,7 @@ This tutorial mentions four different methods that a hobbyist electrical enginee
 \end{center}
 \end{figure}
 Based on the different techniques mentioned above,
-used the Hot Plate reflowing method.
+we used the hot plate reflowing method.
 Similar to OSH Park, a website, OSH Stencils accepts EAGLE PCB layout files,
 and provides laser cut stencils for the PCB.
 This stencil was used to apply solder paste only to the exposed pads of the PCB.
@@ -452,7 +451,7 @@ like capacitors and resistors by hand and not have them move other parts in the 
 After about 23 seconds on the skillet,
 we could see the solder melt and the parts fall into place.
 Through hole components and smaller components like the crystal oscillator and resistors were individually soldered later by hand under a microscope.
-Figure \ref{Fig:PCBMicro} shows the hand soldering process through the microscope's lens. The Final PCB can be seen in \ref{Fig:PCBwithCase}
+Figure \ref{Fig:PCBMicro} shows the hand soldering process through the microscope's lens. The Final PCB can be seen in figure \ref{Fig:PCBwithCase}.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.95\textwidth]{images/PCBMicro.jpg}
